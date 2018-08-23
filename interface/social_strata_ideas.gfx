@@ -1,0 +1,14 @@
+spriteTypes = {	
+	spriteType = {
+		name = "GFX_idea_lower_strata_base_effect"
+		texturefile = "gfx/interface/ideas/social_strata_ideas/lower_strata_base_effect.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_middle_strata_base_effect"
+		texturefile = "gfx/interface/ideas/social_strata_ideas/middle_strata_base_effect.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_upper_strata_base_effect"
+		texturefile = "gfx/interface/ideas/social_strata_ideas/upper_strata_base_effect.dds"
+	}
+}

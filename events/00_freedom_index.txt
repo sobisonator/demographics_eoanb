@@ -1,0 +1,413 @@
+add_namespace = freedom_calculation
+
+news_event = {
+	id = freedom_calculation.0
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+    hidden = yes
+
+	immediate = {
+
+        set_variable = {
+            var = global.global_freedom
+            value = 0
+        }
+
+        set_variable = {
+            var = global.global_industrial_freedom
+            value = 0
+        }
+
+        set_variable = {
+            var = global.global_agrarian_freedom
+            value = 0
+        }
+
+        every_country = {
+
+            #Initial calculation
+            #Whenever this calculation runs, also add extra_freedom, which is a separate variable that stores freedom
+            #from events, decisions and other sources
+        	set_variable = {
+        		var = freedom
+        		value = 0
+        	}
+
+            add_to_variable = { freedom = extra_freedom }
+
+            #Population laws
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = encouraged_growth
+                        has_idea = disencouraged_growth
+                    }
+                }
+                add_to_variable = { freedom = -5 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = enforced_growth
+                        has_idea = restricted_growth
+                    }
+                }
+                add_to_variable = { freedom = -10 }
+            }
+
+            #Border laws
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = closed_borders
+                    }
+                }
+                add_to_variable = { freedom = -5 }
+            }
+
+            #Slavery & racial laws
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = usa_slavery_law
+                        has_idea = slavery
+                        has_idea = tribal_slavery
+                    }
+                }
+                add_to_variable = { freedom = -25 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = racial_laws
+                    }
+                }
+                add_to_variable = { freedom = -20 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = segregation
+                    }
+                }
+                add_to_variable = { freedom = -15 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = limited_equality
+                    }
+                }
+                add_to_variable = { freedom = -10 }
+            }
+
+            #Conscription laws
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = limited_conscription
+                    }
+                }
+                add_to_variable = { freedom = -4 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = extensive_conscription
+                    }
+                }
+                add_to_variable = { freedom = -8 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = service_by_requirement
+                    }
+                }
+                add_to_variable = { freedom = -12 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = all_adults_serve
+                    }
+                }
+                add_to_variable = { freedom = -16 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = scraping_the_barrel
+                    }
+                }
+                add_to_variable = { freedom = -20 }
+            }
+
+            #Suffrage laws
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = absolutism
+                    }
+                }
+                add_to_variable = { freedom = -5 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = property_owners_suffrage
+                    }
+                }
+                add_to_variable = { freedom = 5 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = universal_male_suffrage
+                    }
+                }
+                add_to_variable = { freedom = 10 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = universal_suffrage
+                    }
+                }
+                add_to_variable = { freedom = 20 }
+            }
+
+            #Governmental laws
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = constitution_adopted
+                    }
+                }
+                add_to_variable = { freedom = 10 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = human_rights
+                    }
+                }
+                add_to_variable = { freedom = 10 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = totalitarian_dictatorship
+                        has_idea = military_junta
+                    }
+                }
+                add_to_variable = { freedom = -5 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = absolute_monarchy
+                    }
+                }
+                add_to_variable = { freedom = -2 }
+            }
+
+            #Election laws
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = limited_elections
+                    }
+                }
+                add_to_variable = { freedom = 2 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = free_elections
+                    }
+                }
+                add_to_variable = { freedom = 5 }
+            }
+
+            #Religious laws
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = atheistic_state
+                        has_idea = theocratic_state
+                    }
+                }
+                add_to_variable = { freedom = -5 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = secular_state
+                    }
+                }
+                add_to_variable = { freedom = 5 }
+            }
+
+            #Education laws
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = open_schools
+                    }
+                }
+                add_to_variable = { freedom = 7 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = compulsory_education
+                    }
+                }
+                add_to_variable = { freedom = 14 }
+            }
+
+            #Economic control laws
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = low_economic_mobilisation
+                    }
+                }
+                add_to_variable = { freedom = -2 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = partial_economic_mobilisation
+                    }
+                }
+                add_to_variable = { freedom = -4 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = war_economy
+                    }
+                }
+                add_to_variable = { freedom = -6 }
+            }
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = tot_economic_mobilisation
+                    }
+                }
+                add_to_variable = { freedom = -8 }
+            }
+
+            #Trade laws
+
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = closed_economy
+                    }
+                }
+                add_to_variable = { freedom = -5 }
+            }
+
+            #Tax rates
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = very_high_taxes
+                    }
+                }
+                add_to_variable = { freedom = -2 }
+            }
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = high_taxes
+                    }
+                }
+                add_to_variable = { freedom = -1 }
+            }
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = low_taxes
+                    }
+                }
+                add_to_variable = { freedom = 1 }
+            }
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = very_low_taxes
+                    }
+                }
+                add_to_variable = { freedom = 2 }
+            }
+
+            #Now add this country's freedom to the global freedom index.
+            #Scale it for population. Bigger countries have a bigger effect on global freedom average
+            set_variable = { pop_modified_freedom = freedom }
+            
+            #Set a freedom level for all industrial era nations. This is separate to non-industrial nations, which tend to be less free overall, but rely on more traditional systems
+            if = {
+                limit = {
+                    NOT = {
+                        has_idea = pre_industrial_era
+                    }                
+                }
+            multiply_variable = { pop_modified_freedom = big_calcs_country_pop }
+            add_to_variable = { global.global_industrial_freedom = pop_modified_freedom }
+            add_to_variable = { global.global_freedom = pop_modified_freedom }   
+            }
+
+            #Set a freedom level for all agrarian nations
+            if = {
+                limit = {
+                    has_idea = pre_industrial_era               
+                }
+            multiply_variable = { pop_modified_freedom = big_calcs_country_pop }
+            add_to_variable = { global.global_agrarian_freedom = pop_modified_freedom }
+            add_to_variable = { global.global_freedom = pop_modified_freedom }   
+            }
+        }
+
+        #Now we are done with this country, we can create a global average freedom index
+        divide_variable = { global.global_freedom = global.global_pop }
+        divide_variable = { global.global_industrial_freedom = global.global_industrial_pop }
+        divide_variable = { global.global_agrarian_freedom = global.global_agrarian_pop }
+
+        print_variables = {
+            file = log_file
+            text = header_text
+            append = yes
+            print_global = yes
+            var_list = { global.global_freedom global.global_pop global.global_industrial_pop global.global_agrarian_pop global.global_industrial_freedom global.global_agrarian_freedom } #optional
+        }
+    }
+}

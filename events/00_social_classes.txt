@@ -1,0 +1,1378 @@
+add_namespace = social_classes
+
+#CALCULATE STRATA BY STATE AND ASSIGN TO COUNTRY
+news_event = {
+	id = social_classes.0
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	hidden = yes
+
+	immediate = {
+
+		every_country = {
+
+
+		#Social classes will grow to meet their caps over time. These don't instantly reflect the actual population, rather what they will gravitate towards over time.
+
+		#Set a variable to divide by when getting average national strata ratios
+		set_variable = {
+			var = strata_states_calculated
+			value = 0
+		}
+
+		set_variable = {
+			var = nation_all_strata_ratio
+			value = 0
+		}
+
+		set_variable = {
+			var = nation_all_actual_lower_strata
+			value = 0
+		}
+
+		set_variable = {
+			var = nation_all_actual_middle_strata
+			value = 0
+		}
+
+		set_variable = {
+			var = nation_all_actual_upper_strata
+			value = 0
+		}
+
+		set_variable = {
+			var = nation_all_lower_strata_ratio
+			value = 0
+		}
+
+		set_variable = {
+			var = nation_all_middle_strata_ratio
+			value = 0
+		}
+
+		set_variable = {
+			var = nation_all_upper_strata_ratio
+			value = 0
+		}
+
+			#Calculate social class population caps on a state-by-state basis
+			every_owned_state = {
+				
+
+				#Divide each class points value by this to find a %
+				set_variable = {
+					var = state_all_strata_points
+					value = 0
+				}
+
+				#Actual percentage caps - the desired ratios of the state population per class
+
+				set_variable = {
+					var = state_lower_strata_cap
+					value = 0
+				}
+
+				set_variable = {
+					var = state_middle_strata_cap
+					value = 0
+				}
+
+				set_variable = {
+					var = state_upper_strata_cap
+					value = 0
+				}
+
+
+				#Point values - not actual percentages
+				set_variable = {
+					var = state_lower_strata_points
+					value = 0
+				}
+
+				#You never want to go below 0, or strange things will happen when calculating percentages, so clamp a minimum at 0 and throw in an arbitrary maximum
+
+				clamp_variable = {
+					var = state_lower_strata_points
+					min = 0
+					max = 999
+				}
+
+				set_variable = {
+					var = state_middle_strata_points
+					value = 0
+				}
+
+				clamp_variable = {
+					var = state_middle_strata_points
+					min = 0
+					max = 999
+				}
+
+				set_variable = {
+					var = state_upper_strata_points
+					value = 0
+				}
+
+				clamp_variable = {
+					var = state_upper_strata_points
+					min = 0
+					max = 999
+				}
+
+				#CALCULATIONS
+
+				#Default lower class points = 35
+				add_to_variable = { state_lower_strata_points = 35 }
+
+				#Default middle class points = 5
+				add_to_variable = { state_middle_strata_points = 5 }
+
+				#Default upper class points = 1
+				add_to_variable = { state_upper_strata_points = 1 }
+				
+				#Civilian factories
+
+				#6 middle class points per civilian factory
+				set_variable = {
+					var = middle_strata_civfactory_points
+					value = industrial_complex_level
+				}
+
+				multiply_variable = {
+					middle_strata_civfactory_points = 5
+				}
+
+				add_to_variable = { state_middle_strata_points = middle_strata_civfactory_points }
+
+				#1 upper class point per civilian factory
+				set_variable = {
+					var = upper_strata_civfactory_points
+					value = industrial_complex_level
+				}
+
+				add_to_variable = { state_upper_strata_points = upper_strata_civfactory_points }
+
+				#Military factories
+
+				#1 middle class point per military factory
+				set_variable = {
+					var = middle_strata_milfactory_points
+					value = arms_factory_level
+				}
+
+				add_to_variable = { state_middle_strata_points = middle_strata_milfactory_points }
+
+				#1 upper class point per military factory
+
+				set_variable = {
+					var = upper_strata_milfactory_points
+					value = arms_factory_level
+				}
+
+				add_to_variable = { state_upper_strata_points = upper_strata_milfactory_points }
+
+				#Infrastructure
+
+				#Infrastructure elevates everyone slightly by decreasing lower strata points by 1 point per level
+				set_variable = {
+					var = lower_strata_infrastructure_points
+					value = infrastructure_level
+				}
+
+				subtract_from_variable = { state_lower_strata_points = lower_strata_infrastructure_points }
+
+				#Freedom values
+
+				#Subtract 2x national freedom from the lower strata points. If it's negative, it will make more people be in the lower strata
+				set_variable = {
+					var = freedom_strata_mod
+					value = PREV.freedom
+				}
+
+				multiply_variable = { freedom_strata_mod = 2 }
+
+
+				subtract_from_variable = { state_lower_strata_points = freedom_strata_mod }
+
+				#Taxes
+	            if = {
+	                limit = {
+	                    PREV = {
+	                        has_idea = very_high_taxes
+	                    }
+	                }
+	                add_to_variable = { state_upper_strata_points = -1.5 }
+	            }
+	            if = {
+	                limit = {
+	                    PREV = {
+	                        has_idea = high_taxes
+	                    }
+	                }
+	                add_to_variable = { state_upper_strata_points = -0.75 }
+	            }
+	            if = {
+	                limit = {
+	                    PREV = {
+	                        has_idea = low_taxes
+	                    }
+	                }
+	                add_to_variable = { state_upper_strata_points = 0.75 }
+	            }
+	            if = {
+	                limit = {
+	                    OR = {
+	                        PREV = {
+	                        	has_idea = very_low_taxes
+	                    	}
+	                    }
+	                }
+	                add_to_variable = { state_upper_strata_points = 1.5 }
+	            }
+
+	            if = {
+	                limit = {
+	                    PREV = {
+	                        has_idea = enforced_growth
+	                   	}
+	                }
+	                #Families have to support large numbers of children, can't afford lots of education or to spend time on careers
+	                subtract_from_variable = { state_middle_strata_points = 6 }
+	            }
+
+	            if = {
+	                limit = {
+	                    PREV = {
+	                        has_idea = universal_suffrage
+	                   	}
+	                }
+	                #Women have more rights and can begin to work careers
+	                subtract_from_variable = { state_lower_strata_points = 10 }
+	            }
+
+	            if = {
+	                limit = {
+	                    PREV = {
+	                        has_idea = free_elections
+	                    }
+	                }
+               		#Regular people can be elected to administrative positions
+               		add_to_variable = { state_middle_strata_points = 5 }
+            	}
+
+            	if = {
+	                limit = {
+	                    PREV = {
+	                        has_idea = open_schools
+	                    }
+	                }
+               		#People with a formal education are more easily able to pursue tertiary and quaternary service careers.
+               		subtract_from_variable = { state_lower_strata_points = 7 }
+            	}
+
+            	if = {
+	                limit = {
+	                    PREV = {
+	                        has_idea = compulsory_education
+	                    }
+	                }
+               		#People with a formal education are more easily able to pursue tertiary and quaternary service careers.
+               		subtract_from_variable = { state_lower_strata_points = 14 }
+            	}
+
+            	if = {
+	                limit = {
+	                    PREV = {
+	                        has_idea = theocratic_state
+	                    }
+	                }
+               		#Having a bureaucratic clergy allows people to join religious organisations and rise up in governmental ranks
+               		add_to_variable = { state_middle_strata_points = 1 }
+               		add_to_variable = { state_upper_strata_points = 0.5 }
+            	}
+
+            	if = {
+	                limit = {
+	                    PREV = {
+	                        has_idea = closed_economy
+	                    }
+	                }
+               		#Restricting trade makes raising capital difficult
+               		subtract_from_variable = { state_upper_strata_points = 0.5 }
+            	}
+
+            	#Putting this here again, because I've seen weird things happening with points going below 0
+
+				#ACTUAL RATIOS AND GROWTH / SHRINKAGE
+
+				#Make the caps into percentages - first get the total of all points
+
+				if = {
+					limit = {
+						check_variable = {
+							var = state_upper_strata_points
+							value = 0
+							compare = less_than
+						}
+					}
+					#Turn it positive, but make it a tiny value
+					multiply_variable = {
+						var = state_upper_strata_points
+						value = -0.01
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = {
+							var = state_middle_strata_points
+							value = 0
+							compare = less_than
+						}
+					}
+					#Turn it positive, but make it a tiny value
+					multiply_variable = {
+						var = state_middle_strata_points
+						value = -0.01
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = {
+							var = state_lower_strata_points
+							value = 0
+							compare = less_than
+						}
+					}
+					#Turn it positive, but make it a tiny value
+					multiply_variable = {
+						var = state_lower_strata_points
+						value = -0.01
+					}
+				}
+
+				if = {
+							limit = {
+								PREV = {
+									OR = {
+										has_government = vanguard_communism
+									}
+								}
+							}
+							set_variable = {
+								var = state_upper_strata_points
+								value = 0
+							}
+				}
+
+				add_to_variable = { state_all_strata_points = state_upper_strata_points }
+				add_to_variable = { state_all_strata_points = state_middle_strata_points }
+				add_to_variable = { state_all_strata_points = state_lower_strata_points }
+
+				#Then set the caps to equal the points, so we can turn them into percentages using sorcery
+				set_variable = { state_upper_strata_cap = state_upper_strata_points }
+				set_variable = { state_middle_strata_cap = state_middle_strata_points }
+				set_variable = { state_lower_strata_cap = state_lower_strata_points }
+
+
+				#Then divide each cap value by the state_all_strata_points total
+				divide_variable = { state_upper_strata_cap = state_all_strata_points }
+				divide_variable = { state_middle_strata_cap = state_all_strata_points }
+				divide_variable = { state_lower_strata_cap = state_all_strata_points }
+
+				#Multiply by 100. It's nice when a percentage looks like a real number
+				multiply_variable = { state_upper_strata_cap = 100 }
+				multiply_variable = { state_middle_strata_cap = 100 }
+				multiply_variable = { state_lower_strata_cap = 100 }
+
+				#METHOD:
+				#Clamp the actual_ values at the _cap values and then add or subtract (_cap/100 + 0.5) every time this event runs
+
+				#Actual current population ratios
+
+				if = {
+					limit = {
+						NOT = {
+							#Create the variables for actual class population ratios, and make them equivalent to the caps on the first time they are calculated
+							has_state_flag = initial_strata_calc
+						}
+					}
+						set_variable = {
+							var = ratio_state_lower_strata
+							value = state_lower_strata_cap
+						}
+
+						set_variable = {
+							var = ratio_state_middle_strata
+							value = state_middle_strata_cap
+						}
+
+						set_variable = {
+							var = ratio_state_upper_strata
+							value = state_upper_strata_cap
+						}
+					set_state_flag = initial_strata_calc
+				}
+
+				#Get an actual population number per stratum from these
+				#APPLY FIX - USE BIG NUMBERS STATE POPULATIONS
+				set_variable = { actual_state_lower_strata = var_state_population }
+				divide_variable = { actual_state_lower_strata = 100 }
+				multiply_variable = { actual_state_lower_strata = ratio_state_lower_strata }
+
+				set_variable = { actual_state_middle_strata = var_state_population }
+				divide_variable = { actual_state_middle_strata = 100 }
+				multiply_variable = { actual_state_middle_strata = ratio_state_middle_strata }
+
+				set_variable = { actual_state_upper_strata = var_state_population }
+				divide_variable = { actual_state_upper_strata = 100 }
+				multiply_variable = { actual_state_upper_strata = ratio_state_upper_strata }
+
+				#Add to national strata ratios
+				add_to_variable = { PREV.nation_all_lower_strata_ratio = ratio_state_lower_strata }
+				add_to_variable = { PREV.nation_all_middle_strata_ratio = ratio_state_middle_strata }
+				add_to_variable = { PREV.nation_all_upper_strata_ratio = ratio_state_upper_strata }
+				add_to_variable = { PREV.strata_states_calculated = 1 }
+
+				#Add to national strata populations
+				add_to_variable = { PREV.nation_all_actual_lower_strata = actual_state_lower_strata }
+				add_to_variable = { PREV.nation_all_actual_middle_strata = actual_state_middle_strata }
+				add_to_variable = { PREV.nation_all_actual_upper_strata = actual_state_upper_strata }
+
+
+			}
+
+		divide_variable = { nation_all_lower_strata_ratio = strata_states_calculated }
+		divide_variable = { nation_all_middle_strata_ratio = strata_states_calculated }
+		divide_variable = { nation_all_upper_strata_ratio = strata_states_calculated }
+
+		clear_variable = strata_states_calculated
+
+
+		}
+
+	}
+}
+
+#DO GROWTH UP TO OR DOWN TO CAPS
+news_event = {
+	id = social_classes.2
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+	hidden = yes
+
+	immediate = {
+		every_country = {
+			every_state = {
+				if = {
+					limit = {
+						has_state_flag = initial_strata_calc
+					}
+
+					if = {
+						limit = {
+							check_variable = { ratio_state_lower_strata > state_lower_strata_cap }
+						}
+						#Base rate of social mobility = 0.05%
+						add_to_variable = {
+							var = ratio_state_lower_strata
+							value = -0.05
+						}
+
+						#Get the difference between the cap and the actual % ratio (positive or negative)
+						set_variable = {
+							var = lower_strata_cap_changerate
+							value = state_lower_strata_cap
+						}
+						subtract_variable = {
+							var = lower_strata_cap_changerate
+							value = ratio_state_lower_strata
+						}
+						multiply_variable = {
+							var = lower_strata_cap_changerate
+							value = 0.1
+						}
+						add_to_variable = {
+							var = ratio_state_lower_strata
+							value = lower_strata_cap_changerate
+						}
+						clear_variable = lower_strata_cap_changerate
+					}
+
+					if = {
+						limit = {
+							check_variable = { ratio_state_lower_strata < state_lower_strata_cap }
+						}
+						#Base rate of social mobility = 0.05%
+						add_to_variable = {
+							var = ratio_state_lower_strata
+							value = 0.05
+						}
+
+						#Get the difference between the cap and the actual % ratio (positive or negative)
+						set_variable = {
+							var = lower_strata_cap_changerate
+							value = state_lower_strata_cap
+						}
+						subtract_variable = {
+							var = lower_strata_cap_changerate
+							value = ratio_state_lower_strata
+						}
+						multiply_variable = {
+							var = lower_strata_cap_changerate
+							value = 0.1
+						}
+						add_to_variable = {
+							var = ratio_state_lower_strata
+							value = lower_strata_cap_changerate
+						}
+						clear_variable = lower_strata_cap_changerate
+					}
+
+					if = {
+						limit = {
+							check_variable = { ratio_state_middle_strata > state_middle_strata_cap }
+						}
+						#Base rate of social mobility = 0.05%
+						add_to_variable = {
+							var = ratio_state_middle_strata
+							value = -0.05
+						}
+
+						#Get the difference between the cap and the actual % ratio (positive or negative)
+						set_variable = {
+							var = middle_strata_cap_changerate
+							value = state_middle_strata_cap
+						}
+						subtract_variable = {
+							var = middle_strata_cap_changerate
+							value = ratio_state_middle_strata
+						}
+						multiply_variable = {
+							var = middle_strata_cap_changerate
+							value = 0.1
+						}
+						add_to_variable = {
+							var = ratio_state_middle_strata
+							value = middle_strata_cap_changerate
+						}
+						clear_variable = middle_strata_cap_changerate
+					}
+
+					if = {
+						limit = {
+							check_variable = { ratio_state_middle_strata < state_middle_strata_cap }
+						}
+						#Base rate of social mobility = 0.05%
+						add_to_variable = {
+							var = ratio_state_middle_strata
+							value = 0.05
+						}
+
+						#Get the difference between the cap and the actual % ratio (positive or negative)
+						set_variable = {
+							var = middle_strata_cap_changerate
+							value = state_middle_strata_cap
+						}
+						subtract_variable = {
+							var = middle_strata_cap_changerate
+							value = ratio_state_middle_strata
+						}
+						multiply_variable = {
+							var = middle_strata_cap_changerate
+							value = 0.1
+						}
+						add_to_variable = {
+							var = ratio_state_middle_strata
+							value = middle_strata_cap_changerate
+						}
+						clear_variable = middle_strata_cap_changerate
+					}
+
+					if = {
+						limit = {
+							AND = {
+								check_variable = { ratio_state_upper_strata > state_upper_strata_cap }
+								PREV = {
+									NOT = { has_government = vanguard_communism }
+								}
+							}
+						}
+						#Base rate of social mobility = 0.05%
+						add_to_variable = {
+							var = ratio_state_upper_strata
+							value = -0.05
+						}
+
+						#Get the difference between the cap and the actual % ratio (positive or negative)
+						set_variable = {
+							var = upper_strata_cap_changerate
+							value = state_upper_strata_cap
+						}
+						subtract_variable = {
+							var = upper_strata_cap_changerate
+							value = ratio_state_upper_strata
+						}
+						multiply_variable = {
+							var = upper_strata_cap_changerate
+							value = 0.1
+						}
+						add_to_variable = {
+							var = ratio_state_upper_strata
+							value = upper_strata_cap_changerate
+						}
+						clear_variable = upper_strata_cap_changerate
+					}
+
+					if = {
+						limit = {
+							AND = {
+								check_variable = { ratio_state_upper_strata > state_upper_strata_cap }
+								PREV = {
+									NOT = { has_government = vanguard_communism }
+								}
+							}
+						}
+						#Base rate of social mobility = 0.05%
+						add_to_variable = {
+							var = ratio_state_upper_strata
+							value = 0.05
+						}
+
+						#Get the difference between the cap and the actual % ratio (positive or negative)
+						set_variable = {
+							var = upper_strata_cap_changerate
+							value = state_upper_strata_cap
+						}
+						subtract_variable = {
+							var = upper_strata_cap_changerate
+							value = ratio_state_upper_strata
+						}
+						multiply_variable = {
+							var = upper_strata_cap_changerate
+							value = 0.1
+						}
+						add_to_variable = {
+							var = ratio_state_upper_strata
+							value = upper_strata_cap_changerate
+						}
+						clear_variable = upper_strata_cap_changerate
+					}
+
+					#Make sure that no ratios have gone below 0. This appears to be a safer method of checking than using the clamp_variable method, which in my experience is unreliable - Sobisonator.
+					if = {
+						limit = {
+							check_variable = { ratio_state_lower_strata < 0 }
+						}
+						set_variable = {
+							var = ratio_state_lower_strata
+							value = 0.01
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = { ratio_state_middle_strata < 0 }
+						}
+						set_variable = {
+							var = ratio_state_middle_strata
+							value = 0.01
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = { ratio_state_upper_strata < 0 }
+						}
+						set_variable = {
+							var = ratio_state_upper_strata
+							value = 0.01
+						}
+					}
+
+					if = {
+							limit = {
+								PREV = {
+									OR = {
+										has_government = vanguard_communism
+									}
+								}
+							}
+							set_variable = {
+								var = ratio_state_upper_strata
+								value = 0
+							}
+					}
+
+
+				}
+			}
+		}
+	}
+}
+
+#SET BONUSES FOR OVERALL NATIONAL RATIOS OF STRATA
+news_event = {
+	id = social_classes.1
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	hidden = yes
+
+	immediate = {
+
+		every_country = {
+
+			#First of all clear all old modifiers, so that you don't stack effects from the same strata if your levels change
+			remove_ideas = lower_strata_ratio_5 
+			remove_ideas = lower_strata_ratio_10 
+			remove_ideas = lower_strata_ratio_15 
+			remove_ideas = lower_strata_ratio_20 
+			remove_ideas = lower_strata_ratio_25 
+			remove_ideas = lower_strata_ratio_30 
+			remove_ideas = lower_strata_ratio_35 
+			remove_ideas = lower_strata_ratio_40 
+			remove_ideas = lower_strata_ratio_45 
+			remove_ideas = lower_strata_ratio_50 
+			remove_ideas = lower_strata_ratio_55 
+			remove_ideas = lower_strata_ratio_60 
+			remove_ideas = lower_strata_ratio_65 
+			remove_ideas = lower_strata_ratio_70 
+			remove_ideas = lower_strata_ratio_75 
+			remove_ideas = lower_strata_ratio_80 
+			remove_ideas = lower_strata_ratio_85 
+			remove_ideas = lower_strata_ratio_90 
+			remove_ideas = lower_strata_ratio_95 
+			remove_ideas = lower_strata_ratio_100 
+			remove_ideas = middle_strata_ratio_5 
+			remove_ideas = middle_strata_ratio_10 
+			remove_ideas = middle_strata_ratio_15 
+			remove_ideas = middle_strata_ratio_20 
+			remove_ideas = middle_strata_ratio_25 
+			remove_ideas = middle_strata_ratio_30 
+			remove_ideas = middle_strata_ratio_35 
+			remove_ideas = middle_strata_ratio_40 
+			remove_ideas = middle_strata_ratio_45 
+			remove_ideas = middle_strata_ratio_50 
+			remove_ideas = middle_strata_ratio_55 
+			remove_ideas = middle_strata_ratio_60 
+			remove_ideas = middle_strata_ratio_65 
+			remove_ideas = middle_strata_ratio_70 
+			remove_ideas = middle_strata_ratio_75 
+			remove_ideas = middle_strata_ratio_80 
+			remove_ideas = middle_strata_ratio_85 
+			remove_ideas = middle_strata_ratio_90 
+			remove_ideas = middle_strata_ratio_95 
+			remove_ideas = middle_strata_ratio_100 
+			#ADD REMOVAL OF UPPER CLASS EFFECTS
+
+			#Effects for differing levels are handled within the idea itself. Here, the modifier is simply set.
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 5 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 10  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_5 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 10 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 15  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_10 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 15 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 20  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_15 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 20 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 25  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_20 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 25 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 30  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_25 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 30 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 35  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_30 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 35 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 40  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_35 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 40 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 45  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_40 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 45 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 50  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_45 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 50 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 55  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_50 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 55 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 60  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_55 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 60 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 65  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_60 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 65 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 70  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_65 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 70 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 75  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_70 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 75 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 80  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_75 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 80 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 85  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_80 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 85 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 90  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_85 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 90 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 95  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_90 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 95 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 100  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_95 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_lower_strata_ratio > 100 } 
+                                                    NOT = { check_variable = { nation_all_lower_strata_ratio > 105  } } 
+                                                } 
+                                            }
+                                            add_ideas = lower_strata_ratio_100 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 5 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 10  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_5 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 10 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 15  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_10 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 15 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 20  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_15 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 20 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 25  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_20 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 25 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 30  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_25 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 30 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 35  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_30 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 35 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 40  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_35 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 40 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 45  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_40 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 45 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 50  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_45 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 50 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 55  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_50 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 55 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 60  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_55 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 60 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 65  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_60 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 65 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 70  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_65 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 70 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 75  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_70 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 75 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 80  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_75 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 80 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 85  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_80 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 85 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 90  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_85 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 90 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 95  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_90 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 95 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 100  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_95 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_middle_strata_ratio > 100 } 
+                                                    NOT = { check_variable = { nation_all_middle_strata_ratio > 105  } } 
+                                                } 
+                                            }
+                                            add_ideas = middle_strata_ratio_100 
+    
+                                    }
+
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 0.5 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 1.0  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_0.5 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 1.0 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 1.5  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_1.0 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 1.5 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 2.0  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_1.5 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 2.0 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 2.5  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_2.0 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 2.5 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 3.0  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_2.5 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 3.0 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 3.5  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_3.0 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 3.5 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 4.0  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_3.5 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 4.0 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 4.5  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_4.0 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 4.5 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 5.0  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_4.5 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 5.0 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 5.5  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_5.0 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 5.5 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 6.0  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_5.5 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 6.0 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 6.5  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_6.0 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 6.5 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 7.0  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_6.5 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 7.0 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 7.5  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_7.0 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 7.5 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 8.0  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_7.5 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 8.0 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 8.5  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_8.0 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 8.5 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 9.0  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_8.5 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 9.0 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 9.5  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_9.0 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                AND = { 
+                                                    check_variable = { nation_all_upper_strata_ratio > 9.5 } 
+                                                    NOT = { check_variable = { nation_all_upper_strata_ratio > 10.0  } } 
+                                                } 
+                                            }
+                                            add_ideas = upper_strata_ratio_9.5 
+    
+                                    }
+if = { 
+                                            limit = {
+                                                check_variable = { nation_all_upper_strata_ratio > 10.0 }  
+                                            }
+                                            add_ideas = upper_strata_ratio_10.0 
+    
+                                    }
+
+		}
+}
+
+#GET THE RATIOS OF CAREERS WITHIN EACH SOCIAL STRATA PER STATE
+
+#CALCULTE THE POLITICAL LEANINGS OF STRATA BY STATE

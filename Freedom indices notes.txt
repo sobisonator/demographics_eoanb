@@ -1,0 +1,7 @@
+Freedom indices
+
+National freedom index:
+	Starts at 100
+	Modified by laws & such
+
+Average freedom index = all national indices (modified by nation population), divided by global population.

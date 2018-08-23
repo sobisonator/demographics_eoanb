@@ -1,0 +1,9 @@
+add_namespace = migration_pushpull_pools
+
+#Freedom of neighbours
+
+#Global freedom within tech group
+
+#Border controls
+
+#Industry compared to neighbours

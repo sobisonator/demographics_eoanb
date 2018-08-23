@@ -1,0 +1,938 @@
+ideas = {
+	
+	#Ideas that contain modifiers from increasing percentages of social strata as part of the total nation's population.
+	#Lower strata and middle strata effects scale linearly every 5%
+	#Upper strata scales linearly every 0.5%
+
+
+		#UNFINISHED - NEEDS GFX & LOC
+	country = {
+ lower_strata_ratio_5 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.005 
+                                            autonomy_gain = -0.01 
+                                            conscription_factor = 0.01 
+                                            training_time_factor = -0.01 
+                                            local_resources_factor = 0.02 
+                                            MONTHLY_POPULATION = 0.001 
+                                            mobilization_speed = 0.1 
+                                            land_reinforce_rate = 0.01 
+                
+    }
+    }
+ lower_strata_ratio_10 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.01 
+                                            autonomy_gain = -0.02 
+                                            conscription_factor = 0.02 
+                                            training_time_factor = -0.02 
+                                            local_resources_factor = 0.04 
+                                            MONTHLY_POPULATION = 0.002 
+                                            mobilization_speed = 0.2 
+                                            land_reinforce_rate = 0.02 
+                
+    }
+    }
+ lower_strata_ratio_15 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.015 
+                                            autonomy_gain = -0.03 
+                                            conscription_factor = 0.03 
+                                            training_time_factor = -0.03 
+                                            local_resources_factor = 0.06 
+                                            MONTHLY_POPULATION = 0.003 
+                                            mobilization_speed = 0.3 
+                                            land_reinforce_rate = 0.03 
+                
+    }
+    }
+ lower_strata_ratio_20 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.02 
+                                            autonomy_gain = -0.04 
+                                            conscription_factor = 0.04 
+                                            training_time_factor = -0.04 
+                                            local_resources_factor = 0.08 
+                                            MONTHLY_POPULATION = 0.004 
+                                            mobilization_speed = 0.4 
+                                            land_reinforce_rate = 0.04 
+                
+    }
+    }
+ lower_strata_ratio_25 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.025 
+                                            autonomy_gain = -0.05 
+                                            conscription_factor = 0.05 
+                                            training_time_factor = -0.05 
+                                            local_resources_factor = 0.1 
+                                            MONTHLY_POPULATION = 0.005 
+                                            mobilization_speed = 0.5 
+                                            land_reinforce_rate = 0.05 
+                
+    }
+    }
+ lower_strata_ratio_30 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.03 
+                                            autonomy_gain = -0.06 
+                                            conscription_factor = 0.06 
+                                            training_time_factor = -0.06 
+                                            local_resources_factor = 0.12 
+                                            MONTHLY_POPULATION = 0.006 
+                                            mobilization_speed = 0.6 
+                                            land_reinforce_rate = 0.06 
+                
+    }
+    }
+ lower_strata_ratio_35 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.035 
+                                            autonomy_gain = -0.07 
+                                            conscription_factor = 0.07 
+                                            training_time_factor = -0.07 
+                                            local_resources_factor = 0.14 
+                                            MONTHLY_POPULATION = 0.007 
+                                            mobilization_speed = 0.7 
+                                            land_reinforce_rate = 0.07 
+                
+    }
+    }
+ lower_strata_ratio_40 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.04 
+                                            autonomy_gain = -0.08 
+                                            conscription_factor = 0.08 
+                                            training_time_factor = -0.08 
+                                            local_resources_factor = 0.16 
+                                            MONTHLY_POPULATION = 0.008 
+                                            mobilization_speed = 0.8 
+                                            land_reinforce_rate = 0.08 
+                
+    }
+    }
+ lower_strata_ratio_45 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.045 
+                                            autonomy_gain = -0.09 
+                                            conscription_factor = 0.09 
+                                            training_time_factor = -0.09 
+                                            local_resources_factor = 0.18 
+                                            MONTHLY_POPULATION = 0.009 
+                                            mobilization_speed = 0.9 
+                                            land_reinforce_rate = 0.09 
+                
+    }
+    }
+ lower_strata_ratio_50 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.05 
+                                            autonomy_gain = -0.1 
+                                            conscription_factor = 0.1 
+                                            training_time_factor = -0.1 
+                                            local_resources_factor = 0.2 
+                                            MONTHLY_POPULATION = 0.01 
+                                            mobilization_speed = 1.0 
+                                            land_reinforce_rate = 0.1 
+                
+    }
+    }
+ lower_strata_ratio_55 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.055 
+                                            autonomy_gain = -0.11 
+                                            conscription_factor = 0.11 
+                                            training_time_factor = -0.11 
+                                            local_resources_factor = 0.22 
+                                            MONTHLY_POPULATION = 0.011 
+                                            mobilization_speed = 1.1 
+                                            land_reinforce_rate = 0.11 
+                
+    }
+    }
+ lower_strata_ratio_60 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.06 
+                                            autonomy_gain = -0.12 
+                                            conscription_factor = 0.12 
+                                            training_time_factor = -0.12 
+                                            local_resources_factor = 0.24 
+                                            MONTHLY_POPULATION = 0.012 
+                                            mobilization_speed = 1.2 
+                                            land_reinforce_rate = 0.12 
+                
+    }
+    }
+ lower_strata_ratio_65 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.065 
+                                            autonomy_gain = -0.13 
+                                            conscription_factor = 0.13 
+                                            training_time_factor = -0.13 
+                                            local_resources_factor = 0.26 
+                                            MONTHLY_POPULATION = 0.013 
+                                            mobilization_speed = 1.3 
+                                            land_reinforce_rate = 0.13 
+                
+    }
+    }
+ lower_strata_ratio_70 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.07 
+                                            autonomy_gain = -0.14 
+                                            conscription_factor = 0.14 
+                                            training_time_factor = -0.14 
+                                            local_resources_factor = 0.28 
+                                            MONTHLY_POPULATION = 0.014 
+                                            mobilization_speed = 1.4 
+                                            land_reinforce_rate = 0.14 
+                
+    }
+    }
+ lower_strata_ratio_75 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.075 
+                                            autonomy_gain = -0.15 
+                                            conscription_factor = 0.15 
+                                            training_time_factor = -0.15 
+                                            local_resources_factor = 0.3 
+                                            MONTHLY_POPULATION = 0.015 
+                                            mobilization_speed = 1.5 
+                                            land_reinforce_rate = 0.15 
+                
+    }
+    }
+ lower_strata_ratio_80 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.08 
+                                            autonomy_gain = -0.16 
+                                            conscription_factor = 0.16 
+                                            training_time_factor = -0.16 
+                                            local_resources_factor = 0.32 
+                                            MONTHLY_POPULATION = 0.016 
+                                            mobilization_speed = 1.6 
+                                            land_reinforce_rate = 0.16 
+                
+    }
+    }
+ lower_strata_ratio_85 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.085 
+                                            autonomy_gain = -0.17 
+                                            conscription_factor = 0.17 
+                                            training_time_factor = -0.17 
+                                            local_resources_factor = 0.34 
+                                            MONTHLY_POPULATION = 0.017 
+                                            mobilization_speed = 1.7 
+                                            land_reinforce_rate = 0.17 
+                
+    }
+    }
+ lower_strata_ratio_90 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.09 
+                                            autonomy_gain = -0.18 
+                                            conscription_factor = 0.18 
+                                            training_time_factor = -0.18 
+                                            local_resources_factor = 0.36 
+                                            MONTHLY_POPULATION = 0.018 
+                                            mobilization_speed = 1.8 
+                                            land_reinforce_rate = 0.18 
+                
+    }
+    }
+ lower_strata_ratio_95 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.095 
+                                            autonomy_gain = -0.19 
+                                            conscription_factor = 0.19 
+                                            training_time_factor = -0.19 
+                                            local_resources_factor = 0.38 
+                                            MONTHLY_POPULATION = 0.019 
+                                            mobilization_speed = 1.9 
+                                            land_reinforce_rate = 0.19 
+                
+    }
+    }
+ lower_strata_ratio_100 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = lower_strata_base_effect
+                modifier = { 
+                                            stability_factor = -0.1 
+                                            autonomy_gain = -0.2 
+                                            conscription_factor = 0.2 
+                                            training_time_factor = -0.2 
+                                            local_resources_factor = 0.4 
+                                            MONTHLY_POPULATION = 0.02 
+                                            mobilization_speed = 2.0 
+                                            land_reinforce_rate = 0.2 
+                
+    }
+    }
+}
+
+	country = {
+	 middle_strata_ratio_5 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.02 
+                                            autonomy_gain = 0.01 
+                                            conscription_factor = -0.01 
+                                            training_time_factor = 0.01 
+                                            research_time_factor = -0.005 
+                                            MONTHLY_POPULATION = -0.001 
+                                            mobilization_speed = -0.1 
+                                            land_reinforce_rate = -0.01 
+                                            drift_defence_factor = -0.01 
+                                            production_factory_max_efficiency_factor = 0.01 
+                
+    }
+    }
+ middle_strata_ratio_10 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.04 
+                                            autonomy_gain = 0.02 
+                                            conscription_factor = -0.02 
+                                            training_time_factor = 0.02 
+                                            research_time_factor = -0.01 
+                                            MONTHLY_POPULATION = -0.002 
+                                            mobilization_speed = -0.2 
+                                            land_reinforce_rate = -0.02 
+                                            drift_defence_factor = -0.02 
+                                            production_factory_max_efficiency_factor = 0.02 
+                
+    }
+    }
+ middle_strata_ratio_15 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.06 
+                                            autonomy_gain = 0.03 
+                                            conscription_factor = -0.03 
+                                            training_time_factor = 0.03 
+                                            research_time_factor = -0.015 
+                                            MONTHLY_POPULATION = -0.003 
+                                            mobilization_speed = -0.3 
+                                            land_reinforce_rate = -0.03 
+                                            drift_defence_factor = -0.03 
+                                            production_factory_max_efficiency_factor = 0.03 
+                
+    }
+    }
+ middle_strata_ratio_20 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.08 
+                                            autonomy_gain = 0.04 
+                                            conscription_factor = -0.04 
+                                            training_time_factor = 0.04 
+                                            research_time_factor = -0.02 
+                                            MONTHLY_POPULATION = -0.004 
+                                            mobilization_speed = -0.4 
+                                            land_reinforce_rate = -0.04 
+                                            drift_defence_factor = -0.04 
+                                            production_factory_max_efficiency_factor = 0.04 
+                
+    }
+    }
+ middle_strata_ratio_25 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.1 
+                                            autonomy_gain = 0.05 
+                                            conscription_factor = -0.05 
+                                            training_time_factor = 0.05 
+                                            research_time_factor = -0.025 
+                                            MONTHLY_POPULATION = -0.005 
+                                            mobilization_speed = -0.5 
+                                            land_reinforce_rate = -0.05 
+                                            drift_defence_factor = -0.05 
+                                            production_factory_max_efficiency_factor = 0.05 
+                
+    }
+    }
+ middle_strata_ratio_30 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.12 
+                                            autonomy_gain = 0.06 
+                                            conscription_factor = -0.06 
+                                            training_time_factor = 0.06 
+                                            research_time_factor = -0.03 
+                                            MONTHLY_POPULATION = -0.006 
+                                            mobilization_speed = -0.6 
+                                            land_reinforce_rate = -0.06 
+                                            drift_defence_factor = -0.06 
+                                            production_factory_max_efficiency_factor = 0.06 
+                
+    }
+    }
+ middle_strata_ratio_35 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.14 
+                                            autonomy_gain = 0.07 
+                                            conscription_factor = -0.07 
+                                            training_time_factor = 0.07 
+                                            research_time_factor = -0.035 
+                                            MONTHLY_POPULATION = -0.007 
+                                            mobilization_speed = -0.7 
+                                            land_reinforce_rate = -0.07 
+                                            drift_defence_factor = -0.07 
+                                            production_factory_max_efficiency_factor = 0.07 
+                
+    }
+    }
+ middle_strata_ratio_40 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.16 
+                                            autonomy_gain = 0.08 
+                                            conscription_factor = -0.08 
+                                            training_time_factor = 0.08 
+                                            research_time_factor = -0.04 
+                                            MONTHLY_POPULATION = -0.008 
+                                            mobilization_speed = -0.8 
+                                            land_reinforce_rate = -0.08 
+                                            drift_defence_factor = -0.08 
+                                            production_factory_max_efficiency_factor = 0.08 
+                
+    }
+    }
+ middle_strata_ratio_45 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.18 
+                                            autonomy_gain = 0.09 
+                                            conscription_factor = -0.09 
+                                            training_time_factor = 0.09 
+                                            research_time_factor = -0.045 
+                                            MONTHLY_POPULATION = -0.009 
+                                            mobilization_speed = -0.9 
+                                            land_reinforce_rate = -0.09 
+                                            drift_defence_factor = -0.09 
+                                            production_factory_max_efficiency_factor = 0.09 
+                
+    }
+    }
+ middle_strata_ratio_50 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.2 
+                                            autonomy_gain = 0.1 
+                                            conscription_factor = -0.1 
+                                            training_time_factor = 0.1 
+                                            research_time_factor = -0.05 
+                                            MONTHLY_POPULATION = -0.01 
+                                            mobilization_speed = -1.0 
+                                            land_reinforce_rate = -0.1 
+                                            drift_defence_factor = -0.1 
+                                            production_factory_max_efficiency_factor = 0.1 
+                
+    }
+    }
+ middle_strata_ratio_55 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.22 
+                                            autonomy_gain = 0.11 
+                                            conscription_factor = -0.11 
+                                            training_time_factor = 0.11 
+                                            research_time_factor = -0.055 
+                                            MONTHLY_POPULATION = -0.011 
+                                            mobilization_speed = -1.1 
+                                            land_reinforce_rate = -0.11 
+                                            drift_defence_factor = -0.11 
+                                            production_factory_max_efficiency_factor = 0.11 
+                
+    }
+    }
+ middle_strata_ratio_60 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.24 
+                                            autonomy_gain = 0.12 
+                                            conscription_factor = -0.12 
+                                            training_time_factor = 0.12 
+                                            research_time_factor = -0.06 
+                                            MONTHLY_POPULATION = -0.012 
+                                            mobilization_speed = -1.2 
+                                            land_reinforce_rate = -0.12 
+                                            drift_defence_factor = -0.12 
+                                            production_factory_max_efficiency_factor = 0.12 
+                
+    }
+    }
+ middle_strata_ratio_65 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.26 
+                                            autonomy_gain = 0.13 
+                                            conscription_factor = -0.13 
+                                            training_time_factor = 0.13 
+                                            research_time_factor = -0.065 
+                                            MONTHLY_POPULATION = -0.013 
+                                            mobilization_speed = -1.3 
+                                            land_reinforce_rate = -0.13 
+                                            drift_defence_factor = -0.13 
+                                            production_factory_max_efficiency_factor = 0.13 
+                
+    }
+    }
+ middle_strata_ratio_70 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.28 
+                                            autonomy_gain = 0.14 
+                                            conscription_factor = -0.14 
+                                            training_time_factor = 0.14 
+                                            research_time_factor = -0.07 
+                                            MONTHLY_POPULATION = -0.014 
+                                            mobilization_speed = -1.4 
+                                            land_reinforce_rate = -0.14 
+                                            drift_defence_factor = -0.14 
+                                            production_factory_max_efficiency_factor = 0.14 
+                
+    }
+    }
+ middle_strata_ratio_75 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.3 
+                                            autonomy_gain = 0.15 
+                                            conscription_factor = -0.15 
+                                            training_time_factor = 0.15 
+                                            research_time_factor = -0.075 
+                                            MONTHLY_POPULATION = -0.015 
+                                            mobilization_speed = -1.5 
+                                            land_reinforce_rate = -0.15 
+                                            drift_defence_factor = -0.15 
+                                            production_factory_max_efficiency_factor = 0.15 
+                
+    }
+    }
+ middle_strata_ratio_80 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.32 
+                                            autonomy_gain = 0.16 
+                                            conscription_factor = -0.16 
+                                            training_time_factor = 0.16 
+                                            research_time_factor = -0.08 
+                                            MONTHLY_POPULATION = -0.016 
+                                            mobilization_speed = -1.6 
+                                            land_reinforce_rate = -0.16 
+                                            drift_defence_factor = -0.16 
+                                            production_factory_max_efficiency_factor = 0.16 
+                
+    }
+    }
+ middle_strata_ratio_85 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.34 
+                                            autonomy_gain = 0.17 
+                                            conscription_factor = -0.17 
+                                            training_time_factor = 0.17 
+                                            research_time_factor = -0.085 
+                                            MONTHLY_POPULATION = -0.017 
+                                            mobilization_speed = -1.7 
+                                            land_reinforce_rate = -0.17 
+                                            drift_defence_factor = -0.17 
+                                            production_factory_max_efficiency_factor = 0.17 
+                
+    }
+    }
+ middle_strata_ratio_90 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.36 
+                                            autonomy_gain = 0.18 
+                                            conscription_factor = -0.18 
+                                            training_time_factor = 0.18 
+                                            research_time_factor = -0.09 
+                                            MONTHLY_POPULATION = -0.018 
+                                            mobilization_speed = -1.8 
+                                            land_reinforce_rate = -0.18 
+                                            drift_defence_factor = -0.18 
+                                            production_factory_max_efficiency_factor = 0.18 
+                
+    }
+    }
+ middle_strata_ratio_95 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.38 
+                                            autonomy_gain = 0.19 
+                                            conscription_factor = -0.19 
+                                            training_time_factor = 0.19 
+                                            research_time_factor = -0.095 
+                                            MONTHLY_POPULATION = -0.019 
+                                            mobilization_speed = -1.9 
+                                            land_reinforce_rate = -0.19 
+                                            drift_defence_factor = -0.19 
+                                            production_factory_max_efficiency_factor = 0.19 
+                
+    }
+    }
+ middle_strata_ratio_100 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = middle_strata_base_effect
+                modifier = { 
+                                            global_building_slots_factor = 0.4 
+                                            autonomy_gain = 0.2 
+                                            conscription_factor = -0.2 
+                                            training_time_factor = 0.2 
+                                            research_time_factor = -0.1 
+                                            MONTHLY_POPULATION = -0.02 
+                                            mobilization_speed = -2.0 
+                                            land_reinforce_rate = -0.2 
+                                            drift_defence_factor = -0.2 
+                                            production_factory_max_efficiency_factor = 0.2 
+                
+    }
+    }
+	}
+
+	country = {
+ upper_strata_ratio_0.5 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.01 
+                                            research_time_factor = -0.005 
+                                            military_leader_cost_factor = -0.05 
+                                            max_command_power = 10 
+                
+    }
+    }
+ upper_strata_ratio_1.0 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.02 
+                                            research_time_factor = -0.01 
+                                            military_leader_cost_factor = -0.1 
+                                            max_command_power = 20 
+                
+    }
+    }
+ upper_strata_ratio_1.5 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.03 
+                                            research_time_factor = -0.015 
+                                            military_leader_cost_factor = -0.15 
+                                            max_command_power = 30 
+                
+    }
+    }
+ upper_strata_ratio_2.0 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.04 
+                                            research_time_factor = -0.02 
+                                            military_leader_cost_factor = -0.2 
+                                            max_command_power = 40 
+                
+    }
+    }
+ upper_strata_ratio_2.5 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.05 
+                                            research_time_factor = -0.025 
+                                            military_leader_cost_factor = -0.25 
+                                            max_command_power = 50 
+                
+    }
+    }
+ upper_strata_ratio_3.0 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.06 
+                                            research_time_factor = -0.03 
+                                            military_leader_cost_factor = -0.3 
+                                            max_command_power = 60 
+                
+    }
+    }
+ upper_strata_ratio_3.5 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.07 
+                                            research_time_factor = -0.035 
+                                            military_leader_cost_factor = -0.35 
+                                            max_command_power = 70 
+                
+    }
+    }
+ upper_strata_ratio_4.0 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.08 
+                                            research_time_factor = -0.04 
+                                            military_leader_cost_factor = -0.4 
+                                            max_command_power = 80 
+                
+    }
+    }
+ upper_strata_ratio_4.5 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.09 
+                                            research_time_factor = -0.045 
+                                            military_leader_cost_factor = -0.45 
+                                            max_command_power = 90 
+                
+    }
+    }
+ upper_strata_ratio_5.0 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.1 
+                                            research_time_factor = -0.05 
+                                            military_leader_cost_factor = -0.5 
+                                            max_command_power = 100 
+                
+    }
+    }
+ upper_strata_ratio_5.5 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.11 
+                                            research_time_factor = -0.055 
+                                            military_leader_cost_factor = -0.55 
+                                            max_command_power = 110 
+                
+    }
+    }
+ upper_strata_ratio_6.0 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.12 
+                                            research_time_factor = -0.06 
+                                            military_leader_cost_factor = -0.6 
+                                            max_command_power = 120 
+                
+    }
+    }
+ upper_strata_ratio_6.5 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.13 
+                                            research_time_factor = -0.065 
+                                            military_leader_cost_factor = -0.65 
+                                            max_command_power = 130 
+                
+    }
+    }
+ upper_strata_ratio_7.0 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.14 
+                                            research_time_factor = -0.07 
+                                            military_leader_cost_factor = -0.7 
+                                            max_command_power = 140 
+                
+    }
+    }
+ upper_strata_ratio_7.5 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.15 
+                                            research_time_factor = -0.075 
+                                            military_leader_cost_factor = -0.75 
+                                            max_command_power = 150 
+                
+    }
+    }
+ upper_strata_ratio_8.0 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.16 
+                                            research_time_factor = -0.08 
+                                            military_leader_cost_factor = -0.8 
+                                            max_command_power = 160 
+                
+    }
+    }
+ upper_strata_ratio_8.5 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.17 
+                                            research_time_factor = -0.085 
+                                            military_leader_cost_factor = -0.85 
+                                            max_command_power = 170 
+                
+    }
+    }
+ upper_strata_ratio_9.0 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.18 
+                                            research_time_factor = -0.09 
+                                            military_leader_cost_factor = -0.9 
+                                            max_command_power = 180 
+                
+    }
+    }
+ upper_strata_ratio_9.5 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.19 
+                                            research_time_factor = -0.095 
+                                            military_leader_cost_factor = -0.95 
+                                            max_command_power = 190 
+                
+    }
+    }
+ upper_strata_ratio_10.0 = { 
+                allowed_civil_war = { always = yes } 
+                removal_cost = -1
+                picture = upper_strata_base_effect
+                modifier = { 
+                                            stability_factor = 0.2 
+                                            research_time_factor = -0.1 
+                                            military_leader_cost_factor = -1.0 
+                                            max_command_power = 200 
+                
+    }
+    }
+	}
+
+}

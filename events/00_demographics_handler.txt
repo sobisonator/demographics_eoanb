@@ -1,0 +1,65 @@
+add_namespace = demographics_handler
+
+news_event = {
+	id = demographics_handler.0
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	hidden = yes
+
+	immediate = {
+
+		news_event = {
+			#Get state and total populations
+			id = population.0
+		}
+		news_event = {
+			#Get the levels of personal freedoms per country
+			id = freedom_calculation.0
+			hours = 1
+		}
+		news_event = {
+			#Calculate the social class ratios
+			id = social_classes.0
+			hours = 2
+		}
+		news_event = {
+			#Set effects from social classes
+			id = social_classes.1
+			hours = 3
+		}
+
+		news_event = {
+			#Calculate gradual social class changes
+			id = social_classes.2
+			hours = 4
+		}
+
+		news_event = {
+			#Fire the demographics handler repeater event again in 30 days
+			id = demographics_handler.1
+		}
+
+	}
+}
+
+news_event = {
+	id = demographics_handler.1
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	hidden = yes
+
+	immediate = {	
+		random_country = {
+			news_event = {
+				#Fire the demographics handler again in 30 days
+				id = demographics_handler.0
+				days = 30
+			}
+		}
+
+	}
+}
