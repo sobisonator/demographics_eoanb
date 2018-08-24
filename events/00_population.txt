@@ -54,6 +54,125 @@ news_event = {
                	}
                	round_variable = mod_one_state_population
 
+                set_variable = {
+                    var = floating_point_value_state_pop
+                    value = var_state_population
+                }
+
+                #Get the floating point value of the integer. This is the key indicator as to how many times the value has
+                #overflowed
+                subtract_from_variable = {
+                    var = floating_point_value_state_pop
+                    value = mod_one_state_population
+                }        
+
+
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_point_value_state_pop
+                            value = -0.296
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 1
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_point_value_state_pop
+                            value = 0.704
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 2
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_point_value_state_pop
+                            value = -0.592
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 2
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_point_value_state_pop
+                            value = 0.408
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 2
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_point_value_state_pop
+                            value = -0.888
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 3
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_point_value_state_pop
+                            value = 0.112
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 3
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_point_value_state_pop
+                            value = -0.184
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 3
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_point_value_state_pop
+                            value = -0.48
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 3
+                    }
+                }
+
+
                 if = {
                 	limit = {
 	                	check_variable = {
@@ -127,9 +246,13 @@ news_event = {
                 			var = temp_var_overflow_difference
                 			value = -1
                 		}
+                        multiply_temp_variable = {
+                            var = temp_var_overflow_difference
+                            value = pop_overflow_counter
+                        }
                 	}
 
-                	#Add the result to the var_state_population total
+                	Add the result to the var_state_population total
                 	add_to_variable = {
                 		var = var_state_population
                 		value = temp_var_overflow_difference
@@ -138,9 +261,15 @@ news_event = {
                     
                 }
 
+                #For some reason, the actual value to variable translation is slightly inaccurate. This helps bring it a bit closer to the real value
+                multiply_variable = {
+                    var = var_state_population
+                    value = 0.999
+                }
+
                 #Delete the variables used in calculation
                 clear_variable = var_overflow_warning
-                clear_variable = mod_one_state_population
+                #clear_variable = mod_one_state_population
 
                 #Add this to the total population of the country
                 add_to_variable = {
