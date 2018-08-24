@@ -77,7 +77,7 @@ news_event = {
                     }
                     set_variable = {
                         var = pop_overflow_counter
-                        value = 1
+                        value = 2
                     }
                 }
                 if = {
@@ -90,7 +90,7 @@ news_event = {
                     }
                     set_variable = {
                         var = pop_overflow_counter
-                        value = 2
+                        value = 4
                     }
                 }
                 if = {
@@ -103,7 +103,7 @@ news_event = {
                     }
                     set_variable = {
                         var = pop_overflow_counter
-                        value = 2
+                        value = 4
                     }
                 }
                 if = {
@@ -116,7 +116,7 @@ news_event = {
                     }
                     set_variable = {
                         var = pop_overflow_counter
-                        value = 2
+                        value = 4
                     }
                 }
                 if = {
@@ -129,7 +129,7 @@ news_event = {
                     }
                     set_variable = {
                         var = pop_overflow_counter
-                        value = 3
+                        value = 6
                     }
                 }
                 if = {
@@ -142,7 +142,7 @@ news_event = {
                     }
                     set_variable = {
                         var = pop_overflow_counter
-                        value = 3
+                        value = 6
                     }
                 }
                 if = {
@@ -155,7 +155,7 @@ news_event = {
                     }
                     set_variable = {
                         var = pop_overflow_counter
-                        value = 3
+                        value = 8
                     }
                 }
                 if = {
@@ -168,7 +168,33 @@ news_event = {
                     }
                     set_variable = {
                         var = pop_overflow_counter
-                        value = 3
+                        value = 10
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_point_value_state_pop
+                            value = 0.224
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 12
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_point_value_state_pop
+                            value = -0.776
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 14
                     }
                 }
 
@@ -201,36 +227,21 @@ news_event = {
                 			compare = equals
                 		}
                 	}
-                	#If variable is negative, make it positive
-                	if = {
-                		limit = {
-                			check_variable = {
-                				var = var_state_population
-                				value = 0
-                				compare = less_than
-                			}
-                		}
-	                	multiply_variable = {
-	                		var = var_state_population
-	                		value = -1
-	                	}
-                	}
                 	#Create a temporary variable to find the difference that we need to add to make the numbers equivalent
-                	set_temp_variable = {
-                		var = temp_var_overflow_difference
-                		value = var_state_population
-                	}
-
-                	#Subtract (((2^31) -1) x 0.01)
-                	subtract_from_temp_variable = {
-                		var = temp_var_overflow_difference
+                	set_variable = {
+                		var = var_overflow_difference
                 		value = 21474.83
                 	}
 
-                	#Multiply the result by two
-                	multiply_temp_variable = {
-                		var = temp_var_overflow_difference
-                		value = 2
+                    multiply_variable = {
+                        var = var_overflow_difference
+                        value = pop_overflow_counter
+                    }
+
+                	#Add (((2^31) -1) x 0.01 a sufficient number of times to get back to the real value)
+                	add_to_variable = {
+                		var = var_state_population
+                		value = var_overflow_difference
                 	}
 
                 	#If the difference is negative, make it positive
