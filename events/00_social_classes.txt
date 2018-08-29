@@ -467,7 +467,7 @@ news_event = {
 
 	immediate = {
 		every_country = {
-			every_state = {
+			every_owned_state = {
 				if = {
 					limit = {
 						has_state_flag = initial_strata_calc
@@ -1374,5 +1374,610 @@ if = {
 }
 
 #GET THE RATIOS OF CAREERS WITHIN EACH SOCIAL STRATA PER STATE
+news_event = {
+	id = social_classes.2
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	hidden = yes
+
+	immediate = {
+
+		every_country = {
+
+			set_variable = { 
+				var = total_rural_lower_s
+				value = 0
+			}
+
+			set_variable = { 
+				var = total_industrial_lower_s
+				value = 0
+			}
+
+			set_variable = { 
+				var = total_industrial_lower_s
+				value = 0
+			}
+
+			set_variable = { 
+				var = total_service_lower_s
+				value = 0
+			}
+
+			set_variable = { 
+				var = total_military_lower_s
+				value = 0
+			}
+
+			set_variable = { 
+				var = total_rural_middle_s
+				value = 0
+			}
+
+			set_variable = { 
+				var = total_industrial_middle_s
+				value = 0
+			}
+
+			set_variable = { 
+				var = total_service_middle_s
+				value = 0
+			}
+
+			set_variable = { 
+				var = total_military_middle_s
+				value = 0
+			}
+
+			set_variable = { 
+				var = total_hereditary_upper_s
+				value = 0
+			}
+
+			set_variable = { 
+				var = total_mercantile_upper_s
+				value = 0
+			}
+
+			set_variable = { 
+				var = total_military_upper_s
+				value = 0
+			}
+
+			#Get the percentage of people in the army. This is the same across all provinces, so that military population reflects actual troops and some of the reserves.
+
+			every_owned_state = {
+
+				#Divide each class points value by this to find a %
+				set_variable = {
+					var = state_all_lower_career_points
+					value = 0
+				}
+
+				set_variable = {
+					var = state_all_middle_career_points
+					value = 0
+				}
+
+				set_variable = {
+					var = state_all_upper_career_points
+					value = 0
+				}
+
+
+				#Total points per career
+
+				set_variable = {
+					var = state_rural_lower_s_points
+					value = 0
+				}
+
+				set_variable = {
+					var = state_industrial_lower_s_points
+					value = 0
+				}
+
+				set_variable = {
+					var = state_service_lower_s_points
+					value = 0
+				}
+
+				set_variable = {
+					var = state_rural_middle_s_points
+					value = 0
+				}
+
+				set_variable = {
+					var = state_industrial_middle_s_points
+					value = 0
+				}
+
+				set_variable = {
+					var = state_service_middle_s_points
+					value = 0
+				}
+
+				set_variable = {
+					var = state_hereditary_upper_s_points
+					value = 0
+				}
+
+				set_variable = {
+					var = state_mercantile_upper_s_points
+					value = 0
+				}
+
+				set_variable = {
+					var = state_military_upper_s_points
+					value = 0
+				}
+
+				#Calculations
+
+				#Default levels
+				add_to_variable = {
+					var = state_rural_lower_s_points
+					value = 5
+				}
+
+				add_to_variable = {
+					var = state_rural_middle_s_points
+					value = 5
+				}
+
+				add_to_variable = {
+					var = state_hereditary_upper_points
+					value = 11
+				}
+
+				add_to_variable = {
+					var = state_mercantile_upper_points
+					value = 2
+				}
+
+				add_to_variable = {
+					value = state_military_upper_points
+					value = 1
+				}
+
+				if = {
+					limit = {
+						has_idea = pre_industrial_era
+					}
+					add_to_variable = {
+						var = state_rural_lower_s_points
+						value = 1
+					}
+					add_to_variable = {
+						var = state_rural_middle_s_points
+						value = 1
+					}
+					add_to_variable = {
+						var = state_hereditary_upper_points
+						value = 1
+					}
+				}
+
+				#Rural workers from farms
+
+				add_to_variable = {
+					var = state_rural_middle_s_points
+					value = farm_level
+				}
+
+				add_to_variable = {
+					var = state_rural_lower_s_points
+					value = farm_level
+				}
+
+				add_to_variable = {
+					var = state_rural_middle_s_points
+					value = cotton_farm_level
+				}
+
+				add_to_variable = {
+					var = state_rural_lower_s_points
+					value = cotton_farm_level
+				}
+
+				add_to_variable = {
+					var = state_rural_middle_s_points
+					value = logging_camp_level
+				}
+
+				add_to_variable = {
+					var = state_rural_lower_s_points
+					value = logging_camp_level
+				}
+
+				if = {
+					limit = {
+						has_state_category = rural
+					}
+					add_to_variable = {
+						var = state_rural_lower_s_points
+						value = 2
+					}
+					add_to_variable = {
+						var = state_rural_middle_s_points
+						value = 2
+					}
+				}
+
+				if = {
+					limit = {
+						has_state_category = pastoral
+					}
+					add_to_variable = {
+						var = state_rural_lower_s_points
+						value = 3
+					}
+					add_to_variable = {
+						var = state_rural_middle_s_points
+						value = 3
+					}
+				}
+
+				#Industrial workers from factories
+
+				add_to_variable = {
+					var = state_industrial_lower_s_points
+					value = industrial_complex_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_middle_s_points
+					value = industrial_complex_level
+				}
+
+				add_to_variable = {
+					var = state_mercantile_upper_s_points
+					value = industrial_complex_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_lower_s_points
+					value = arms_factory_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_middle_s_points
+					value = arms_factory_level
+				}
+
+				add_to_variable = {
+					var = state_mercantile_upper_s_points
+					value = arms_factory_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_lower_s_points
+					value = machine_parts_factory_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_middle_s_points
+					value = machine_parts_factory_level
+				}
+
+				add_to_variable = {
+					var = state_mercantile_upper_s_points
+					value = machine_parts_factory_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_lower_s_points
+					value = steel_mill_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_middle_s_points
+					value = steel_mill_level
+				}
+
+				add_to_variable = {
+					var = state_mercantile_upper_s_points
+					value = steel_mill_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_lower_s_points
+					value = dockyard_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_middle_s_points
+					value = dockyard_level
+				}
+
+				add_to_variable = {
+					var = state_mercantile_upper_s_points
+					value = dockyard_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_lower_s_points
+					value = naval_base_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_middle_s_points
+					value = naval_base_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_lower_s_points
+					value = synthetic_refinery_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_middle_s_points
+					value = synthetic_refinery_level
+				}
+
+				add_to_variable = {
+					var = state_mercantile_upper_s_points
+					value = synthetic_refinery_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_lower_s_points
+					value = nuclear_reactor_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_middle_s_points
+					value = nuclear_reactor_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_lower_s_points
+					value = coal_mine_level
+				}
+
+				add_to_variable = {
+					var = state_industrial_middle_s_points
+					value = coal_mine_level
+				}
+
+				add_to_variable = {
+					var = state_mercantile_upper_s_points
+					value = coal_mine_level
+				}
+
+				# Service jobs - servants, civil servants, doctors, lawyers, what have you.
+				if = {
+					limit = {
+						has_state_category = city
+					}
+					add_to_variable = {
+						var = state_service_lower_s_points
+						value = 2
+					}
+					add_to_variable = {
+						var = state_service_middle_s_points
+						value = 2
+					}
+					add_to_variable = {
+						var = state_mercantile_upper_s_points
+						value = 1
+					}
+				}
+
+				if = {
+					limit = {
+						has_state_category = large_city
+					}
+					add_to_variable = {
+						var = state_service_lower_s_points
+						value = 3
+					}
+					add_to_variable = {
+						var = state_service_middle_s_points
+						value = 3
+					}
+					add_to_variable = {
+						var = state_mercantile_upper_s_points
+						value = 2
+					}
+				}
+
+				if = {
+					limit = {
+						has_state_category = metropolis
+					}
+					add_to_variable = {
+						var = state_service_lower_s_points
+						value = 4
+					}
+					add_to_variable = {
+						var = state_service_middle_s_points
+						value = 5
+					}
+					add_to_variable = {
+						var = state_mercantile_upper_s_points
+						value = 3
+					}
+				}
+
+				if = {
+					limit = {
+						has_state_category = metropolis
+					}
+					add_to_variable = {
+						var = state_service_lower_s_points
+						value = 5
+					}
+					add_to_variable = {
+						var = state_service_middle_s_points
+						value = 6
+					}
+					add_to_variable = {
+						var = state_mercantile_upper_s_points
+						value = 4
+					}
+				}
+
+				if = {
+					limit = {
+						has_state_category = megalopolis
+					}
+					add_to_variable = {
+						var = state_service_lower_s_points
+						value = 7
+					}
+					add_to_variable = {
+						var = state_service_middle_s_points
+						value = 8
+					}
+					add_to_variable = {
+						var = state_mercantile_upper_s_points
+						value = 5
+					}
+				}
+
+				#Servants
+				add_to_variable = {
+					var = state_service_lower_s_points
+					value = ratio_state_upper_strata
+				}
+
+				#Professionals like lawyers, accountants etc.
+				add_to_variable = {
+					var = state_service_middle_s_points
+					value = state_upper_strata_points
+				}
+
+				#Teachers
+				if = {
+					limit = {
+						has_idea = privileged_education
+					}
+					add_to_variable = {
+						var = state_service_middle_s_points
+						value = 1
+					}
+				}
+
+				if = {
+					limit = {
+						has_idea = open_schools
+					}
+					add_to_variable = {
+						var = state_service_middle_s_points
+						value = 2
+					}
+				}
+
+				if = {
+					limit = {
+						has_idea = compulsory_education
+					}
+					add_to_variable = {
+						var = state_service_middle_s_points
+						value = 4
+					}
+				}
+
+				#High priesthood
+				if = {
+					limit = {
+						has_idea = theocratic_state
+					}
+					add_to_variable = {
+						var = state_hereditary_upper_s_points
+						value = 1
+					}
+					add_to_variable = {
+						var = state_service_middle_s_points
+						value = 1
+					}
+				}
+
+				#Civil service
+				if = {
+					limit = {
+						OR = {
+							has_idea = human_rights
+							has_idea = constitution_adopted
+							has_idea = limited_constitution
+						}
+					}
+					add_to_variable = {
+						var = state_service_middle_s_points
+						value = 1
+					}
+				}
+
+				#State totals
+				add_to_variable = {
+					var = state_all_lower_career_points
+					value = state_rural_lower_s_points
+				}
+
+				add_to_variable = {
+					var = state_all_lower_career_points
+					value = state_industrial_lower_s_points
+				}
+
+				add_to_variable = {
+					var = state_all_lower_career_points
+					value = state_service_lower_s_points
+				}
+
+				add_to_variable = {
+					var = state_all_middle_career_points
+					value = state_rural_middle_s_points
+				}
+
+				add_to_variable = {
+					var = state_all_middle_career_points
+					value = state_industrial_middle_s_points
+				}
+
+				add_to_variable = {
+					var = state_all_middle_career_points
+					value = state_service_middle_s_points
+				}
+
+				add_to_variable = {
+					var = state_all_upper_career_points
+					value = state_hereditary_upper_s_points
+				}
+
+				add_to_variable = {
+					var = state_all_upper_career_points
+					value = state_mercantile_upper_s_points
+				}
+
+				add_to_variable = {
+					var = state_all_upper_career_points
+					value = state_military_upper_s_points
+				}
+
+				set_variable = {
+					var = state_rural_lower_s_ratio
+					value = state_rural_lower_s_points
+				}
+
+				set_variable = {
+					var = state_industrial_lower_s_ratio
+					value = state_industrial_lower_s_points
+				}
+
+				set_variable = {
+					var = state_service_lower_s_ratio
+					value = state_service_lower_s_points
+				}
+
+			}
+
+
+		}
+
+
+	}
 
 #CALCULTE THE POLITICAL LEANINGS OF STRATA BY STATE
