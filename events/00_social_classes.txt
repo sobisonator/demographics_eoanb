@@ -1387,66 +1387,430 @@ news_event = {
 		every_country = {
 
 			set_variable = { 
-				var = total_rural_lower_s
+				var = nation_all_rural_lower_s
 				value = 0
 			}
 
 			set_variable = { 
-				var = total_industrial_lower_s
+				var = nation_all_industrial_lower_s
 				value = 0
 			}
 
 			set_variable = { 
-				var = total_industrial_lower_s
+				var = nation_all_industrial_lower_s
 				value = 0
 			}
 
 			set_variable = { 
-				var = total_service_lower_s
+				var = nation_all_service_lower_s
 				value = 0
 			}
 
 			set_variable = { 
-				var = total_military_lower_s
+				var = nation_all_military_lower_s
 				value = 0
 			}
 
 			set_variable = { 
-				var = total_rural_middle_s
+				var = nation_all_rural_middle_s
 				value = 0
 			}
 
 			set_variable = { 
-				var = total_industrial_middle_s
+				var = nation_all_industrial_middle_s
 				value = 0
 			}
 
 			set_variable = { 
-				var = total_service_middle_s
+				var = nation_all_service_middle_s
 				value = 0
 			}
 
 			set_variable = { 
-				var = total_military_middle_s
+				var = nation_all_military_middle_s
 				value = 0
 			}
 
 			set_variable = { 
-				var = total_hereditary_upper_s
+				var = nation_all_hereditary_upper_s
 				value = 0
 			}
 
 			set_variable = { 
-				var = total_mercantile_upper_s
+				var = nation_all_mercantile_upper_s
 				value = 0
 			}
 
 			set_variable = { 
-				var = total_military_upper_s
+				var = nation_all_military_upper_s
 				value = 0
 			}
 
-			#Get the percentage of people in the army. This is the same across all provinces, so that military population reflects actual troops and some of the reserves.
+			set_variable = { 
+				var = nation_all_rural_lower_s_ratio
+				value = 0
+			}
+
+			set_variable = { 
+				var = nation_all_industrial_lower_s_ratio
+				value = 0
+			}
+
+			set_variable = { 
+				var = nation_all_industrial_lower_s_ratio
+				value = 0
+			}
+
+			set_variable = { 
+				var = nation_all_service_lower_s_ratio
+				value = 0
+			}
+
+			set_variable = { 
+				var = nation_all_military_lower_s_ratio
+				value = 0
+			}
+
+			set_variable = { 
+				var = nation_all_rural_middle_s_ratio
+				value = 0
+			}
+
+			set_variable = { 
+				var = nation_all_industrial_middle_s_ratio
+				value = 0
+			}
+
+			set_variable = { 
+				var = nation_all_service_middle_s_ratio
+				value = 0
+			}
+
+			set_variable = { 
+				var = nation_all_military_middle_s_ratio
+				value = 0
+			}
+
+			set_variable = { 
+				var = nation_all_hereditary_upper_s_ratio
+				value = 0
+			}
+
+			set_variable = { 
+				var = nation_all_mercantile_upper_s_ratio
+				value = 0
+			}
+
+			set_variable = { 
+				var = nation_all_military_upper_s_ratio
+				value = 0
+			}
+
+			set_variable = {
+					var = military_as_percentage_of_pop
+					value = army_manpower
+				}
+
+				add_to_variable = {
+					var = military_as_percentage_of_pop
+					value = amount_manpower_in_deployment_queue
+				}
+
+				#This could be a number over 2.3 million, so here comes the overflow fixer:
+				set_variable = {
+               		var = military_pop_mod_one
+               		value = military_as_percentage_of_pop
+               	}
+               	round_variable = military_pop_mod_one
+
+                set_variable = {
+                    var = floating_value_military_pop
+                    value = military_as_percentage_of_pop
+                }
+
+                #Get the floating point value of the integer. This is the key indicator as to how many times the value has
+                #overflowed
+                subtract_from_variable = {
+                    var = floating_value_military_pop
+                    value = military_pop_mod_one
+                }        
+
+
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_value_military_pop
+                            value = -0.296
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 2
+                    }
+                }
+                #Unseen v
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_value_military_pop
+                            value = 0.704
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 4
+                    }
+                }
+                #Unseen v
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_value_military_pop
+                            value = -0.592
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 4
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_value_military_pop
+                            value = 0.408
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 4
+                    }
+                }
+                #Unseen v
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_value_military_pop
+                            value = -0.888
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 6
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_value_military_pop
+                            value = 0.112
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 6
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_value_military_pop
+                            value = -0.184
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 8
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_value_military_pop
+                            value = -0.48
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 10
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_value_military_pop
+                            value = 0.224
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 12
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            var = floating_value_military_pop
+                            value = -0.776
+                            compare = equals
+                        }
+                    }
+                    set_variable = {
+                        var = pop_overflow_counter
+                        value = 14
+                    }
+                }
+
+
+                if = {
+                	limit = {
+	                	check_variable = {
+		                	var = military_as_percentage_of_pop
+		                	value = military_pop_mod_one
+		                	compare = not_equals
+	               		}
+                	}
+                	set_variable = {
+                		var = mil_overflow_warning
+                		value = 1
+                	}
+                }
+                #Make the number easier to handle without risk of overflow at 2^31
+                multiply_variable = {
+                	var = military_as_percentage_of_pop
+                	value = 0.01
+               	}
+
+               	#Check if the value has suffered an overflow due to going over a value of 2^31
+                if = {
+                	limit = {
+                		check_variable = {
+                			var = mil_overflow_warning
+                			value = 1
+                			compare = equals
+                		}
+                	}
+                	#Create a temporary variable to find the difference that we need to add to make the numbers equivalent
+                	set_variable = {
+                		var = var_overflow_difference
+                		value = 21474.83
+                	}
+
+                    multiply_variable = {
+                        var = var_overflow_difference
+                        value = pop_overflow_counter
+                    }
+
+                	#Add (((2^31) -1) x 0.01 a sufficient number of times to get back to the real value)
+                	add_to_variable = {
+                		var = military_as_percentage_of_pop
+                		value = var_overflow_difference
+                	}
+
+                	#If the difference is negative, make it positive
+                	if = {
+                		limit = {
+                			check_variable = {
+                				var = temp_var_overflow_difference
+                				value = 0
+                				compare = less_than
+                			}
+                		}
+                		multiply_temp_variable = {
+                			var = temp_var_overflow_difference
+                			value = -1
+                		}
+                        multiply_temp_variable = {
+                            var = temp_var_overflow_difference
+                            value = pop_overflow_counter
+                        }
+                	}
+
+                	#Add the result to the military_as_percentage_of_pop total
+                	add_to_variable = {
+                		var = military_as_percentage_of_pop
+                		value = temp_var_overflow_difference
+                	}
+
+                    
+                }
+
+                #For some reason, the actual value to variable translation is slightly inaccurate. This helps bring it a bit closer to the real value
+                multiply_variable = {
+                    var = military_as_percentage_of_pop
+                    value = 0.999
+                }
+
+                #Delete the variables used in calculation
+                clear_variable = mil_overflow_warning
+
+                #Now divide military_as_percentage_of_pop by the total population of the country
+                divide_variable = {
+                	var = military_as_percentage_of_pop
+                	value = total_population
+                }
+
+                #Multiply by 100 to make it a percentage
+                multiply_variable = {
+                	var = military_as_percentage_of_pop
+                	value = 100
+                }
+
+                #Most military are from the lower strata, so skew this way.
+                set_variable = {
+                	var = lower_strata_percentage_in_army
+                	value = military_as_percentage_of_pop
+                }
+
+                set_variable = {
+                	var = middle_strata_percentage_in_army
+                	value = military_as_percentage_of_pop
+                }
+
+                multiply_variable = {
+                	var = lower_strata_percentage_in_army
+                	value = 1.1
+                }
+
+                multiply_variable = {
+                	var = middle_strata_percentage_in_army
+                	value = 0.9
+                }
+
+                #The percentage of upper strata, who don't make up the general ranks of the army, is then filled by the lower strata
+                add_to_variable = {
+                	var = lower_strata_percentage_in_army
+                	value = nation_all_upper_strata_ratio
+                }
+
+                set_variable = {
+                	var = non_military_lower_pop_percentage
+                	value = 100
+                }
+
+                set_variable = {
+                	var = non_military_middle_pop_percentage
+                	value = 100
+                }
+
+                subtract_from_variable = {
+                	var = non_military_middle_pop_percentage
+                	value = middle_strata_percentage_in_army
+                }
+
+                subtract_from_variable = {
+                	var = non_military_middle_pop_percentage
+                	value = lower_strata_percentage_in_army
+                }
 
 			every_owned_state = {
 
@@ -1617,6 +1981,21 @@ news_event = {
 					add_to_variable = {
 						var = state_rural_middle_s_points
 						value = 3
+					}
+				}
+
+				#Capitalists from freedom to rise up social classes
+				if = {
+					limit = {
+						check_variable = {
+							var = PREV.freedom
+							value = 1
+							compare = greater_than
+						}
+					}
+					add_to_variable = {
+						var = state_mercantile_upper_s_points
+						value = PREV.freedom
 					}
 				}
 
@@ -1850,13 +2229,17 @@ news_event = {
 					value = state_upper_strata_points
 				}
 
-				#Teachers
+				#Teachers, and educated people who become rich
 				if = {
 					limit = {
 						has_idea = privileged_education
 					}
 					add_to_variable = {
 						var = state_service_middle_s_points
+						value = 1
+					}
+					add_to_variable = {
+						var = state_upper_mercantile_s_points
 						value = 1
 					}
 				}
@@ -1869,6 +2252,10 @@ news_event = {
 						var = state_service_middle_s_points
 						value = 2
 					}
+					add_to_variable = {
+						var = state_upper_mercantile_s_points
+						value = 2
+					}
 				}
 
 				if = {
@@ -1877,6 +2264,10 @@ news_event = {
 					}
 					add_to_variable = {
 						var = state_service_middle_s_points
+						value = 4
+					}
+					add_to_variable = {
+						var = state_upper_mercantile_s_points
 						value = 4
 					}
 				}
@@ -1957,6 +2348,8 @@ news_event = {
 					value = state_military_upper_s_points
 				}
 
+				#Get ratios - first set values
+
 				set_variable = {
 					var = state_rural_lower_s_ratio
 					value = state_rural_lower_s_points
@@ -1972,12 +2365,251 @@ news_event = {
 					value = state_service_lower_s_points
 				}
 
+				set_variable = {
+					var = state_rural_middle_s_ratio
+					value = state_rural_middle_s_points
+				}
+
+				set_variable = {
+					var = state_industrial_middle_s_ratio
+					value = state_industrial_middle_s_points
+				}
+
+				set_variable = {
+					var = state_service_middle_s_ratio
+					value = state_service_middle_s_points
+				}
+
+				set_variable = {
+					var = state_hereditary_upper_s_ratio
+					value = state_hereditary_upper_s_points
+				}
+
+				set_variable = {
+					var = state_mercantile_upper_s_ratio
+					value = state_mercantile_upper_s_points
+				}
+
+				set_variable = {
+					var = state_military_upper_s_ratio
+					value = state_military_upper_s_points
+				}
+
+				#Then turn them into percentages. Divide by class total points and multiply by non-military percentage
+
+				#Lower strata
+				divide_variable = {
+					var = state_rural_lower_s_ratio
+					value = state_all_lower_career_points
+				}
+
+				multiply_variable = {
+					var = state_rural_lower_s_ratio
+					value = non_military_pop_lower_percentage
+				}
+
+				divide_variable = {
+					var = state_industrial_lower_s_ratio
+					value = state_all_lower_career_points
+				}
+
+				multiply_variable = {
+					var = state_industrial_lower_s_ratio
+					value = non_military_lower_pop_percentage
+				}
+
+				divide_variable = {
+					var = state_service_lower_s_ratio
+					value = state_all_lower_career_points
+				}
+
+				multiply_variable = {
+					var = state_service_lower_s_ratio
+					value = non_military_lower_pop_percentage
+				}
+
+				set_variable = {
+					var = state_military_lower_s_ratio
+					value = lower_strata_percentage_in_army
+				}
+
+				#Middle strata
+				divide_variable = {
+					var = state_rural_middle_s_ratio
+					value = state_all_middle_career_points
+				}
+
+				multiply_variable = {
+					var = state_rural_middle_s_ratio
+					value = non_military_pop_middle_percentage
+				}
+
+				divide_variable = {
+					var = state_industrial_middle_s_ratio
+					value = state_all_middle_career_points
+				}
+
+				multiply_variable = {
+					var = state_industrial_middle_s_ratio
+					value = non_military_middle_pop_percentage
+				}
+
+				divide_variable = {
+					var = state_service_middle_s_ratio
+					value = state_all_middle_career_points
+				}
+
+				multiply_variable = {
+					var = state_service_middle_s_ratio
+					value = non_military_middle_pop_percentage
+				}
+
+				set_variable = {
+					var = state_military_middle_s_ratio
+					value = middle_strata_percentage_in_army
+				}
+
+				#Upper strata
+				divide_variable = {
+					var = state_hereditary_upper_s_ratio
+					value = state_all_upper_career_points
+				}
+
+				multiply_variable = {
+					var = state_hereditary_upper_s_ratio
+					value = 100
+				}
+
+				divide_variable = {
+					var = state_mercantile_upper_s_ratio
+					value = state_all_upper_career_points
+				}
+
+				multiply_variable = {
+					var = state_mercantile_upper_s_ratio
+					value = 100
+				}
+
+				divide_variable = {
+					var = state_military_upper_s_ratio
+					value = state_all_upper_career_points
+				}
+
+				multiply_variable = {
+					var = state_military_upper_s_ratio
+					value = 100
+				}
+
+				#Now turn the ratios into actual numbers for the state
+
+				#Lower
+				set_variable = { state_actual_rural_lower_s = actual_state_lower_strata }
+				divide_variable = { state_actual_rural_lower_s = 100 }
+				multiply_variable = { state_actual_rural_lower_s = state_rural_lower_s_ratio }
+
+				set_variable = { state_actual_industrial_lower_s = actual_state_lower_strata }
+				divide_variable = { state_actual_industrial_lower_s = 100 }
+				multiply_variable = { state_actual_industrial_lower_s = state_industrial_lower_s_ratio }
+
+				set_variable = { state_actual_service_lower_s = actual_state_lower_strata }
+				divide_variable = { state_actual_service_lower_s = 100 }
+				multiply_variable = { state_actual_service_lower_s = state_service_lower_s_ratio }
+
+				set_variable = { state_actual_military_lower_s = actual_state_lower_strata }
+				divide_variable = { state_actual_military_lower_s = 100 }
+				multiply_variable = { state_actual_military_lower_s = state_military_lower_s_ratio }
+				
+				#middle
+				set_variable = { state_actual_rural_middle_s = actual_state_middle_strata }
+				divide_variable = { state_actual_rural_middle_s = 100 }
+				multiply_variable = { state_actual_rural_middle_s = state_rural_middle_s_ratio }
+
+				set_variable = { state_actual_industrial_middle_s = actual_state_middle_strata }
+				divide_variable = { state_actual_industrial_middle_s = 100 }
+				multiply_variable = { state_actual_industrial_middle_s = state_industrial_middle_s_ratio }
+
+				set_variable = { state_actual_service_middle_s = actual_state_middle_strata }
+				divide_variable = { state_actual_service_middle_s = 100 }
+				multiply_variable = { state_actual_service_middle_s = state_service_middle_s_ratio }
+
+				set_variable = { state_actual_military_middle_s = actual_state_middle_strata }
+				divide_variable = { state_actual_military_middle_s = 100 }
+				multiply_variable = { state_actual_military_middle_s = state_military_middle_s_ratio }
+
+				#upper
+				set_variable = { state_actual_hereditary_upper_s = actual_state_upper_strata }
+				divide_variable = { state_actual_hereditary_upper_s = 100 }
+				multiply_variable = { state_actual_hereditary_upper_s = state_hereditary_upper_s_ratio }
+
+				set_variable = { state_actual_mercantile_upper_s = actual_state_upper_strata }
+				divide_variable = { state_actual_mercantile_upper_s = 100 }
+				multiply_variable = { state_actual_mercantile_upper_s = state_mercantile_upper_s_ratio }
+
+				set_variable = { state_actual_military_upper_s = actual_state_upper_strata }
+				divide_variable = { state_actual_military_upper_s = 100 }
+				multiply_variable = { state_actual_military_upper_s = state_military_upper_s_ratio }
+
+				#Add these to the national totals
+				add_to_variable = { PREV.nation_all_rural_lower_s_ratio = state_rural_lower_s_ratio }
+				add_to_variable = { PREV.nation_all_industrial_lower_s_ratio = state_industrial_lower_s_ratio }
+				add_to_variable = { PREV.nation_all_service_lower_s_ratio = state_service_lower_s_ratio }
+				add_to_variable = { PREV.nation_all_military_lower_s_ratio = state_military_lower_s_ratio }
+				add_to_variable = { PREV.nation_all_rural_middle_s_ratio = state_rural_middle_s_ratio }
+				add_to_variable = { PREV.nation_all_industrial_middle_s_ratio = state_industrial_middle_s_ratio }
+				add_to_variable = { PREV.nation_all_service_middle_s_ratio = state_service_middle_s_ratio }
+				add_to_variable = { PREV.nation_all_military_middle_s_ratio = state_military_middle_s_ratio }
+				add_to_variable = { PREV.nation_all_hereditary_upper_s_ratio = state_hereditary_upper_s_ratio }
+				add_to_variable = { PREV.nation_all_mercantile_upper_s_ratio = state_mercantile_upper_s_ratio }
+				add_to_variable = { PREV.nation_all_military_upper_s_ratio = state_military_upper_s_ratio }
+				add_to_variable = { PREV.career_states_calculated = 1 }
+
+				#Add to national strata populations
+				add_to_variable = { PREV.nation_all_rural_lower_s = state_actual_rural_lower_s }
+				add_to_variable = { PREV.nation_all_industrial_lower_s = state_actual_industrial_lower_s }
+				add_to_variable = { PREV.nation_all_service_lower_s = state_actual_service_lower_s }
+				add_to_variable = { PREV.nation_all_military_lower_s = state_actual_military_lower_s }
+				add_to_variable = { PREV.nation_all_rural_middle_s = state_actual_rural_middle_s }
+				add_to_variable = { PREV.nation_all_industrial_middle_s = state_actual_industrial_middle_s }
+				add_to_variable = { PREV.nation_all_service_middle_s = state_actual_service_middle_s }
+				add_to_variable = { PREV.nation_all_military_middle_s = state_actual_military_middle_s }
+				add_to_variable = { PREV.nation_all_hereditary_upper_s = state_actual_hereditary_upper_s }
+				add_to_variable = { PREV.nation_all_mercantile_upper_s = state_actual_mercantile_upper_s }
+				add_to_variable = { PREV.nation_all_military_upper_s = state_actual_military_upper_s }
+
+				#End of state-scope calculations
+				#Now clear all the variables that we aren't using any more
+				clear_variable = state_all_lower_career_points
+				clear_variable = state_all_middle_career_points
+				clear_variable = state_all_upper_career_points
+				clear_variable = state_rural_lower_s_points
+				clear_variable = state_industrial_lower_s_points
+				clear_variable = state_service_lower_s_points
+				clear_variable = state_rural_middle_s_points
+				clear_variable = state_industrial_middle_s_points
+				clear_variable = state_service_middle_s_points
+				clear_variable = state_hereditary_upper_s_points
+				clear_variable = state_mercantile_upper_s_points
+				clear_variable = state_military_upper_s_points
+
 			}
 
+		divide_variable = { PREV.nation_all_rural_lower_s_ratio = career_states_calculated }
+		divide_variable = { PREV.nation_all_industrial_lower_s_ratio = career_states_calculated }
+		divide_variable = { PREV.nation_all_service_lower_s_ratio = career_states_calculated }
+		divide_variable = { PREV.nation_all_military_lower_s_ratio = career_states_calculated }
+		divide_variable = { PREV.nation_all_rural_middle_s_ratio = career_states_calculated }
+		divide_variable = { PREV.nation_all_industrial_middle_s_ratio = career_states_calculated }
+		divide_variable = { PREV.nation_all_service_middle_s_ratio = career_states_calculated }
+		divide_variable = { PREV.nation_all_military_middle_s_ratio = career_states_calculated }
+		divide_variable = { PREV.nation_all_hereditary_upper_s_ratio = career_states_calculated }
+		divide_variable = { PREV.nation_all_mercantile_upper_s_ratio = career_states_calculated }
+		divide_variable = { PREV.nation_all_military_upper_s_ratio = career_states_calculated }
+
+		clear_variable = career_states_calculated
 
 		}
 
 
 	}
 
-#CALCULTE THE POLITICAL LEANINGS OF STRATA BY STATE
+#CALCULTE THE POLITICAL LEANINGS OF STRATA BY STATE IN A DIFFERENT FILE
