@@ -1,4 +1,4 @@
-add_namespace = population
+﻿add_namespace = population
 
 news_event = {
 	id = population.0
@@ -80,6 +80,7 @@ news_event = {
                         value = 2
                     }
                 }
+                #Unseen v
                 if = {
                     limit = {
                         check_variable = {
@@ -93,6 +94,7 @@ news_event = {
                         value = 4
                     }
                 }
+                #Unseen v
                 if = {
                     limit = {
                         check_variable = {
@@ -119,6 +121,7 @@ news_event = {
                         value = 4
                     }
                 }
+                #Unseen v
                 if = {
                     limit = {
                         check_variable = {
@@ -263,7 +266,7 @@ news_event = {
                         }
                 	}
 
-                	Add the result to the var_state_population total
+                	#Add the result to the var_state_population total
                 	add_to_variable = {
                 		var = var_state_population
                 		value = temp_var_overflow_difference
@@ -324,3 +327,5 @@ news_event = {
                 }
             }
         }
+	}
+}

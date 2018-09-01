@@ -1,4 +1,4 @@
-add_namespace = demographics_handler
+﻿add_namespace = demographics_handler
 
 news_event = {
 	id = demographics_handler.0
@@ -34,6 +34,12 @@ news_event = {
 			#Calculate gradual social class changes
 			id = social_classes.2
 			hours = 4
+		}
+
+		news_event = {
+			#Calculate career proportions
+			id = careers.0
+			hours = 5
 		}
 
 		news_event = {

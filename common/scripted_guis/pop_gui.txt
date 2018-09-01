@@ -1,0 +1,12 @@
+scripted_gui = {
+		pop_gui = {
+			window_name = "pop_window"
+			context_type = selected_country_context
+			parent_window_token = politics_tab
+
+			visible = {
+				always = yes
+			}
+
+		}
+}
