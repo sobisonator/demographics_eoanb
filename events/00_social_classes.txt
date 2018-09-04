@@ -146,17 +146,22 @@ news_event = {
 
 				add_to_variable = { state_middle_strata_points = middle_strata_civfactory_points }
 
-				#1 upper class point per civilian factory
+				#0.5 upper class points per civilian factory
 				set_variable = {
 					var = upper_strata_civfactory_points
 					value = industrial_complex_level
+				}
+
+				divide_variable = {
+					var = upper_strata_civfactory_points
+					value = 2
 				}
 
 				add_to_variable = { state_upper_strata_points = upper_strata_civfactory_points }
 
 				#Military factories
 
-				#1 middle class point per military factory
+				#0.5 middle class points per military factory
 				set_variable = {
 					var = middle_strata_milfactory_points
 					value = arms_factory_level
@@ -169,6 +174,11 @@ news_event = {
 				set_variable = {
 					var = upper_strata_milfactory_points
 					value = arms_factory_level
+				}
+
+				divide_variable = {
+					var = upper_strata_milfactory_points
+					value = 2
 				}
 
 				add_to_variable = { state_upper_strata_points = upper_strata_milfactory_points }
@@ -450,6 +460,10 @@ news_event = {
 		divide_variable = { nation_all_upper_strata_ratio = strata_states_calculated }
 
 		clear_variable = strata_states_calculated
+
+		round_variable = nation_all_actual_lower_strata
+		round_variable = nation_all_actual_middle_strata
+		round_variable = nation_all_actual_upper_strata
 
 
 		}

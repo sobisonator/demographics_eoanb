@@ -43,6 +43,11 @@ news_event = {
 		}
 
 		news_event = {
+			id = wealth_handler.0
+			hours = 6
+		}
+
+		news_event = {
 			#Fire the demographics handler repeater event again in 30 days
 			id = demographics_handler.1
 		}

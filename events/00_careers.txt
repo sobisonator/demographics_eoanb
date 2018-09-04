@@ -135,12 +135,12 @@ news_event = {
 
 			set_variable = {
 					var = military_as_percentage_of_pop
-					value = army_manpower
+					value = max_available_manpower
 				}
 
-				add_to_variable = {
+				subtract_from_variable = {
 					var = military_as_percentage_of_pop
-					value = amount_manpower_in_deployment_queue
+					value = manpower
 				}
 
 				#This could be a number over 2.3 million, so here comes the overflow fixer:
@@ -405,18 +405,12 @@ news_event = {
 
                 multiply_variable = {
                 	var = lower_strata_percentage_in_army
-                	value = 1.1
+                	value = 1.5
                 }
 
                 multiply_variable = {
                 	var = middle_strata_percentage_in_army
-                	value = 0.9
-                }
-
-                #The percentage of upper strata, who don't make up the general ranks of the army, is then filled by the lower strata
-                add_to_variable = {
-                	var = lower_strata_percentage_in_army
-                	value = nation_all_upper_strata_ratio
+                	value = 1.1
                 }
 
                 set_variable = {
@@ -435,7 +429,7 @@ news_event = {
                 }
 
                 subtract_from_variable = {
-                	var = non_military_middle_pop_percentage
+                	var = non_military_lower_pop_percentage
                 	value = lower_strata_percentage_in_army
                 }
 
@@ -762,7 +756,7 @@ news_event = {
 					}
 					add_to_variable = {
 						var = state_service_lower_s_points
-						value = 2
+						value = 1
 					}
 					add_to_variable = {
 						var = state_service_middle_s_points
@@ -780,7 +774,7 @@ news_event = {
 					}
 					add_to_variable = {
 						var = state_service_lower_s_points
-						value = 3
+						value = 2
 					}
 					add_to_variable = {
 						var = state_service_middle_s_points
@@ -798,7 +792,7 @@ news_event = {
 					}
 					add_to_variable = {
 						var = state_service_lower_s_points
-						value = 4
+						value = 3
 					}
 					add_to_variable = {
 						var = state_service_middle_s_points
@@ -816,7 +810,7 @@ news_event = {
 					}
 					add_to_variable = {
 						var = state_service_lower_s_points
-						value = 5
+						value = 4
 					}
 					add_to_variable = {
 						var = state_service_middle_s_points
@@ -834,7 +828,7 @@ news_event = {
 					}
 					add_to_variable = {
 						var = state_service_lower_s_points
-						value = 7
+						value = 5
 					}
 					add_to_variable = {
 						var = state_service_middle_s_points
@@ -844,12 +838,6 @@ news_event = {
 						var = state_mercantile_upper_s_points
 						value = 5
 					}
-				}
-
-				#Servants
-				add_to_variable = {
-					var = state_service_lower_s_points
-					value = ratio_state_upper_strata
 				}
 
 				#Professionals like lawyers, accountants etc.
@@ -1044,7 +1032,7 @@ news_event = {
 
 				multiply_variable = {
 					var = state_rural_lower_s_ratio
-					value = non_military_pop_lower_percentage
+					value = prev.non_military_lower_pop_percentage
 				}
 
 				divide_variable = {
@@ -1054,7 +1042,7 @@ news_event = {
 
 				multiply_variable = {
 					var = state_industrial_lower_s_ratio
-					value = non_military_lower_pop_percentage
+					value = prev.non_military_lower_pop_percentage
 				}
 
 				divide_variable = {
@@ -1064,12 +1052,12 @@ news_event = {
 
 				multiply_variable = {
 					var = state_service_lower_s_ratio
-					value = non_military_lower_pop_percentage
+					value = prev.non_military_lower_pop_percentage
 				}
 
 				set_variable = {
 					var = state_military_lower_s_ratio
-					value = lower_strata_percentage_in_army
+					value = prev.lower_strata_percentage_in_army
 				}
 
 				#Middle strata
@@ -1080,7 +1068,7 @@ news_event = {
 
 				multiply_variable = {
 					var = state_rural_middle_s_ratio
-					value = non_military_pop_middle_percentage
+					value = prev.non_military_middle_pop_percentage
 				}
 
 				divide_variable = {
@@ -1090,7 +1078,7 @@ news_event = {
 
 				multiply_variable = {
 					var = state_industrial_middle_s_ratio
-					value = non_military_middle_pop_percentage
+					value = prev.non_military_middle_pop_percentage
 				}
 
 				divide_variable = {
@@ -1100,12 +1088,12 @@ news_event = {
 
 				multiply_variable = {
 					var = state_service_middle_s_ratio
-					value = non_military_middle_pop_percentage
+					value = prev.non_military_middle_pop_percentage
 				}
 
 				set_variable = {
 					var = state_military_middle_s_ratio
-					value = middle_strata_percentage_in_army
+					value = prev.middle_strata_percentage_in_army
 				}
 
 				#Upper strata
@@ -1232,17 +1220,17 @@ news_event = {
 
 			}
 
-		divide_variable = { PREV.nation_all_rural_lower_s_ratio = career_states_calculated }
-		divide_variable = { PREV.nation_all_industrial_lower_s_ratio = career_states_calculated }
-		divide_variable = { PREV.nation_all_service_lower_s_ratio = career_states_calculated }
-		divide_variable = { PREV.nation_all_military_lower_s_ratio = career_states_calculated }
-		divide_variable = { PREV.nation_all_rural_middle_s_ratio = career_states_calculated }
-		divide_variable = { PREV.nation_all_industrial_middle_s_ratio = career_states_calculated }
-		divide_variable = { PREV.nation_all_service_middle_s_ratio = career_states_calculated }
-		divide_variable = { PREV.nation_all_military_middle_s_ratio = career_states_calculated }
-		divide_variable = { PREV.nation_all_hereditary_upper_s_ratio = career_states_calculated }
-		divide_variable = { PREV.nation_all_mercantile_upper_s_ratio = career_states_calculated }
-		divide_variable = { PREV.nation_all_military_upper_s_ratio = career_states_calculated }
+		divide_variable = { nation_all_rural_lower_s_ratio = career_states_calculated }
+		divide_variable = { nation_all_industrial_lower_s_ratio = career_states_calculated }
+		divide_variable = { nation_all_service_lower_s_ratio = career_states_calculated }
+		divide_variable = { nation_all_military_lower_s_ratio = career_states_calculated }
+		divide_variable = { nation_all_rural_middle_s_ratio = career_states_calculated }
+		divide_variable = { nation_all_industrial_middle_s_ratio = career_states_calculated }
+		divide_variable = { nation_all_service_middle_s_ratio = career_states_calculated }
+		divide_variable = { nation_all_military_middle_s_ratio = career_states_calculated }
+		divide_variable = { nation_all_hereditary_upper_s_ratio = career_states_calculated }
+		divide_variable = { nation_all_mercantile_upper_s_ratio = career_states_calculated }
+		divide_variable = { nation_all_military_upper_s_ratio = career_states_calculated }
 
 		clear_variable = career_states_calculated
 

@@ -283,7 +283,7 @@ news_event = {
 
                 #Delete the variables used in calculation
                 clear_variable = var_overflow_warning
-                #clear_variable = mod_one_state_population
+                clear_variable = mod_one_state_population
 
                 #Add this to the total population of the country
                 add_to_variable = {

@@ -1,0 +1,43 @@
+add_namespace = wealth_handler
+
+news_event = {
+	id = wealth_handler.0
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	hidden = yes
+
+	immediate = {
+
+		news_event = {
+			#Get raw wealth values
+			id = wealth_v2.0
+		}
+
+		news_event = {
+			#Fire the wealth handler repeater event again in 30 days
+			id = wealth_handler.1
+		}
+	}
+}
+
+news_event = {
+	id = wealth_handler.1
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	hidden = yes
+
+	immediate = {	
+		random_country = {
+			news_event = {
+				#Fire the wealth handler again in 91 days
+				id = wealth_handler.0
+				days = 91
+			}
+		}
+
+	}
+}

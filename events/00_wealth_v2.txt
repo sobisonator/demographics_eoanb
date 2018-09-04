@@ -1,0 +1,360 @@
+add_namespace = wealth_v2
+
+news_event = {
+	id = wealth_v2.0
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+    hidden = yes
+
+	immediate = {
+
+		every_country = {
+
+			set_variable = {
+					var = national_resources_production_wood
+					value = resources_produced@wood
+				}
+
+				divide_variable = {
+					var = national_resources_production_wood
+					value = num_controlled_states
+				}
+
+				set_variable = {
+					var = national_resources_production_steel
+					value = resources_produced@steel
+				}
+
+				divide_variable = {
+					var = national_resources_production_steel
+					value = num_controlled_states
+				}
+
+				set_variable = {
+					var = national_resources_production_coal
+					value = resources_produced@coal
+				}
+
+				divide_variable = {
+					var = national_resources_production_coal
+					value = num_controlled_states
+				}
+
+				set_variable = {
+					var = national_resources_production_fabric
+					value = resources_produced@fabric
+				}
+
+				divide_variable = {
+					var = national_resources_production_fabric
+					value = num_controlled_states
+				}
+
+				set_variable = {
+					var = national_resources_production_rubber
+					value = resources_produced@rubber
+				}
+
+				divide_variable = {
+					var = national_resources_production_rubber
+					value = num_controlled_states
+				}
+
+				set_variable = {
+					var = national_resources_production_chromium
+					value = resources_produced@chromium
+				}
+
+				divide_variable = {
+					var = national_resources_production_chromium
+					value = num_controlled_states
+				}
+
+				set_variable = {
+					var = national_resources_production_aluminium
+					value = resources_produced@aluminium
+				}
+
+				divide_variable = {
+					var = national_resources_production_aluminium
+					value = num_controlled_states
+				}
+
+				set_variable = {
+					var = national_resources_production_tungsten
+					value = resources_produced@tungsten
+				}
+
+				divide_variable = {
+					var = national_resources_production_tungsten
+					value = num_controlled_states
+				}
+
+			every_owned_state = {
+
+				#Basic factors of production
+
+				#Land production: natural resources
+
+				set_variable = {
+					var = local_land_production
+					value = 0
+				}
+
+				add_to_variable = {
+					var = local_land_production
+					value = PREV.national_resources_production_wood
+				}
+
+				add_to_variable = {
+					var = local_land_production
+					value = PREV.national_resources_production_steel
+				}
+
+				add_to_variable = {
+					var = local_land_production
+					value = PREV.national_resources_production_fabric
+				}
+
+				add_to_variable = {
+					var = local_land_production
+					value = PREV.national_resources_production_rubber
+				}
+
+				add_to_variable = {
+					var = local_land_production
+					value = PREV.national_resources_production_coal
+				}
+
+				add_to_variable = {
+					var = local_land_production
+					value = PREV.national_resources_production_aluminium
+				}
+
+				add_to_variable = {
+					var = local_land_production
+					value = PREV.national_resources_production_chromium
+				}
+
+				add_to_variable = {
+					var = local_land_production
+					value = PREV.national_resources_production_tungsten
+				}
+
+				multiply_variable = {
+					var = local_land_production
+					value = 1000
+				}
+
+				#Labour production: capacity of work to provide goods & services
+
+				#Rural production is produced at a 1-to-1 ratio per person
+
+				set_variable = {
+					var = local_labour_production
+					value = 0
+				}
+
+				set_variable = {
+					var = local_labour_production_from_rural
+					value = state_actual_rural_lower_s
+				}
+
+				add_to_variable = {
+					var = local_labour_production_from_rural
+					value = state_actual_rural_middle_s
+				}
+
+				#Intensive farming modifies this
+
+				set_variable = {
+					var = farm_level_production_modifier
+					value = farm_level
+				}
+
+				add_to_variable = {
+					var = farm_level_production_modifier
+					value = cotton_farm_level
+				}
+
+				add_to_variable = {
+					var = farm_level_production_modifier
+					value = logging_camp_level
+				}
+
+				divide_variable = {
+					var = farm_level_production_modifier
+					value = 20
+				}
+
+				add_to_variable = {
+					var = farm_level_production_modifier
+					value = 1
+				}
+
+				multiply_variable = {
+					var = local_labour_production_from_rural
+					value = farm_level_production_modifier
+				}
+
+				#Every industrial worker has the capacity to produce at least double the average rural worker.
+
+				set_variable = {
+					var = local_labour_production_from_industrial
+					value = state_actual_industrial_lower_s
+				}
+
+				add_to_variable = {
+					var = local_labour_production_from_industrial
+					value = state_actual_industrial_middle_s
+				}
+
+				multiply_variable = {
+					var = local_labour_production_from_industrial
+					value = 2
+				}
+
+				#Factories modify this
+
+				set_variable = {
+					var = factory_level_production_modifier
+					value = industrial_complex_level
+				}
+
+				add_to_variable = {
+					var = factory_level_production_modifier
+					value = dockyard_level
+				}
+
+				add_to_variable = {
+					var = factory_level_production_modifier
+					value = synthetic_refinery_level
+				}
+
+				add_to_variable = {
+					var = factory_level_production_modifier
+					value = coal_mine_level
+				}
+
+				add_to_variable = {
+					var = factory_level_production_modifier
+					value = steel_mill_level
+				}
+
+				add_to_variable = {
+					var = factory_level_production_modifier
+					value = machine_parts_factory_level
+				}
+
+				divide_variable = {
+					var = factory_level_production_modifier
+					value = 10
+				}
+
+				add_to_variable = {
+					var = factory_level_production_modifier
+					value = 1
+				}
+
+				multiply_variable = {
+					var = local_labour_production_from_industrial
+					value = factory_level_production_modifier
+				}
+
+				#Service workers provide labour production that is solely valued on demand by others, rather than in the creation of tangible products.
+
+				set_variable = {
+					var = local_labour_production_from_service
+					value = state_actual_service_lower_s
+				}
+
+				add_to_variable = {
+					var = local_labour_production_from_service
+					value = state_actual_service_middle_s
+				}
+
+				set_variable = {
+					var = upper_strata_service_production_modifier
+					value = ratio_state_upper_strata
+				}
+
+				divide_variable = {
+					var = upper_strata_service_production_modifier
+					value = 10
+				}
+
+				add_to_variable = {
+					var = upper_strata_service_production_modifier
+					value = 1
+				}
+
+				multiply_variable = {
+					var = local_labour_production_from_service
+					value = upper_strata_service_production_modifier
+				}
+
+				#Now combine all labour production
+
+				add_to_variable = {
+					var = local_labour_production
+					value = local_labour_production_from_rural
+				}
+
+				add_to_variable = {
+					var = local_labour_production
+					value = local_labour_production_from_industrial
+				}
+
+				add_to_variable = {
+					var = local_labour_production
+					value = local_labour_production_from_service
+				}
+
+				#Capital production: the assets that provide a means to produce a good or service
+
+				set_variable = {
+					var = local_capital_production
+					value = infrastructure_level
+				}
+
+				multiply_variable = {
+					var = local_capital_production
+					value = factory_level_production_modifier
+				}
+
+				#Capital is inherently modified by labour
+
+				multiply_variable = {
+					var = local_capital_production
+					value = local_labour_production
+				}
+
+			}
+
+			#set_variable = {
+			#	var = national_GDP_per_capita
+			#	value = national_GDP
+			#}
+
+			#divide_variable = {
+			#	var = national_GDP_per_capita
+			#	value = total_population
+			#}
+
+			#Add to global totals
+
+			#add_to_variable = {
+			#	var = global.global_subsistence_production
+			#	value = national_subsistence_production
+			#}
+
+			#add_to_variable = {
+			#	var = global.global_capital_production
+			#	value = national_capital_production
+			#}
+
+		}
+	}
+}

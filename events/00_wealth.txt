@@ -1,0 +1,247 @@
+add_namespace = wealth
+
+news_event = {
+	id = wealth.0
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+    hidden = yes
+
+	immediate = {
+
+		set_variable = {
+			var = global.global_subsistence_wealth
+			value = 0
+		}
+
+		set_variable = {
+			var = global.global_capital_wealth
+			value = 0
+		}
+
+		every_country = {
+
+			set_variable = {
+				var = national_subsistence_wealth
+				value = 0
+			}
+
+			set_variable = {
+				var = national_capital_wealth
+				value = 0
+			}
+
+			set_variable = {
+				var = national_GDP
+				value = 0
+			}
+
+			every_owned_state = {
+
+				set_variable = {
+					var = national_resources_wealth
+					value = PREV.resources_produced
+				}
+
+				#Subsistence wealth
+				set_variable = {
+					var = local_subsistence_wealth
+					value = state_actual_rural_lower_s
+				}
+
+				add_to_variable = {
+					var = local_subsistence_wealth
+					value = state_actual_rural_middle_s
+				}
+
+				multiply_variable = {
+					var = local_subsistence_wealth
+					value = 2
+				}
+
+				set_variable = {
+					var = farms_subsistence_wealth_bonus
+					value = farm_level
+				}
+
+				divide_variable = {
+					var = farms_subsistence_wealth_bonus
+					value = 10
+				}
+
+				add_to_variable = {
+					var = farms_subsistence_wealth_bonus
+					value = 1
+				}
+
+				multiply_variable = {
+					var = local_subsistence_wealth
+					value = farms_subsistence_wealth_bonus
+				}
+
+				#Capital wealth
+				set_variable = {
+					var = local_capital_wealth
+					value = state_actual_industrial_lower_s
+				}
+
+				add_to_variable = {
+					var = local_capital_wealth
+					value = state_actual_industrial_middle_s
+				}
+
+				multiply_variable = {
+					var = local_capital_wealth
+					value = 0.4
+				}
+
+				set_variable = {
+					var = factories_capital_wealth_bonus
+					value = industrial_complex_level
+				}
+
+				add_to_variable = {
+					var = factories_capital_wealth_bonus
+					value = logging_camp_level
+				}
+
+				add_to_variable = {
+					var = factories_capital_wealth_bonus
+					value = cotton_farm_level
+				}
+
+				add_to_variable = {
+					var = factories_capital_wealth_bonus
+					value = machine_parts_factory_level
+				}
+
+				add_to_variable = {
+					var = factories_capital_wealth_bonus
+					value = steel_mill_level
+				}
+
+				add_to_variable = {
+					var = factories_capital_wealth_bonus
+					value = dockyard_level
+				}
+
+				add_to_variable = {
+					var = factories_capital_wealth_bonus
+					value = coal_mine_level
+				}
+
+				add_to_variable = {
+					var = factories_capital_wealth_bonus
+					value = synthetic_refinery_level
+				}
+
+				divide_variable = {
+					var = factories_capital_wealth_bonus
+					value = 6
+				}
+
+				add_to_variable = {
+					var = factories_capital_wealth_bonus
+					value = 1
+				}
+
+				multiply_variable = {
+					var = local_capital_wealth
+					value = factories_capital_wealth_bonus
+				}
+
+				#Bureaucratic services are exchanged for material wealth at quite a high premium.
+				set_variable = {
+					var = service_capital_wealth_bonus
+					value = state_actual_service_middle_s
+				}
+
+				add_to_variable = {
+					var = local_capital_wealth
+					value = service_capital_wealth_bonus
+				}
+
+				#Generate a GDP out of both
+
+				set_variable = {
+					var = local_GDP
+					value = local_subsistence_wealth
+				}
+
+				add_to_variable = {
+					var = local_GDP
+					value = local_capital_wealth
+				}
+
+				#Divide by 1,000 in order to store these safely. Treat them as the full value, with the floating point acting as a comma
+
+				set_variable = {
+					var = local_subsistence_wealth_per_capita
+					value = local_subsistence_wealth
+				}
+
+				divide_variable = {
+					var = local_subsistence_wealth_per_capita
+					value = var_state_population
+				}
+
+				divide_variable = {
+					var = local_subsistence_wealth
+					value = 1000
+				}
+
+				divide_variable = {
+					var = local_capital_wealth
+					value = 1000
+				}
+
+				divide_variable = {
+					var = local_GDP
+					value = 1000
+				} 
+
+				#Add to national totals
+
+				add_to_variable = {
+					var = PREV.national_subsistence_wealth
+					value = local_subsistence_wealth
+				}
+
+				add_to_variable = {
+					var = PREV.national_capital_wealth
+					value = local_capital_wealth
+				}
+
+				add_to_variable = {
+					var = PREV.national_GDP
+					value = local_GDP
+				}
+
+			}
+
+			set_variable = {
+				var = national_GDP_per_capita
+				value = national_GDP
+			}
+
+			divide_variable = {
+				var = national_GDP_per_capita
+				value = total_population
+			}
+
+			#Add to global totals
+
+			add_to_variable = {
+				var = global.global_subsistence_wealth
+				value = national_subsistence_wealth
+			}
+
+			add_to_variable = {
+				var = global.global_capital_wealth
+				value = national_capital_wealth
+			}
+
+		}
+	}
+}
