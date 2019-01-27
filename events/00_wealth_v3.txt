@@ -1,0 +1,13 @@
+add_namespace = wealth_v2
+
+news_event = {
+	id = wealth_v3.0
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+    hidden = yes
+
+	immediate = {
+	}
+}

@@ -193,18 +193,18 @@ news_event = {
 
 				subtract_from_variable = { state_lower_strata_points = lower_strata_infrastructure_points }
 
-				#Freedom values
+				#liberty values
 
-				#Subtract 2x national freedom from the lower strata points. If it's negative, it will make more people be in the lower strata
+				#Subtract 2x national liberty from the lower strata points. If it's negative, it will make more people be in the lower strata
 				set_variable = {
-					var = freedom_strata_mod
-					value = PREV.freedom
+					var = liberty_strata_mod
+					value = PREV.liberty
 				}
 
-				multiply_variable = { freedom_strata_mod = 2 }
+				multiply_variable = { liberty_strata_mod = 2 }
 
 
-				subtract_from_variable = { state_lower_strata_points = freedom_strata_mod }
+				subtract_from_variable = { state_lower_strata_points = liberty_strata_mod }
 
 				#Taxes
 	            if = {

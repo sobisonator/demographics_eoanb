@@ -1,0 +1,49 @@
+﻿add_namespace = freedom_handler
+
+news_event = {
+	id = freedom_handler.0
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	hidden = yes
+
+	immediate = {
+
+		news_event = {
+			# Get liberty level
+			id = freedom_index.0
+		}
+
+		news_event = {
+			# Get consciousness level
+			id = freedom_index.1
+		}
+
+		news_event = {
+			#Fire the freedom handler repeater event again in 30 days
+			id = freedom_handler.1
+		}
+
+	}
+}
+
+news_event = {
+	id = freedom_handler.1
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	hidden = yes
+
+	immediate = {	
+		random_country = {
+			news_event = {
+				#Fire the freedom handler again in 30 days
+				id = freedom_handler.0
+				days = 30
+			}
+		}
+
+	}
+}
