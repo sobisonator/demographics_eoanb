@@ -1,4 +1,21 @@
-﻿add_namespace = demographics_handler
+add_namespace = demographics_handler
+ 
+# Event to set up the arrays for lookup. Triggered once at game start and never again.
+news_event = {
+	id = demographics_handler.2
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	immediate = {
+		add_to_array = {
+			array = overflow_counter
+			value = -0.296
+		}
+	}
+}
 
 news_event = {
 	id = demographics_handler.0
