@@ -7,232 +7,232 @@
 
 # RESOURCE EFFECTS
 # Whenever modifying the value of a resource in a state, call the appropriate scripted effect
-# You MUST set a variable called 'amt' prior to doing this, with the amount by which you modified the resource value
+# You MUST set a variable called 'r_amt' prior to doing this, with the amount by which you modified the resource value
 
 update_wood = {
-   add_to_variable = { wood = amt }
+   add_to_variable = { wood = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = wood}
       }
-      set_variable = { wood = amt }
+      set_variable = { wood = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_coal = {
-   add_to_variable = { coal = amt }
+   add_to_variable = { coal = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = coal}
       }
-      set_variable = { coal = amt }
+      set_variable = { coal = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_cotton = {
-   add_to_variable = { cotton = amt }
+   add_to_variable = { cotton = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = cotton}
       }
-      set_variable = { cotton = amt }
+      set_variable = { cotton = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_fabric = {
-   add_to_variable = { fabric = amt }
+   add_to_variable = { fabric = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = fabric}
       }
-      set_variable = { fabric = amt }
+      set_variable = { fabric = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_iron = {
-   add_to_variable = { iron = amt }
+   add_to_variable = { iron = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = iron}
       }
-      set_variable = { iron = amt }
+      set_variable = { iron = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_steel = {
-   add_to_variable = { steel = amt }
+   add_to_variable = { steel = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = steel}
       }
-      set_variable = { steel = amt }
+      set_variable = { steel = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_rubber = {
-   add_to_variable = { rubber = amt }
+   add_to_variable = { rubber = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = rubber}
       }
-      set_variable = { rubber = amt }
+      set_variable = { rubber = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_oil = {
-   add_to_variable = { oil = amt }
+   add_to_variable = { oil = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = oil}
       }
-      set_variable = { oil = amt }
+      set_variable = { oil = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_plastics = {
-   add_to_variable = { plastics = amt }
+   add_to_variable = { plastics = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = plastics}
       }
-      set_variable = { plastics = amt }
+      set_variable = { plastics = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_aluminium = {
-   add_to_variable = { aluminium = amt }
+   add_to_variable = { aluminium = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = aluminium}
       }
-      set_variable = { aluminium = amt }
+      set_variable = { aluminium = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_tungsten = {
-   add_to_variable = { tungsten = amt }
+   add_to_variable = { tungsten = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = tungsten}
       }
-      set_variable = { tungsten = amt }
+      set_variable = { tungsten = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_chromium = {
-   add_to_variable = { chromium = amt }
+   add_to_variable = { chromium = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = chromium}
       }
-      set_variable = { chromium = amt }
+      set_variable = { chromium = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_titanium = {
-   add_to_variable = { titanium = amt }
+   add_to_variable = { titanium = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = titanium}
       }
-      set_variable = { titanium = amt }
+      set_variable = { titanium = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_silicates = {
-   add_to_variable = { silicates = amt }
+   add_to_variable = { silicates = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = silicates}
       }
-      set_variable = { silicates = amt }
+      set_variable = { silicates = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_ceramics = {
-   add_to_variable = { ceramics = amt }
+   add_to_variable = { ceramics = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = ceramics}
       }
-      set_variable = { ceramics = amt }
+      set_variable = { ceramics = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_machine_parts = {
-   add_to_variable = { machine_parts = amt }
+   add_to_variable = { machine_parts = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = machine_parts}
       }
-      set_variable = { machine_parts = amt }
+      set_variable = { machine_parts = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_rare_earth_metals = {
-   add_to_variable = { rare_earth_metals = amt }
+   add_to_variable = { rare_earth_metals = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = rare_earth_metals}
       }
-      set_variable = { rare_earth_metals = amt }
+      set_variable = { rare_earth_metals = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_eletronics = {
-   add_to_variable = { eletronics = amt }
+   add_to_variable = { eletronics = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = eletronics}
       }
-      set_variable = { eletronics = amt }
+      set_variable = { eletronics = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }
 
 update_portable_power = {
-   add_to_variable = { portable_power = amt }
+   add_to_variable = { portable_power = r_amt }
    if = {
       limit = {
             # Check if it exists, and if not then create it
             NOT = {has_variable = portable_power}
       }
-      set_variable = { portable_power = amt }
+      set_variable = { portable_power = r_amt }
    }
-   clear_variable = amt
+   clear_variable = r_amt
 }

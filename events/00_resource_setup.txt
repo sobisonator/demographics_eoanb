@@ -1,0 +1,4845 @@
+add_namespace = resource_setup
+
+#CALCULATE STRATA BY STATE AND ASSIGN TO COUNTRY
+news_event = {
+	id = resource_setup.0
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	hidden = yes
+
+	immediate = {
+	
+		1= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		10= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		100= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		1000= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		1001= {set_variable = { r_wood = 2} 
+		} 
+
+		1002= {set_variable = { r_wood = 2} 
+		} 
+
+		1003= {set_variable = { r_wood = 2} 
+		} 
+
+		1004= {set_variable = { r_wood=5} 
+		} 
+
+		1005= {set_variable = { r_wood=5} 
+		} 
+
+		1006= {set_variable = { r_wood=5} 
+		} 
+
+		1007= {set_variable = { r_wood=5} 
+		} 
+
+		1008= {set_variable = { r_wood=5} 
+		} 
+
+		1009= {set_variable = { r_wood=5} 
+		} 
+
+		101= {set_variable = { r_wood=5} 
+		} 
+
+		1010= {set_variable = { r_wood = 10} 
+		} 
+
+		1011= {set_variable = { r_wood = 10} 
+		} 
+
+		1012= {set_variable = { r_wood = 10} 
+		} 
+
+		1013= {set_variable = { r_wood = 10} 
+		} 
+
+		1014= {set_variable = { r_wood = 10} 
+		} 
+
+		1015= {set_variable = { r_wood = 10} 
+		} 
+
+		1016= {set_variable = { r_wood = 10} 
+		} 
+
+		1017= {set_variable = { r_wood = 10} 
+		} 
+
+		1018= {set_variable = { r_wood = 10} 
+		} 
+
+		1019= {set_variable = { r_iron=1} 
+		} 
+
+		102= {set_variable = { r_iron=1} 
+		} 
+
+		1020= {set_variable = { r_coal=4} 
+		} 
+
+		1021= {set_variable = { r_coal=3} 
+		set_variable = { r_tungsten=2} 
+		} 
+
+		1022= {set_variable = { r_coal=3} 
+		set_variable = { r_tungsten=2} 
+		} 
+
+		1023= {set_variable = { r_coal = 8} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		1024= {set_variable = { r_coal=3} 
+		} 
+
+		1025= {set_variable = { r_coal=3} 
+		} 
+
+		1026= {set_variable = { r_coal=3} 
+		} 
+
+		1027= {set_variable = { r_coal=3} 
+		} 
+
+		1028= {set_variable = { r_coal=3} 
+		} 
+
+		1029= {set_variable = { r_coal=3} 
+		} 
+
+		103= {set_variable = { r_coal=3} 
+		} 
+
+		1030= {set_variable = { r_coal=3} 
+		} 
+
+		1031= {set_variable = { r_coal=3} 
+		} 
+
+		1032= {set_variable = { r_coal=3} 
+		} 
+
+		1033= {set_variable = { r_coal=3} 
+		} 
+
+		1034= {set_variable = { r_coal=3} 
+		} 
+
+		1035= {set_variable = { r_coal=3} 
+		} 
+
+		1036= {set_variable = { r_coal=3} 
+		} 
+
+		1037= {set_variable = { r_coal=3} 
+		} 
+
+		1038= {set_variable = { r_coal=3} 
+		} 
+
+		1039= {set_variable = { r_coal=3} 
+		} 
+
+		104= {set_variable = { r_coal=3} 
+		} 
+
+		1040= {set_variable = { r_wood=2} 
+		} 
+
+		1041= {set_variable = { r_wood=2} 
+		} 
+
+		1042= {set_variable = { r_wood=2} 
+		} 
+
+		1043= {set_variable = { r_wood=2} 
+		} 
+
+		1044= {set_variable = { r_wood=2} 
+		} 
+
+		1045= {set_variable = { r_wood=2} 
+		} 
+
+		1046= {set_variable = { r_wood=2} 
+		} 
+
+		1047= {set_variable = { r_wood=2} 
+		} 
+
+		1048= {set_variable = { r_wood=2} 
+		} 
+
+		1049= {set_variable = { r_wood=2} 
+		} 
+
+		105= {set_variable = { r_wood=2} 
+		} 
+
+		1050= {set_variable = { r_wood=2} 
+		} 
+
+		1051= {set_variable = { r_wood=2} 
+		} 
+
+		1052= {set_variable = { r_wood=2} 
+		} 
+
+		1053= {set_variable = { r_wood=2} 
+		} 
+
+		1054= {set_variable = { r_wood=2} 
+		} 
+
+		1055= {set_variable = { r_wood = 4} 
+		} 
+
+		1056= {set_variable = { r_wood = 4} 
+		} 
+
+		1057= {set_variable = { r_wood = 4} 
+		} 
+
+		1058= {set_variable = { r_wood = 4} 
+		} 
+
+		1059= {set_variable = { r_wood = 4} 
+		} 
+
+		106= {set_variable = { r_wood = 4} 
+		} 
+
+		1060= {set_variable = { r_wood = 4} 
+		} 
+
+		1061= {set_variable = { r_wood = 4} 
+		} 
+
+		1062= {set_variable = { r_wood = 4} 
+		} 
+
+		1063= {set_variable = { r_wood = 4} 
+		} 
+
+		1064= {set_variable = { r_wood = 4} 
+		} 
+
+		1065= {set_variable = { r_wood = 4} 
+		} 
+
+		1066= {set_variable = { r_wood = 4} 
+		} 
+
+		1067= {set_variable = { r_wood = 4} 
+		} 
+
+		1068= {set_variable = { r_wood = 4} 
+		} 
+
+		1069= {set_variable = { r_wood = 4} 
+		} 
+
+		107= {set_variable = { r_wood = 4} 
+		} 
+
+		1070= {set_variable = { r_wood = 4} 
+		} 
+
+		1071= {set_variable = { r_iron = 1} 
+		} 
+
+		1072= {set_variable = { r_iron = 1} 
+		} 
+
+		1073= {set_variable = { r_iron = 1} 
+		} 
+
+		1074= {set_variable = { r_iron = 1} 
+		} 
+
+		1075= {set_variable = { r_iron = 1} 
+		} 
+
+		1076= {set_variable = { r_iron = 1} 
+		} 
+
+		1077= {set_variable = { r_iron = 1} 
+		} 
+
+		1078= {set_variable = { r_iron = 1} 
+		} 
+
+		1079= {set_variable = { r_iron = 1} 
+		} 
+
+		108= {set_variable = { r_iron = 1} 
+		} 
+
+		1080= {set_variable = { r_iron = 1} 
+		} 
+
+		1081= {set_variable = { r_iron = 1} 
+		} 
+
+		1082= {set_variable = { r_iron = 1} 
+		} 
+
+		1083= {set_variable = { r_iron = 1} 
+		} 
+
+		1084= {set_variable = { r_iron = 1} 
+		} 
+
+		1084= {set_variable = { r_iron = 1} 
+		} 
+
+		1085= {set_variable = { r_iron = 1} 
+		} 
+
+		1086= {set_variable = { r_iron = 1} 
+		} 
+
+		1087= {set_variable = { r_wood=1} 
+		set_variable = { r_iron=4} 
+		} 
+
+		1088= {set_variable = { r_wood=1} 
+		set_variable = { r_tungsten=1} 
+		set_variable = { r_chromium=1} 
+		} 
+
+		1089= {set_variable = { r_wood=1} 
+		} 
+
+		109= {set_variable = { r_wood=1} 
+		} 
+
+		1090= {set_variable = { r_oil=1} 
+		set_variable = { r_ iron=1} 
+		} 
+
+		1091= {set_variable = { r_oil=1} 
+		set_variable = { r_ iron=1} 
+		} 
+
+		1092= {set_variable = { r_oil=1} 
+		set_variable = { r_ iron=1} 
+		} 
+
+		1093= {set_variable = { r_oil=1} 
+		set_variable = { r_ iron=1} 
+		} 
+
+		1094= {set_variable = { r_oil=1} 
+		set_variable = { r_ iron=1} 
+		} 
+
+		1095= {set_variable = { r_oil=1} 
+		set_variable = { r_ iron=1} 
+		} 
+
+		1096= {set_variable = { r_oil=1} 
+		set_variable = { r_ iron=1} 
+		} 
+
+		1097= {set_variable = { r_oil=1} 
+		set_variable = { r_ iron=1} 
+		} 
+
+		1098= {set_variable = { r_oil=1} 
+		set_variable = { r_ iron=1} 
+		} 
+
+		1099= {set_variable = { r_oil=1} 
+		set_variable = { r_ iron=1} 
+		} 
+
+		11= {set_variable = { r_wood = 4} 
+		} 
+
+		110= {set_variable = { r_wood = 4} 
+		} 
+
+		1100= {set_variable = { r_wood = 4} 
+		} 
+
+		1101= {set_variable = { r_wood = 4} 
+		} 
+
+		1102= {set_variable = { r_wood = 4} 
+		} 
+
+		1103= {set_variable = { r_wood = 4} 
+		} 
+
+		1104= {set_variable = { r_wood = 4} 
+		} 
+
+		1105= {set_variable = { r_wood = 4} 
+		} 
+
+		1106= {set_variable = { r_aluminium = 2} 
+		} 
+
+		1107= {set_variable = { r_aluminium = 2} 
+		} 
+
+		1108= {set_variable = { r_aluminium = 2} 
+		} 
+
+		1109= {set_variable = { r_aluminium = 2} 
+		} 
+
+		111= {set_variable = { r_wood = 55} 
+		set_variable = { r_chromium = 2} 
+		} 
+
+		1110= {set_variable = { r_wood = 55} 
+		set_variable = { r_chromium = 2} 
+		} 
+
+		1111= {set_variable = { r_wood = 55} 
+		set_variable = { r_chromium = 2} 
+		} 
+
+		1112= {set_variable = { r_wood = 55} 
+		set_variable = { r_chromium = 2} 
+		} 
+
+		1113= {set_variable = { r_wood = 55} 
+		set_variable = { r_chromium = 2} 
+		} 
+
+		1114= {set_variable = { r_wood = 55} 
+		set_variable = { r_chromium = 2} 
+		} 
+
+		1115= {} 
+
+		1116= {} 
+
+		1117= {} 
+
+		1118= {} 
+
+		1119= {} 
+
+		112= {} 
+
+		1120= {} 
+
+		1121= {} 
+
+		1122= {} 
+
+		1123= {} 
+
+		1124= {} 
+
+		1125= {} 
+
+		1126= {} 
+
+		1127= {} 
+
+		1128= {} 
+
+		1129= {} 
+
+		113= {} 
+
+		1130= {} 
+
+		1131= {} 
+
+		1132= {} 
+
+		1133= {} 
+
+		1134= {} 
+
+		1135= {} 
+
+		1136= {} 
+
+		1137= {} 
+
+		1138= {set_variable = { r_coal = 1} 
+		set_variable = { r_iron = 1} 
+		} 
+
+		1139= {set_variable = { r_aluminium = 1} 
+		set_variable = { r_iron = 3} 
+		} 
+
+		114= {set_variable = { r_wood = 5} 
+		} 
+
+		1140= {set_variable = { r_wood = 5} 
+		} 
+
+		1141= {set_variable = { r_wood = 5} 
+		} 
+
+		1142= {set_variable = { r_wood = 5} 
+		} 
+
+		1143= {set_variable = { r_wood = 5} 
+		} 
+
+		1144= {set_variable = { r_wood = 5} 
+		} 
+
+		1145= {set_variable = { r_wood = 5} 
+		} 
+
+		1146= {set_variable = { r_wood = 5} 
+		} 
+
+		1147= {set_variable = { r_wood = 5} 
+		} 
+
+		1148= {set_variable = { r_wood = 5} 
+		} 
+
+		1149= {set_variable = { r_wood = 5} 
+		} 
+
+		115= {set_variable = { r_wood = 7} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		1150= {set_variable = { r_wood = 7} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		1151= {set_variable = { r_wood = 7} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		1152= {set_variable = { r_wood = 7} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		1153= {set_variable = { r_wood = 7} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		1154= {set_variable = { r_wood = 4} 
+		} 
+
+		1155= {set_variable = { r_wood = 4} 
+		} 
+
+		1156= {set_variable = { r_wood = 4} 
+		} 
+
+		1157= {set_variable = { r_wood = 4} 
+		} 
+
+		1158= {set_variable = { r_wood = 4} 
+		} 
+
+		1159= {set_variable = { r_wood = 4} 
+		} 
+
+		116= {set_variable = { r_wood = 4} 
+		} 
+
+		1160= {set_variable = { r_wood = 4} 
+		} 
+
+		1161= {set_variable = { r_wood = 4} 
+		} 
+
+		1162= {set_variable = { r_wood = 4} 
+		} 
+
+		1163= {set_variable = { r_wood = 4} 
+		} 
+
+		1164= {set_variable = { r_wood = 4} 
+		} 
+
+		1165= {set_variable = { r_wood = 4} 
+		} 
+
+		1166= {set_variable = { r_wood = 4} 
+		} 
+
+		1167= {set_variable = { r_wood = 4} 
+		} 
+
+		1168= {set_variable = { r_wood = 4} 
+		} 
+
+		1169= {set_variable = { r_wood = 4} 
+		} 
+
+		117= {set_variable = { r_wood = 4} 
+		} 
+
+		1170= {set_variable = { r_wood = 4} 
+		} 
+
+		1171= {set_variable = { r_wood = 4} 
+		} 
+
+		1172= {set_variable = { r_wood = 4} 
+		} 
+
+		1173= {set_variable = { r_wood = 4} 
+		} 
+
+		1174= {set_variable = { r_wood = 4} 
+		} 
+
+		1175= {set_variable = { r_wood = 4} 
+		} 
+
+		1176= {set_variable = { r_wood = 4} 
+		} 
+
+		1177= {set_variable = { r_wood = 4} 
+		} 
+
+		1178= {set_variable = { r_wood = 4} 
+		} 
+
+		1179= {set_variable = { r_wood = 4} 
+		} 
+
+		118= {set_variable = { r_wood = 4} 
+		} 
+
+		1180= {set_variable = { r_wood = 4} 
+		} 
+
+		1181= {set_variable = { r_wood = 4} 
+		} 
+
+		1182= {set_variable = { r_wood = 4} 
+		} 
+
+		1183= {set_variable = { r_wood = 4} 
+		} 
+
+		1184= {set_variable = { r_wood = 4} 
+		} 
+
+		1185= {set_variable = { r_wood = 4} 
+		} 
+
+		1186= {set_variable = { r_wood = 4} 
+		} 
+
+		1187= {set_variable = { r_wood = 4} 
+		} 
+
+		1188= {set_variable = { r_wood = 4} 
+		} 
+
+		1189= {set_variable = { r_wood = 4} 
+		} 
+
+		119= {set_variable = { r_wood = 4} 
+		} 
+
+		1190= {set_variable = { r_wood = 4} 
+		} 
+
+		1191= {set_variable = { r_wood = 4} 
+		} 
+
+		1192= {set_variable = { r_wood = 4} 
+		} 
+
+		1193= {set_variable = { r_wood = 4} 
+		} 
+
+		1194= {set_variable = { r_wood = 4} 
+		} 
+
+		1195= {set_variable = { r_wood = 4} 
+		} 
+
+		1196= {set_variable = { r_wood = 4} 
+		} 
+
+		1197= {set_variable = { r_wood = 4} 
+		} 
+
+		1198= {set_variable = { r_wood = 4} 
+		} 
+
+		1199= {set_variable = { r_wood = 4} 
+		} 
+
+		12= {set_variable = { r_wood = 4} 
+		} 
+
+		120= {set_variable = { r_wood = 4} 
+		} 
+
+		1200= {set_variable = { r_wood = 4} 
+		} 
+
+		1201= {set_variable = { r_wood = 4} 
+		} 
+
+		1202= {set_variable = { r_wood = 4} 
+		} 
+
+		1203= {set_variable = { r_wood = 4} 
+		} 
+
+		1204= {set_variable = { r_wood = 4} 
+		} 
+
+		1205= {set_variable = { r_wood = 4} 
+		} 
+
+		1206= {set_variable = { r_wood = 4} 
+		} 
+
+		1207= {set_variable = { r_wood = 4} 
+		} 
+
+		1208= {set_variable = { r_wood = 4} 
+		} 
+
+		1209= {set_variable = { r_wood = 4} 
+		} 
+
+		121= {set_variable = { r_wood=2} 
+		} 
+
+		1210= {} 
+
+		1211= {} 
+
+		1212= {} 
+
+		1213= {} 
+
+		1214= {} 
+
+		1215= {} 
+
+		1216= {} 
+
+		1217= {} 
+
+		1218= {set_variable = { r_iron = 3} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		1219= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		122= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		1220= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		1221= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		1222= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		1223= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		1224= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		1225= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		1226= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		1227= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		1228= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		1229= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		123= {set_variable = { r_wood = 4} 
+		set_variable = { r_iron = 4} 
+		} 
+
+		1230= {set_variable = { r_wood = 4} 
+		set_variable = { r_iron = 4} 
+		} 
+
+		1231= {set_variable = { r_wood = 4} 
+		set_variable = { r_iron = 4} 
+		} 
+
+		1232= {set_variable = { r_wood = 4} 
+		set_variable = { r_iron = 4} 
+		} 
+
+		1233= {set_variable = { r_wood = 4} 
+		set_variable = { r_iron = 4} 
+		} 
+
+		1234= {set_variable = { r_wood = 4} 
+		set_variable = { r_iron = 4} 
+		} 
+
+		1235= {set_variable = { r_wood = 4} 
+		set_variable = { r_iron = 4} 
+		} 
+
+		1236= {set_variable = { r_wood = 4} 
+		set_variable = { r_iron = 4} 
+		} 
+
+		1237= {} 
+
+		1238= {set_variable = { r_iron = 1} 
+		set_variable = { r_chromium = 1} 
+		} 
+
+		1239= {set_variable = { r_iron = 1} 
+		set_variable = { r_chromium = 1} 
+		} 
+
+		124= {set_variable = { r_wood = 2} 
+		} 
+
+		1240= {set_variable = { r_wood = 2} 
+		} 
+
+		1241= {set_variable = { r_wood = 2} 
+		} 
+
+		1242= {set_variable = { r_wood = 2} 
+		} 
+
+		1243= {set_variable = { r_wood = 2} 
+		} 
+
+		1244= {set_variable = { r_wood = 2} 
+		} 
+
+		1245= {set_variable = { r_wood = 2} 
+		} 
+
+		1246= {set_variable = { r_wood = 2} 
+		} 
+
+		1247= {set_variable = { r_wood = 2} 
+		} 
+
+		1248= {set_variable = { r_wood = 2} 
+		} 
+
+		1249= {set_variable = { r_wood = 2} 
+		} 
+
+		125= {set_variable = { r_wood = 6} 
+		} 
+
+		1250= {set_variable = { r_wood = 6} 
+		} 
+
+		1251= {set_variable = { r_wood = 6} 
+		} 
+
+		1252= {set_variable = { r_wood = 6} 
+		} 
+
+		1253= {set_variable = { r_wood = 6} 
+		} 
+
+		1254= {set_variable = { r_wood = 6} 
+		} 
+
+		1255= {set_variable = { r_wood = 6} 
+		} 
+
+		1256= {set_variable = { r_wood = 6} 
+		} 
+
+		1257= {set_variable = { r_wood = 6} 
+		} 
+
+		1258= {set_variable = { r_wood = 6} 
+		} 
+
+		1259= {set_variable = { r_wood = 6} 
+		} 
+
+		126= {set_variable = { r_wood = 12} 
+		} 
+
+		1260= {set_variable = { r_wood = 12} 
+		} 
+
+		1261= {set_variable = { r_wood=1} 
+		set_variable = { r_coal=1} 
+		} 
+
+		1262= {set_variable = { r_wood=2} 
+		set_variable = { r_coal=1} 
+		} 
+
+		1263= {set_variable = { r_wood=2} 
+		set_variable = { r_coal=1} 
+		} 
+
+		1264= {set_variable = { r_wood=2} 
+		set_variable = { r_coal=1} 
+		} 
+
+		1265= {set_variable = { r_aluminium = 2} 
+		} 
+
+		1266= {set_variable = { r_aluminium = 2} 
+		} 
+
+		1267= {set_variable = { r_aluminium = 2} 
+		} 
+
+		1268= {set_variable = { r_aluminium = 2} 
+		} 
+
+		1269= {set_variable = { r_aluminium = 2} 
+		} 
+
+		127= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1270= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1271= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1272= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1273= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1274= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1275= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1276= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1277= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1278= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1279= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		128= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1280= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1281= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1282= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1283= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1284= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1285= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1286= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1287= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1288= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1289= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		129= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1290= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1291= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1292= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1293= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1294= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1295= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1296= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1297= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1298= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1299= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		13= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		130= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1300= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1301= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1302= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1303= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1304= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1305= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1306= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1307= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1308= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1309= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		131= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1310= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1311= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1312= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1313= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1314= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1315= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1316= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1317= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1318= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1319= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		132= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1320= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		1321= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		133= {set_variable = { r_wood = 8} 
+		set_variable = { r_iron = 8} 
+		} 
+
+		134= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		135= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		136= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		137= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		138= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		139= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		14= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		140= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		141= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		142= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		143= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		144= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		145= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		146= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		147= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		148= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		149= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		15= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		150= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		151= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		152= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		153= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		154= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		155= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		156= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		157= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		158= {set_variable = { r_iron= 5} 
+		set_variable = { r_wood = 14} 
+		} 
+
+		159= {set_variable = { r_coal = 4} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		16= {set_variable = { r_coal = 4} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		160= {set_variable = { r_coal = 4} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		161= {set_variable = { r_coal = 4} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		162= {set_variable = { r_coal = 4} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		163= {set_variable = { r_coal = 4} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		164= {set_variable = { r_coal = 4} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		165= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		166= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		167= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		168= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		169= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		17= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		170= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		171= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		172= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		173= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		174= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		175= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		176= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		177= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		178= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		179= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		18= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		180= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		181= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		182= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		183= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		184= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		185= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		186= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		187= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		188= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		189= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		19= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		190= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		191= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		192= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		193= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		194= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		195= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		196= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		197= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		198= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		199= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		2= {set_variable = { r_wood = 2} 
+		set_variable = { r_cotton = 2} 
+		} 
+
+		20= {set_variable = { r_wood = 2} 
+		set_variable = { r_cotton = 2} 
+		} 
+
+		200= {set_variable = { r_wood = 2} 
+		set_variable = { r_cotton = 2} 
+		} 
+
+		201= {set_variable = { r_wood = 2} 
+		set_variable = { r_cotton = 2} 
+		} 
+
+		202= {set_variable = { r_wood = 2} 
+		set_variable = { r_cotton = 2} 
+		} 
+
+		203= {set_variable = { r_wood = 10} 
+		} 
+
+		204= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		205= {set_variable = { r_wood = 10} 
+		} 
+
+		206= {set_variable = { r_wood = 12} 
+		set_variable = { r_iron = 4} 
+		} 
+
+		207= {set_variable = { r_wood = 12} 
+		set_variable = { r_iron = 3} 
+		} 
+
+		208= {set_variable = { r_wood = 14} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		209= {set_variable = { r_wood = 10} 
+		} 
+
+		21= {set_variable = { r_wood = 10} 
+		} 
+
+		210= {set_variable = { r_wood = 16} 
+		} 
+
+		211= {set_variable = { r_wood = 8} 
+		set_variable = { r_oil = 4} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		212= {set_variable = { r_iron = 2} 
+		set_variable = { r_coal = 8} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		213= {set_variable = { r_iron = 2} 
+		set_variable = { r_coal = 8} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		214= {set_variable = { r_iron = 2} 
+		set_variable = { r_coal = 8} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		215= {set_variable = { r_iron = 2} 
+		set_variable = { r_coal = 8} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		216= {set_variable = { r_wood = 12} 
+		} 
+
+		217= {set_variable = { r_wood = 8} 
+		} 
+
+		218= {set_variable = { r_iron = 4} 
+		set_variable = { r_coal = 6} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		219= {set_variable = { r_iron = 4} 
+		set_variable = { r_coal = 6} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		22= {set_variable = { r_iron = 4} 
+		set_variable = { r_coal = 6} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		220= {set_variable = { r_wood = 18} 
+		} 
+
+		221= {set_variable = { r_wood = 18} 
+		} 
+
+		222= {set_variable = { r_wood = 18} 
+		} 
+
+		223= {set_variable = { r_wood = 18} 
+		} 
+
+		224= {set_variable = { r_wood = 16} 
+		} 
+
+		225= {set_variable = { r_wood = 4} 
+		} 
+
+		226= {set_variable = { r_wood = 4} 
+		} 
+
+		227= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 4} 
+		} 
+
+		228= {set_variable = { r_wood = 8} 
+		set_variable = { r_coal = 4} 
+		} 
+
+		229= {set_variable = { r_wood = 8} 
+		set_variable = { r_coal = 4} 
+		} 
+
+		23= {set_variable = { r_wood = 8} 
+		set_variable = { r_coal = 4} 
+		} 
+
+		230= {set_variable = { r_iron = 4} 
+		set_variable = { r_chromium = 1} 
+		} 
+
+		231= {set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 4} 
+		} 
+
+		232= {set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 4} 
+		} 
+
+		233= {set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 4} 
+		} 
+
+		234= {set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 4} 
+		} 
+
+		235= {set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 4} 
+		} 
+
+		236= {set_variable = { r_oil = 4} 
+		} 
+
+		237= {set_variable = { r_oil = 4} 
+		} 
+
+		238= {set_variable = { r_wood = 10} 
+		} 
+
+		239= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 4} 
+		} 
+
+		24= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 4} 
+		} 
+
+		240= {set_variable = { r_wood = 2} 
+		set_variable = { r_coal = 4} 
+		} 
+
+		241= {set_variable = { r_wood = 4} 
+		} 
+
+		242= {set_variable = { r_wood = 8} 
+		} 
+
+		243= {set_variable = { r_wood = 4} 
+		set_variable = { r_iron = 2} 
+		} 
+
+		244= {set_variable = { r_wood=12} 
+		set_variable = { r_iron=3} 
+		} 
+
+		245= {set_variable = { r_wood = 6} 
+		set_variable = { r_coal = 5} 
+		} 
+
+		246= {set_variable = { r_wood = 6} 
+		set_variable = { r_coal = 5} 
+		} 
+
+		247= {set_variable = { r_wood=18} 
+		set_variable = { r_iron=6} 
+		set_variable = { r_coal=15} 
+		} 
+
+		248= {set_variable = { r_wood=18} 
+		set_variable = { r_iron=6} 
+		set_variable = { r_coal=15} 
+		} 
+
+		249= {set_variable = { r_wood=18} 
+		set_variable = { r_iron=6} 
+		set_variable = { r_coal=15} 
+		} 
+
+		25= {set_variable = { r_wood=18} 
+		set_variable = { r_iron=6} 
+		set_variable = { r_coal=15} 
+		} 
+
+		250= {set_variable = { r_wood=18} 
+		set_variable = { r_iron=6} 
+		set_variable = { r_coal=15} 
+		} 
+
+		251= {set_variable = { r_wood=18} 
+		set_variable = { r_iron=6} 
+		set_variable = { r_coal=15} 
+		} 
+
+		252= {set_variable = { r_wood=18} 
+		set_variable = { r_iron=6} 
+		set_variable = { r_coal=15} 
+		} 
+
+		253= {set_variable = { r_wood=18} 
+		set_variable = { r_iron=6} 
+		set_variable = { r_coal=15} 
+		} 
+
+		254= {set_variable = { r_coal=5} 
+		set_variable = { r_wood=4} 
+		} 
+
+		255= {set_variable = { r_coal=5} 
+		set_variable = { r_wood=4} 
+		} 
+
+		256= {set_variable = { r_coal=5} 
+		set_variable = { r_wood=4} 
+		} 
+
+		257= {set_variable = { r_coal=5} 
+		set_variable = { r_wood=4} 
+		} 
+
+		258= {set_variable = { r_coal=5} 
+		set_variable = { r_wood=4} 
+		} 
+
+		259= {set_variable = { r_coal=5} 
+		set_variable = { r_wood=4} 
+		} 
+
+		26= {set_variable = { r_coal=5} 
+		set_variable = { r_wood=4} 
+		} 
+
+		260= {set_variable = { r_coal=5} 
+		set_variable = { r_wood=4} 
+		} 
+
+		261= {set_variable = { r_coal=5} 
+		set_variable = { r_wood=4} 
+		} 
+
+		262= {set_variable = { r_coal=5} 
+		set_variable = { r_wood=4} 
+		} 
+
+		263= {set_variable = { r_coal=5} 
+		set_variable = { r_wood=4} 
+		} 
+
+		264= {set_variable = { r_iron=10} 
+		set_variable = { r_coal=15} 
+		set_variable = { r_wood=6} 
+		} 
+
+		265= {set_variable = { r_iron=10} 
+		set_variable = { r_coal=15} 
+		set_variable = { r_wood=6} 
+		} 
+
+		266= {set_variable = { r_iron=10} 
+		set_variable = { r_coal=15} 
+		set_variable = { r_wood=6} 
+		} 
+
+		267= {set_variable = { r_iron=10} 
+		set_variable = { r_coal=15} 
+		set_variable = { r_wood=6} 
+		} 
+
+		268= {set_variable = { r_iron=10} 
+		set_variable = { r_coal=15} 
+		set_variable = { r_wood=6} 
+		} 
+
+		269= {set_variable = { r_iron=10} 
+		set_variable = { r_coal=15} 
+		set_variable = { r_wood=6} 
+		} 
+
+		27= {set_variable = { r_iron=10} 
+		set_variable = { r_coal=15} 
+		set_variable = { r_wood=6} 
+		} 
+
+		270= {set_variable = { r_iron=10} 
+		set_variable = { r_coal=15} 
+		set_variable = { r_wood=6} 
+		} 
+
+		271= {set_variable = { r_iron=10} 
+		set_variable = { r_coal=15} 
+		set_variable = { r_wood=6} 
+		} 
+
+		272= {set_variable = { r_iron=10} 
+		set_variable = { r_coal=15} 
+		set_variable = { r_wood=6} 
+		} 
+
+		273= {set_variable = { r_iron=10} 
+		set_variable = { r_coal=15} 
+		set_variable = { r_wood=6} 
+		} 
+
+		274= {set_variable = { r_iron=10} 
+		set_variable = { r_coal=15} 
+		set_variable = { r_wood=6} 
+		} 
+
+		275= {set_variable = { r_iron=10} 
+		set_variable = { r_coal=15} 
+		set_variable = { r_wood=6} 
+		} 
+
+		276= {set_variable = { r_iron=10} 
+		set_variable = { r_coal=15} 
+		set_variable = { r_wood=6} 
+		} 
+
+		277= {set_variable = { r_iron=10} 
+		set_variable = { r_coal=15} 
+		set_variable = { r_wood=6} 
+		} 
+
+		278= {set_variable = { r_iron=1} 
+		} 
+
+		279= {set_variable = { r_iron=1} 
+		} 
+
+		28= {set_variable = { r_iron=1} 
+		} 
+
+		280= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		281= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		282= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		283= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		284= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		285= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		286= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		287= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		288= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		289= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		29= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		290= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		291= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		292= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		293= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		294= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		295= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		296= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		297= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		298= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		299= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		3= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		30= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		300= {set_variable = { r_wood = 78} 
+		set_variable = { r_iron = 30} 
+		} 
+
+		301= {set_variable = { r_wood = 4} 
+		set_variable = { r_iron = 3} 
+		} 
+
+		302= {set_variable = { r_wood = 4} 
+		set_variable = { r_iron = 3} 
+		} 
+
+		303= {set_variable = { r_wood = 4} 
+		set_variable = { r_iron = 3} 
+		} 
+
+		304= {set_variable = { r_wood = 4} 
+		set_variable = { r_iron = 3} 
+		} 
+
+		305= {set_variable = { r_wood = 4} 
+		set_variable = { r_iron = 3} 
+		} 
+
+		306= {set_variable = { r_wood = 6} 
+		set_variable = { r_iron =4} 
+		set_variable = { r_coal = 6} 
+		} 
+
+		307= {set_variable = { r_wood = 6} 
+		set_variable = { r_iron =4} 
+		set_variable = { r_coal = 6} 
+		} 
+
+		308= {set_variable = { r_wood = 6} 
+		set_variable = { r_iron =4} 
+		set_variable = { r_coal = 6} 
+		} 
+
+		309= {set_variable = { r_wood = 6} 
+		set_variable = { r_iron =4} 
+		set_variable = { r_coal = 6} 
+		} 
+
+		31= {set_variable = { r_wood = 6} 
+		set_variable = { r_iron =4} 
+		set_variable = { r_coal = 6} 
+		} 
+
+		310= {set_variable = { r_wood = 6} 
+		set_variable = { r_iron =4} 
+		set_variable = { r_coal = 6} 
+		} 
+
+		311= {set_variable = { r_wood = 8} 
+		} 
+
+		312= {set_variable = { r_wood = 8} 
+		} 
+
+		313= {set_variable = { r_wood = 8} 
+		} 
+
+		314= {set_variable = { r_wood = 8} 
+		} 
+
+		315= {set_variable = { r_wood = 8} 
+		} 
+
+		316= {set_variable = { r_wood = 8} 
+		} 
+
+		317= {set_variable = { r_wood = 8} 
+		} 
+
+		318= {set_variable = { r_wood = 8} 
+		} 
+
+		319= {set_variable = { r_wood = 8} 
+		} 
+
+		32= {set_variable = { r_wood = 8} 
+		} 
+
+		320= {set_variable = { r_wood = 8} 
+		} 
+
+		321= {set_variable = { r_wood = 8} 
+		} 
+
+		322= {set_variable = { r_wood = 8} 
+		} 
+
+		323= {set_variable = { r_wood = 8} 
+		} 
+
+		324= {set_variable = { r_wood = 8} 
+		} 
+
+		325= {set_variable = { r_wood = 8} 
+		} 
+
+		326= {set_variable = { r_wood = 8} 
+		} 
+
+		327= {set_variable = { r_wood = 8} 
+		} 
+
+		328= {set_variable = { r_wood = 8} 
+		} 
+
+		329= {set_variable = { r_wood = 8} 
+		} 
+
+		33= {set_variable = { r_wood = 8} 
+		} 
+
+		330= {set_variable = { r_wood = 8} 
+		} 
+
+		331= {set_variable = { r_wood = 8} 
+		} 
+
+		332= {set_variable = { r_wood = 8} 
+		} 
+
+		333= {set_variable = { r_wood = 8} 
+		} 
+
+		334= {set_variable = { r_wood = 8} 
+		} 
+
+		335= {set_variable = { r_wood = 8} 
+		} 
+
+		336= {set_variable = { r_wood = 8} 
+		} 
+
+		337= {set_variable = { r_wood = 8} 
+		} 
+
+		338= {set_variable = { r_wood = 8} 
+		} 
+
+		339= {set_variable = { r_wood = 8} 
+		} 
+
+		34= {set_variable = { r_wood = 8} 
+		} 
+
+		340= {set_variable = { r_wood = 8} 
+		} 
+
+		341= {set_variable = { r_wood = 8} 
+		} 
+
+		342= {set_variable = { r_wood = 8} 
+		} 
+
+		343= {set_variable = { r_wood = 8} 
+		} 
+
+		344= {set_variable = { r_iron=10} 
+		set_variable = { r_oil=4} 
+		} 
+
+		345= {set_variable = { r_iron=10} 
+		set_variable = { r_oil=4} 
+		} 
+
+		346= {set_variable = { r_iron=10} 
+		set_variable = { r_oil=4} 
+		} 
+
+		347= {set_variable = { r_iron=10} 
+		set_variable = { r_oil=4} 
+		} 
+
+		348= {set_variable = { r_iron=10} 
+		set_variable = { r_oil=4} 
+		} 
+
+		349= {set_variable = { r_iron=6} 
+		set_variable = { r_oil=2} 
+		} 
+
+		35= {set_variable = { r_iron=6} 
+		set_variable = { r_oil=2} 
+		} 
+
+		350= {set_variable = { r_oil=3} 
+		} 
+
+		351= {set_variable = { r_coal=12} 
+		set_variable = { r_iron=10} 
+		} 
+
+		352= {set_variable = { r_iron=12} 
+		set_variable = { r_oil=3} 
+		} 
+
+		353= {set_variable = { r_iron=12} 
+		set_variable = { r_oil=3} 
+		} 
+
+		354= {set_variable = { r_iron=12} 
+		set_variable = { r_oil=3} 
+		} 
+
+		355= {set_variable = { r_coal=16} 
+		} 
+
+		356= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		357= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		358= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		359= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		36= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		360= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		361= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		362= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		363= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		364= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		365= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		366= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		367= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		368= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		369= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		37= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		370= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		371= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		372= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		373= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		374= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		375= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		376= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		377= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		378= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		379= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		38= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		380= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		381= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		382= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		383= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		384= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		385= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		386= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		387= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		388= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		389= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		39= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		390= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		391= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		392= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		393= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		394= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		395= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		396= {set_variable = { r_coal = 22} 
+		set_variable = { r_chromium=4} 
+		} 
+
+		397= {set_variable = { r_wood=6} 
+		} 
+
+		398= {set_variable = { r_wood=6} 
+		} 
+
+		399= {set_variable = { r_wood=6} 
+		} 
+
+		4= {set_variable = { r_wood=6} 
+		} 
+
+		40= {set_variable = { r_wood=6} 
+		} 
+
+		400= {set_variable = { r_wood=6} 
+		} 
+
+		401= {set_variable = { r_wood=6} 
+		} 
+
+		402= {set_variable = { r_wood=6} 
+		} 
+
+		403= {set_variable = { r_wood=6} 
+		} 
+
+		404= {set_variable = { r_wood=6} 
+		} 
+
+		405= {set_variable = { r_iron=5} 
+		set_variable = { r_tungsten=1} 
+		} 
+
+		406= {set_variable = { r_iron=5} 
+		set_variable = { r_tungsten=1} 
+		} 
+
+		407= {set_variable = { r_wood=5} 
+		} 
+
+		408= {set_variable = { r_wood=5} 
+		} 
+
+		409= {set_variable = { r_wood=5} 
+		} 
+
+		41= {set_variable = { r_wood=5} 
+		} 
+
+		410= {set_variable = { r_iron=8} 
+		set_variable = { r_oil=2} 
+		} 
+
+		411= {set_variable = { r_iron=8} 
+		set_variable = { r_oil=2} 
+		} 
+
+		412= {set_variable = { r_iron=8} 
+		set_variable = { r_oil=2} 
+		} 
+
+		413= {set_variable = { r_iron=8} 
+		set_variable = { r_oil=2} 
+		} 
+
+		414= {set_variable = { r_iron=8} 
+		set_variable = { r_oil=2} 
+		} 
+
+		415= {set_variable = { r_iron=8} 
+		set_variable = { r_oil=2} 
+		} 
+
+		416= {set_variable = { r_iron=1} 
+		set_variable = { r_tungsten=3} 
+		} 
+
+		417= {set_variable = { r_iron=1} 
+		set_variable = { r_tungsten=3} 
+		} 
+
+		418= {set_variable = { r_iron=1} 
+		set_variable = { r_tungsten=3} 
+		} 
+
+		419= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=3} 
+		set_variable = { r_coal=16} 
+		} 
+
+		42= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=3} 
+		set_variable = { r_coal=16} 
+		} 
+
+		420= {set_variable = { r_wood=10} 
+		} 
+
+		421= {set_variable = { r_wood=10} 
+		} 
+
+		422= {set_variable = { r_wood=10} 
+		} 
+
+		423= {set_variable = { r_wood=10} 
+		} 
+
+		424= {set_variable = { r_iron=8} 
+		set_variable = { r_wood=15} 
+		} 
+
+		425= {set_variable = { r_iron=8} 
+		set_variable = { r_wood=15} 
+		} 
+
+		426= {set_variable = { r_iron=8} 
+		set_variable = { r_wood=15} 
+		} 
+
+		427= {set_variable = { r_iron=8} 
+		set_variable = { r_wood=15} 
+		} 
+
+		428= {set_variable = { r_iron=8} 
+		set_variable = { r_wood=15} 
+		} 
+
+		429= {set_variable = { r_iron=8} 
+		set_variable = { r_wood=15} 
+		} 
+
+		43= {set_variable = { r_iron=8} 
+		set_variable = { r_wood=15} 
+		} 
+
+		430= {set_variable = { r_iron=3} 
+		set_variable = { r_oil=2} 
+		set_variable = { r_coal=17} 
+		} 
+
+		431= {set_variable = { r_iron=3} 
+		set_variable = { r_oil=2} 
+		set_variable = { r_coal=17} 
+		} 
+
+		432= {set_variable = { r_iron=3} 
+		set_variable = { r_oil=2} 
+		set_variable = { r_coal=17} 
+		} 
+
+		433= {set_variable = { r_iron=3} 
+		set_variable = { r_oil=2} 
+		set_variable = { r_coal=17} 
+		} 
+
+		434= {set_variable = { r_iron=3} 
+		set_variable = { r_oil=2} 
+		set_variable = { r_coal=17} 
+		} 
+
+		435= {set_variable = { r_wood = 36} 
+		set_variable = { r_cotton = 10} 
+		} 
+
+		436= {set_variable = { r_wood = 36} 
+		set_variable = { r_cotton = 10} 
+		} 
+
+		437= {set_variable = { r_iron=3} 
+		set_variable = { r_wood=6} 
+		} 
+
+		438= {set_variable = { r_iron=4} 
+		set_variable = { r_wood=3} 
+		} 
+
+		439= {set_variable = { r_iron=10} 
+		set_variable = { r_oil=1} 
+		set_variable = { r_coal=17} 
+		set_variable = { r_cotton = 12} 
+		} 
+
+		44= {set_variable = { r_iron=10} 
+		set_variable = { r_oil=1} 
+		set_variable = { r_coal=17} 
+		set_variable = { r_cotton = 12} 
+		} 
+
+		440= {set_variable = { r_oil=10} 
+		} 
+
+		441= {set_variable = { r_iron=6} 
+		} 
+
+		442= {set_variable = { r_chromium=1} 
+		set_variable = { r_iron=5} 
+		} 
+
+		443= {set_variable = { r_chromium=1} 
+		set_variable = { r_iron=5} 
+		} 
+
+		444= {set_variable = { r_oil=1} 
+		set_variable = { r_wood=6} 
+		} 
+
+		445= {set_variable = { r_tungsten=3} 
+		set_variable = { r_wood=6} 
+		} 
+
+		446= {set_variable = { r_iron=1} 
+		set_variable = { r_wood=8} 
+		} 
+
+		447= {set_variable = { r_iron=1} 
+		set_variable = { r_wood=8} 
+		} 
+
+		448= {set_variable = { r_wood=3} 
+		} 
+
+		449= {set_variable = { r_iron=3} 
+		set_variable = { r_tungsten=1} 
+		} 
+
+		45= {set_variable = { r_iron=3} 
+		set_variable = { r_tungsten=1} 
+		} 
+
+		450= {set_variable = { r_iron=3} 
+		set_variable = { r_tungsten=1} 
+		} 
+
+		451= {set_variable = { r_wood=12} 
+		} 
+
+		452= {set_variable = { r_wood=12} 
+		} 
+
+		453= {set_variable = { r_tungsten = 1} 
+		} 
+
+		454= {set_variable = { r_oil=1} 
+		} 
+
+		455= {set_variable = { r_iron=3} 
+		} 
+
+		456= {set_variable = { r_wood=18} 
+		} 
+
+		457= {set_variable = { r_wood=18} 
+		} 
+
+		458= {set_variable = { r_wood=18} 
+		} 
+
+		459= {set_variable = { r_wood=18} 
+		} 
+
+		46= {set_variable = { r_wood=18} 
+		} 
+
+		460= {set_variable = { r_wood=18} 
+		} 
+
+		461= {set_variable = { r_iron=5} 
+		set_variable = { r_coal=3} 
+		set_variable = { r_wood=4} 
+		} 
+
+		462= {set_variable = { r_wood=5} 
+		} 
+
+		463= {set_variable = { r_wood=5} 
+		} 
+
+		464= {set_variable = { r_iron=2} 
+		set_variable = { r_oil=1} 
+		} 
+
+		465= {set_variable = { r_iron=1} 
+		set_variable = { r_chromium=1} 
+		} 
+
+		466= {set_variable = { r_iron=1} 
+		set_variable = { r_chromium=1} 
+		} 
+
+		467= {set_variable = { r_coal=25} 
+		} 
+
+		468= {set_variable = { r_coal=25} 
+		} 
+
+		469= {set_variable = { r_coal=25} 
+		} 
+
+		47= {set_variable = { r_coal=25} 
+		} 
+
+		470= {set_variable = { r_coal=25} 
+		} 
+
+		471= {set_variable = { r_coal=25} 
+		} 
+
+		472= {set_variable = { r_coal=25} 
+		} 
+
+		473= {set_variable = { r_coal=25} 
+		} 
+
+		474= {set_variable = { r_coal = 10} 
+		set_variable = { r_oil=1} 
+		set_variable = { r_wood=20} 
+		} 
+
+		475= {set_variable = { r_wood=7} 
+		set_variable = { r_coal=6} 
+		} 
+
+		476= {set_variable = { r_wood=9} 
+		set_variable = { r_coal=1} 
+		} 
+
+		477= {set_variable = { r_wood=8} 
+		} 
+
+		478= {set_variable = { r_wood=8} 
+		} 
+
+		479= {set_variable = { r_wood=3} 
+		set_variable = { r_iron=1} 
+		} 
+
+		48= {set_variable = { r_wood=3} 
+		set_variable = { r_iron=1} 
+		} 
+
+		480= {set_variable = { r_wood=3} 
+		set_variable = { r_iron=1} 
+		} 
+
+		481= {set_variable = { r_wood=3} 
+		set_variable = { r_iron=1} 
+		} 
+
+		482= {set_variable = { r_coal=10} 
+		set_variable = { r_wood=6} 
+		} 
+
+		483= {set_variable = { r_coal=10} 
+		set_variable = { r_wood=6} 
+		} 
+
+		484= {set_variable = { r_wood=10} 
+		set_variable = { r_coal=3} 
+		} 
+
+		485= {set_variable = { r_wood=10} 
+		set_variable = { r_coal=3} 
+		} 
+
+		486= {set_variable = { r_iron=2} 
+		set_variable = { r_coal=6} 
+		} 
+
+		487= {set_variable = { r_wood=20} 
+		set_variable = { r_iron=2} 
+		} 
+
+		488= {set_variable = { r_wood=10} 
+		set_variable = { r_iron=2} 
+		} 
+
+		489= {set_variable = { r_wood=10} 
+		set_variable = { r_iron=2} 
+		} 
+
+		49= {set_variable = { r_wood=10} 
+		set_variable = { r_iron=2} 
+		} 
+
+		490= {set_variable = { r_coal=10} 
+		set_variable = { r_wood=13} 
+		} 
+
+		491= {set_variable = { r_wood=9} 
+		set_variable = { r_iron=1} 
+		} 
+
+		492= {set_variable = { r_wood=9} 
+		set_variable = { r_iron=1} 
+		} 
+
+		493= {set_variable = { r_wood=9} 
+		set_variable = { r_iron=1} 
+		} 
+
+		494= {set_variable = { r_wood=18} 
+		} 
+
+		495= {set_variable = { r_wood=18} 
+		} 
+
+		496= {set_variable = { r_wood=18} 
+		} 
+
+		497= {set_variable = { r_wood=18} 
+		} 
+
+		498= {set_variable = { r_coal=6} 
+		} 
+
+		499= {set_variable = { r_wood=10} 
+		set_variable = { r_coal=3} 
+		set_variable = { r_chromium = 12} 
+		} 
+
+		5= {set_variable = { r_wood = 3} 
+		} 
+
+		50= {set_variable = { r_wood = 3} 
+		} 
+
+		500= {set_variable = { r_wood = 3} 
+		} 
+
+		501= {set_variable = { r_wood=2} 
+		} 
+
+		502= {set_variable = { r_wood=1} 
+		set_variable = { r_coal=1} 
+		} 
+
+		503= {set_variable = { r_wood = 3} 
+		} 
+
+		504= {set_variable = { r_wood = 30} 
+		} 
+
+		505= {set_variable = { r_wood=32} 
+		set_variable = { r_coal = 5} 
+		set_variable = { r_iron = 1} 
+		} 
+
+		506= {set_variable = { r_wood=1} 
+		} 
+
+		507= {set_variable = { r_wood=1} 
+		} 
+
+		508= {set_variable = { r_wood=1} 
+		} 
+
+		509= {set_variable = { r_wood=1} 
+		} 
+
+		51= {set_variable = { r_wood=1} 
+		} 
+
+		510= {set_variable = { r_wood=1} 
+		} 
+
+		511= {set_variable = { r_wood=1} 
+		} 
+
+		512= {set_variable = { r_wood=1} 
+		} 
+
+		513= {set_variable = { r_wood=1} 
+		set_variable = { r_iron=1} 
+		} 
+
+		514= {set_variable = { r_wood=1} 
+		set_variable = { r_iron=1} 
+		} 
+
+		515= {set_variable = { r_wood=1} 
+		set_variable = { r_iron=1} 
+		} 
+
+		516= {set_variable = { r_wood=1} 
+		set_variable = { r_iron=1} 
+		} 
+
+		517= {set_variable = { r_wood=1} 
+		set_variable = { r_iron=1} 
+		} 
+
+		518= {set_variable = { r_wood=1} 
+		set_variable = { r_iron=1} 
+		} 
+
+		519= {set_variable = { r_wood=1} 
+		set_variable = { r_iron=1} 
+		} 
+
+		52= {set_variable = { r_wood=1} 
+		set_variable = { r_iron=1} 
+		} 
+
+		520= {set_variable = { r_wood=1} 
+		set_variable = { r_iron=1} 
+		} 
+
+		521= {set_variable = { r_wood=1} 
+		set_variable = { r_iron=1} 
+		} 
+
+		522= {set_variable = { r_wood=1} 
+		set_variable = { r_iron=1} 
+		} 
+
+		523= {set_variable = { r_wood=1} 
+		set_variable = { r_iron=1} 
+		} 
+
+		524= {set_variable = { r_wood=1} 
+		set_variable = { r_iron=1} 
+		} 
+
+		525= {set_variable = { r_wood=4} 
+		} 
+
+		526= {set_variable = { r_wood=4} 
+		} 
+
+		527= {set_variable = { r_wood=4} 
+		} 
+
+		528= {set_variable = { r_wood=4} 
+		} 
+
+		529= {set_variable = { r_wood=2} 
+		set_variable = { r_coal=1} 
+		} 
+
+		53= {set_variable = { r_wood = 4} 
+		} 
+
+		530= {set_variable = { r_wood = 4} 
+		} 
+
+		531= {set_variable = { r_wood = 4} 
+		} 
+
+		532= {set_variable = { r_wood = 4} 
+		} 
+
+		533= {set_variable = { r_wood = 4} 
+		} 
+
+		534= {set_variable = { r_wood = 4} 
+		} 
+
+		535= {set_variable = { r_wood = 4} 
+		} 
+
+		536= {set_variable = { r_wood = 4} 
+		} 
+
+		537= {set_variable = { r_wood = 4} 
+		} 
+
+		538= {set_variable = { r_wood = 4} 
+		} 
+
+		539= {set_variable = { r_wood = 4} 
+		} 
+
+		54= {set_variable = { r_wood = 4} 
+		} 
+
+		540= {set_variable = { r_wood = 4} 
+		} 
+
+		541= {set_variable = { r_wood = 4} 
+		} 
+
+		542= {set_variable = { r_wood = 4} 
+		} 
+
+		543= {set_variable = { r_wood = 4} 
+		} 
+
+		544= {set_variable = { r_wood = 4} 
+		} 
+
+		545= {set_variable = { r_wood = 4} 
+		} 
+
+		546= {set_variable = { r_wood = 4} 
+		} 
+
+		547= {set_variable = { r_wood = 4} 
+		} 
+
+		548= {set_variable = { r_wood = 4} 
+		} 
+
+		549= {set_variable = { r_wood = 4} 
+		} 
+
+		55= {set_variable = { r_wood = 2} 
+		} 
+
+		550= {set_variable = { r_wood = 2} 
+		} 
+
+		551= {set_variable = { r_wood = 2} 
+		} 
+
+		552= {set_variable = { r_wood = 2} 
+		} 
+
+		553= {set_variable = { r_wood = 2} 
+		} 
+
+		554= {set_variable = { r_wood = 2} 
+		} 
+
+		555= {set_variable = { r_wood = 2} 
+		} 
+
+		556= {set_variable = { r_wood = 2} 
+		} 
+
+		557= {set_variable = { r_wood = 2} 
+		} 
+
+		558= {set_variable = { r_wood = 2} 
+		} 
+
+		559= {set_variable = { r_wood = 2} 
+		} 
+
+		56= {set_variable = { r_coal = 2} 
+		} 
+
+		560= {set_variable = { r_coal = 2} 
+		} 
+
+		561= {set_variable = { r_coal = 2} 
+		} 
+
+		562= {set_variable = { r_coal = 2} 
+		} 
+
+		563= {set_variable = { r_coal = 2} 
+		} 
+
+		564= {set_variable = { r_coal = 2} 
+		} 
+
+		565= {set_variable = { r_coal = 2} 
+		} 
+
+		566= {set_variable = { r_coal = 2} 
+		} 
+
+		567= {set_variable = { r_coal = 2} 
+		} 
+
+		568= {set_variable = { r_coal = 2} 
+		} 
+
+		569= {set_variable = { r_coal = 2} 
+		} 
+
+		57= {set_variable = { r_coal = 2} 
+		} 
+
+		570= {set_variable = { r_coal = 2} 
+		} 
+
+		571= {set_variable = { r_coal = 2} 
+		} 
+
+		572= {set_variable = { r_coal = 2} 
+		} 
+
+		573= {set_variable = { r_coal = 2} 
+		} 
+
+		574= {set_variable = { r_coal = 2} 
+		} 
+
+		575= {set_variable = { r_coal = 2} 
+		} 
+
+		576= {set_variable = { r_coal = 2} 
+		} 
+
+		577= {set_variable = { r_coal = 2} 
+		} 
+
+		578= {set_variable = { r_coal = 2} 
+		} 
+
+		579= {set_variable = { r_coal = 2} 
+		} 
+
+		58= {set_variable = { r_coal = 2} 
+		} 
+
+		580= {set_variable = { r_coal = 2} 
+		} 
+
+		581= {set_variable = { r_coal = 2} 
+		} 
+
+		582= {set_variable = { r_coal = 2} 
+		} 
+
+		583= {set_variable = { r_coal = 2} 
+		} 
+
+		584= {set_variable = { r_coal = 2} 
+		} 
+
+		585= {set_variable = { r_coal = 2} 
+		} 
+
+		586= {set_variable = { r_coal = 2} 
+		} 
+
+		587= {set_variable = { r_coal = 2} 
+		} 
+
+		588= {set_variable = { r_coal = 2} 
+		} 
+
+		589= {set_variable = { r_coal = 2} 
+		} 
+
+		59= {set_variable = { r_coal = 2} 
+		} 
+
+		590= {set_variable = { r_coal = 2} 
+		} 
+
+		591= {set_variable = { r_coal = 2} 
+		} 
+
+		592= {set_variable = { r_coal = 2} 
+		} 
+
+		593= {set_variable = { r_coal = 2} 
+		} 
+
+		594= {set_variable = { r_coal = 2} 
+		} 
+
+		595= {set_variable = { r_coal = 2} 
+		} 
+
+		596= {set_variable = { r_coal = 2} 
+		} 
+
+		597= {set_variable = { r_coal = 2} 
+		} 
+
+		598= {set_variable = { r_coal = 2} 
+		} 
+
+		599= {set_variable = { r_coal = 2} 
+		} 
+
+		6= {set_variable = { r_coal = 2} 
+		} 
+
+		60= {set_variable = { r_coal = 2} 
+		} 
+
+		600= {set_variable = { r_wood=5} 
+		set_variable = { r_iron=5} 
+		set_variable = { r_coal=2} 
+		} 
+
+		601= {set_variable = { r_wood=5} 
+		set_variable = { r_iron=5} 
+		set_variable = { r_coal=2} 
+		} 
+
+		602= {set_variable = { r_wood=5} 
+		set_variable = { r_iron=5} 
+		set_variable = { r_coal=2} 
+		} 
+
+		603= {set_variable = { r_wood=5} 
+		set_variable = { r_iron=5} 
+		set_variable = { r_coal=2} 
+		} 
+
+		604= {set_variable = { r_wood=5} 
+		set_variable = { r_iron=5} 
+		set_variable = { r_coal=2} 
+		} 
+
+		605= {set_variable = { r_wood=5} 
+		set_variable = { r_iron=5} 
+		set_variable = { r_coal=2} 
+		} 
+
+		606= {set_variable = { r_wood=5} 
+		set_variable = { r_iron=5} 
+		set_variable = { r_coal=2} 
+		} 
+
+		607= {set_variable = { r_wood=5} 
+		set_variable = { r_iron=5} 
+		set_variable = { r_coal=2} 
+		} 
+
+		608= {set_variable = { r_wood=5} 
+		set_variable = { r_iron=5} 
+		set_variable = { r_coal=2} 
+		} 
+
+		609= {set_variable = { r_wood=5} 
+		set_variable = { r_iron=5} 
+		set_variable = { r_coal=2} 
+		} 
+
+		61= {set_variable = { r_wood = 2} 
+		} 
+
+		610= {set_variable = { r_wood = 2} 
+		} 
+
+		611= {set_variable = { r_wood = 2} 
+		} 
+
+		612= {set_variable = { r_wood = 2} 
+		} 
+
+		613= {set_variable = { r_wood = 2} 
+		} 
+
+		614= {set_variable = { r_wood = 2} 
+		} 
+
+		615= {set_variable = { r_wood = 2} 
+		} 
+
+		616= {set_variable = { r_wood = 2} 
+		} 
+
+		617= {set_variable = { r_wood = 2} 
+		} 
+
+		618= {set_variable = { r_wood = 2} 
+		} 
+
+		619= {set_variable = { r_wood = 2} 
+		} 
+
+		62= {set_variable = { r_wood = 2} 
+		} 
+
+		620= {set_variable = { r_wood = 2} 
+		} 
+
+		621= {set_variable = { r_wood = 2} 
+		} 
+
+		622= {set_variable = { r_wood = 2} 
+		} 
+
+		623= {set_variable = { r_wood = 2} 
+		} 
+
+		624= {set_variable = { r_wood = 2} 
+		} 
+
+		625= {set_variable = { r_wood = 2} 
+		} 
+
+		626= {set_variable = { r_wood = 2} 
+		} 
+
+		627= {set_variable = { r_wood = 2} 
+		} 
+
+		628= {set_variable = { r_wood = 2} 
+		} 
+
+		629= {set_variable = { r_wood = 2} 
+		} 
+
+		63= {set_variable = { r_wood = 2} 
+		} 
+
+		630= {set_variable = { r_wood = 2} 
+		} 
+
+		631= {set_variable = { r_wood = 2} 
+		} 
+
+		632= {set_variable = { r_wood = 2} 
+		} 
+
+		633= {set_variable = { r_wood = 2} 
+		} 
+
+		634= {set_variable = { r_wood = 2} 
+		} 
+
+		635= {set_variable = { r_wood = 2} 
+		} 
+
+		636= {set_variable = { r_wood = 2} 
+		} 
+
+		637= {set_variable = { r_wood = 2} 
+		} 
+
+		638= {set_variable = { r_wood = 2} 
+		} 
+
+		639= {set_variable = { r_wood = 2} 
+		} 
+
+		64= {set_variable = { r_wood = 2} 
+		} 
+
+		640= {set_variable = { r_wood = 2} 
+		} 
+
+		640= {set_variable = { r_wood = 2} 
+		} 
+
+		641= {set_variable = { r_wood = 2} 
+		} 
+
+		642= {set_variable = { r_wood = 2} 
+		} 
+
+		643= {set_variable = { r_wood = 2} 
+		} 
+
+		644= {set_variable = { r_wood = 2} 
+		} 
+
+		645= {set_variable = { r_wood = 2} 
+		} 
+
+		646= {set_variable = { r_wood = 2} 
+		} 
+
+		647= {set_variable = { r_wood = 2} 
+		} 
+
+		648= {set_variable = { r_wood = 2} 
+		} 
+
+		649= {set_variable = { r_wood = 2} 
+		} 
+
+		65= {set_variable = { r_wood = 2} 
+		} 
+
+		650= {set_variable = { r_wood = 2} 
+		} 
+
+		651= {set_variable = { r_wood = 2} 
+		} 
+
+		652= {set_variable = { r_wood = 2} 
+		} 
+
+		653= {set_variable = { r_wood = 2} 
+		} 
+
+		654= {set_variable = { r_wood = 2} 
+		} 
+
+		655= {set_variable = { r_wood = 2} 
+		} 
+
+		656= {set_variable = { r_wood = 2} 
+		} 
+
+		657= {set_variable = { r_wood = 2} 
+		} 
+
+		658= {set_variable = { r_wood = 2} 
+		} 
+
+		659= {set_variable = { r_wood = 2} 
+		} 
+
+		66= {set_variable = { r_wood = 2} 
+		} 
+
+		660= {set_variable = { r_wood = 2} 
+		} 
+
+		661= {set_variable = { r_wood = 2} 
+		} 
+
+		662= {set_variable = { r_wood = 2} 
+		} 
+
+		663= {set_variable = { r_wood = 2} 
+		} 
+
+		664= {set_variable = { r_wood = 2} 
+		} 
+
+		665= {set_variable = { r_wood = 2} 
+		} 
+
+		666= {set_variable = { r_wood = 2} 
+		} 
+
+		667= {set_variable = { r_wood = 2} 
+		} 
+
+		668= {set_variable = { r_wood = 2} 
+		} 
+
+		669= {set_variable = { r_wood = 2} 
+		} 
+
+		67= {set_variable = { r_wood = 2} 
+		} 
+
+		670= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		671= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		672= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		673= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		674= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		675= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		676= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		677= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		678= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		679= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		68= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		680= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		681= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		682= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		683= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		684= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		685= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		686= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		687= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		688= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		689= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		69= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		690= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		691= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		692= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		693= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		694= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		695= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		696= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		697= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		698= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		699= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		7= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		70= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		700= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		701= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		702= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		703= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		704= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		705= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		706= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		707= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		708= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		709= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=10} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		71= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		710= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		711= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		712= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		713= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		714= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		715= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		716= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		717= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		718= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		719= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		72= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		720= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		721= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		722= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		723= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		724= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		725= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		726= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		727= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		728= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		729= {set_variable = { r_wood = 1} 
+		set_variable = { r_coal = 1} 
+		} 
+
+		73= {set_variable = { r_wood = 4} 
+		} 
+
+		730= {set_variable = { r_wood = 4} 
+		} 
+
+		731= {set_variable = { r_wood = 4} 
+		} 
+
+		732= {set_variable = { r_wood = 4} 
+		} 
+
+		733= {set_variable = { r_wood = 4} 
+		} 
+
+		734= {set_variable = { r_wood = 4} 
+		} 
+
+		735= {set_variable = { r_wood = 4} 
+		} 
+
+		736= {set_variable = { r_wood = 4} 
+		} 
+
+		737= {set_variable = { r_wood = 4} 
+		} 
+
+		738= {set_variable = { r_wood = 4} 
+		} 
+
+		739= {set_variable = { r_wood = 4} 
+		} 
+
+		74= {set_variable = { r_wood = 4} 
+		} 
+
+		740= {set_variable = { r_wood = 4} 
+		} 
+
+		741= {set_variable = { r_wood = 4} 
+		} 
+
+		742= {set_variable = { r_wood = 4} 
+		} 
+
+		743= {set_variable = { r_wood = 4} 
+		} 
+
+		743= {set_variable = { r_wood = 4} 
+		} 
+
+		744= {set_variable = { r_wood = 4} 
+		} 
+
+		744= {set_variable = { r_wood = 4} 
+		} 
+
+		745= {set_variable = { r_wood = 4} 
+		} 
+
+		745= {set_variable = { r_wood = 4} 
+		} 
+
+		746= {set_variable = { r_wood = 4} 
+		} 
+
+		746= {set_variable = { r_wood = 4} 
+		} 
+
+		747= {set_variable = { r_wood = 4} 
+		} 
+
+		747= {set_variable = { r_wood = 4} 
+		} 
+
+		748= {set_variable = { r_wood = 4} 
+		} 
+
+		748= {set_variable = { r_wood = 4} 
+		} 
+
+		749= {set_variable = { r_wood = 4} 
+		} 
+
+		749= {set_variable = { r_wood = 4} 
+		} 
+
+		75= {set_variable = { r_wood = 4} 
+		} 
+
+		750= {set_variable = { r_wood = 4} 
+		} 
+
+		750= {set_variable = { r_wood = 4} 
+		} 
+
+		751= {set_variable = { r_wood = 4} 
+		} 
+
+		751= {set_variable = { r_wood = 4} 
+		} 
+
+		752= {set_variable = { r_wood = 4} 
+		} 
+
+		752= {set_variable = { r_wood = 4} 
+		} 
+
+		753= {set_variable = { r_wood = 4} 
+		} 
+
+		753= {set_variable = { r_wood = 4} 
+		} 
+
+		754= {set_variable = { r_wood = 4} 
+		} 
+
+		754= {set_variable = { r_wood = 4} 
+		} 
+
+		755= {set_variable = { r_wood = 4} 
+		} 
+
+		755= {set_variable = { r_wood = 4} 
+		} 
+
+		756= {set_variable = { r_wood = 4} 
+		} 
+
+		756= {set_variable = { r_wood = 4} 
+		} 
+
+		757= {set_variable = { r_wood = 4} 
+		} 
+
+		757= {set_variable = { r_wood = 4} 
+		} 
+
+		758= {set_variable = { r_wood = 4} 
+		} 
+
+		758= {set_variable = { r_wood = 4} 
+		} 
+
+		759= {set_variable = { r_wood = 4} 
+		} 
+
+		759= {set_variable = { r_wood = 4} 
+		} 
+
+		76= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		760= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		760= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		761= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		761= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		762= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		762= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		763= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		764= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		765= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		766= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		767= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		768= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		769= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		77= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		770= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		771= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		772= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		773= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		774= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		775= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		776= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		777= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		778= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		779= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		78= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		780= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		781= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		782= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		783= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		784= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		785= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		786= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		787= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		788= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		789= {set_variable = { r_wood=15} 
+		set_variable = { r_iron=2} 
+		} 
+
+		79= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		790= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		791= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		792= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		793= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		794= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		795= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		796= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		797= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		798= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		799= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		8= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		80= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		800= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		801= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		802= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		803= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		804= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		805= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		806= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		807= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		808= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		809= {set_variable = { r_wood = 2} 
+		set_variable = { r_iron = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		81= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		810= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		811= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		812= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		813= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		814= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		815= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		816= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		817= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		818= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		819= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		82= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		820= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		821= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		822= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		823= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		824= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		825= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		826= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		827= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		828= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		829= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		83= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		830= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		831= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		832= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		833= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		834= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		835= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		836= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		837= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		838= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		839= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		84= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		840= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		841= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		842= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		843= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		844= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		845= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		846= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		847= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		848= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		849= {set_variable = { r_wood = 2} 
+		set_variable = { r_oil = 2} 
+		} 
+
+		85= {set_variable = { r_wood = 6} 
+		} 
+
+		850= {set_variable = { r_wood = 6} 
+		} 
+
+		851= {set_variable = { r_wood = 6} 
+		} 
+
+		852= {set_variable = { r_wood = 6} 
+		} 
+
+		853= {set_variable = { r_wood = 6} 
+		} 
+
+		854= {set_variable = { r_wood = 6} 
+		} 
+
+		855= {set_variable = { r_wood = 6} 
+		} 
+
+		856= {set_variable = { r_wood = 6} 
+		} 
+
+		857= {set_variable = { r_wood = 6} 
+		} 
+
+		858= {set_variable = { r_wood = 6} 
+		} 
+
+		859= {set_variable = { r_wood = 6} 
+		} 
+
+		86= {set_variable = { r_wood = 6} 
+		} 
+
+		860= {set_variable = { r_wood = 6} 
+		} 
+
+		861= {set_variable = { r_wood = 6} 
+		} 
+
+		862= {set_variable = { r_wood = 6} 
+		} 
+
+		863= {set_variable = { r_wood = 6} 
+		} 
+
+		864= {set_variable = { r_wood = 6} 
+		} 
+
+		865= {set_variable = { r_wood = 6} 
+		} 
+
+		866= {set_variable = { r_wood = 6} 
+		} 
+
+		867= {set_variable = { r_wood = 6} 
+		} 
+
+		868= {set_variable = { r_wood = 6} 
+		} 
+
+		869= {set_variable = { r_wood = 6} 
+		} 
+
+		87= {set_variable = { r_wood = 6} 
+		} 
+
+		870= {set_variable = { r_wood = 6} 
+		} 
+
+		871= {set_variable = { r_wood = 6} 
+		} 
+
+		872= {set_variable = { r_wood = 6} 
+		} 
+
+		873= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		874= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		875= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		876= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		877= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		878= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		879= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		88= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		880= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		881= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		882= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		883= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		884= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		885= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		886= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		887= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		888= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		889= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		89= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		890= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		891= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		892= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		893= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		894= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		895= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		896= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		897= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		898= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		899= {set_variable = { r_coal = 1} 
+		set_variable = { r_wood = 2} 
+		} 
+
+		9= {set_variable = { r_wood = 10} 
+		} 
+
+		90= {set_variable = { r_wood = 10} 
+		} 
+
+		900= {set_variable = { r_wood = 10} 
+		} 
+
+		901= {set_variable = { r_wood = 10} 
+		} 
+
+		902= {set_variable = { r_wood = 10} 
+		} 
+
+		903= {set_variable = { r_wood = 10} 
+		} 
+
+		904= {set_variable = { r_wood = 10} 
+		} 
+
+		905= {set_variable = { r_wood = 10} 
+		} 
+
+		906= {set_variable = { r_wood = 10} 
+		} 
+
+		907= {set_variable = { r_wood = 10} 
+		} 
+
+		908= {set_variable = { r_wood = 10} 
+		} 
+
+		909= {set_variable = { r_wood = 10} 
+		} 
+
+		91= {set_variable = { r_wood = 2} 
+		} 
+
+		910= {set_variable = { r_wood = 2} 
+		} 
+
+		911= {set_variable = { r_wood = 2} 
+		} 
+
+		912= {set_variable = { r_wood = 2} 
+		} 
+
+		913= {set_variable = { r_wood = 2} 
+		} 
+
+		914= {set_variable = { r_wood = 2} 
+		} 
+
+		915= {set_variable = { r_wood = 2} 
+		} 
+
+		916= {set_variable = { r_wood = 2} 
+		} 
+
+		917= {set_variable = { r_wood = 2} 
+		} 
+
+		918= {set_variable = { r_wood = 2} 
+		} 
+
+		919= {set_variable = { r_wood = 2} 
+		} 
+
+		92= {set_variable = { r_wood = 2} 
+		} 
+
+		920= {set_variable = { r_wood = 2} 
+		} 
+
+		921= {set_variable = { r_wood = 2} 
+		} 
+
+		922= {set_variable = { r_wood = 2} 
+		} 
+
+		923= {set_variable = { r_wood = 2} 
+		} 
+
+		924= {set_variable = { r_wood = 2} 
+		} 
+
+		925= {set_variable = { r_wood = 2} 
+		} 
+
+		926= {set_variable = { r_wood = 2} 
+		} 
+
+		927= {set_variable = { r_wood = 2} 
+		} 
+
+		928= {set_variable = { r_wood = 2} 
+		} 
+
+		929= {set_variable = { r_wood = 2} 
+		} 
+
+		93= {set_variable = { r_wood = 2} 
+		} 
+
+		930= {set_variable = { r_wood = 2} 
+		} 
+
+		931= {set_variable = { r_wood = 2} 
+		} 
+
+		932= {set_variable = { r_wood = 2} 
+		} 
+
+		933= {set_variable = { r_wood = 2} 
+		} 
+
+		934= {set_variable = { r_wood = 2} 
+		} 
+
+		935= {set_variable = { r_wood = 2} 
+		} 
+
+		936= {set_variable = { r_wood = 2} 
+		} 
+
+		937= {set_variable = { r_wood = 2} 
+		} 
+
+		938= {set_variable = { r_wood = 2} 
+		} 
+
+		939= {set_variable = { r_wood = 2} 
+		} 
+
+		94= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		940= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		941= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		942= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		943= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		944= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		945= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		946= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		947= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		948= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		949= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		95= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		950= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		951= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		952= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		953= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		954= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		955= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		956= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		957= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		958= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		959= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		96= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		960= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		961= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		962= {set_variable = { r_wood = 4} 
+		set_variable = { r_coal = 2} 
+		} 
+
+		963= {set_variable = { r_wood=2} 
+		} 
+
+		964= {set_variable = { r_iron=1} 
+		set_variable = { r_wood=2} 
+		} 
+
+		965= {set_variable = { r_iron=1} 
+		set_variable = { r_wood=2} 
+		} 
+
+		966= {set_variable = { r_aluminium=10} 
+		set_variable = { r_iron=2} 
+		} 
+
+		967= {set_variable = { r_aluminium=10} 
+		set_variable = { r_iron=2} 
+		} 
+
+		968= {set_variable = { r_aluminium=10} 
+		set_variable = { r_iron=2} 
+		} 
+
+		969= {set_variable = { r_iron=1} 
+		set_variable = { r_aluminium=2} 
+		} 
+
+		97= {set_variable = { r_iron=1} 
+		set_variable = { r_aluminium=2} 
+		} 
+
+		970= {set_variable = { r_iron=1} 
+		set_variable = { r_aluminium=2} 
+		} 
+
+		971= {set_variable = { r_iron=1} 
+		set_variable = { r_aluminium=2} 
+		} 
+
+		972= {set_variable = { r_iron=1} 
+		set_variable = { r_aluminium=2} 
+		} 
+
+		973= {set_variable = { r_iron=1} 
+		set_variable = { r_aluminium=2} 
+		} 
+
+		974= {set_variable = { r_iron=1} 
+		set_variable = { r_aluminium=2} 
+		} 
+
+		975= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=2} 
+		} 
+
+		976= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=2} 
+		} 
+
+		977= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=2} 
+		} 
+
+		978= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=2} 
+		} 
+
+		979= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=2} 
+		} 
+
+		98= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=2} 
+		} 
+
+		980= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=2} 
+		} 
+
+		981= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=2} 
+		} 
+
+		982= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=2} 
+		} 
+
+		983= {set_variable = { r_coal=4} 
+		set_variable = { r_wood=2} 
+		} 
+
+		984= {set_variable = { r_coal=20} 
+		set_variable = { r_iron=5} 
+		set_variable = { r_wood=10} 
+		} 
+
+		985= {set_variable = { r_wood=6} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		986= {set_variable = { r_wood=6} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		987= {set_variable = { r_wood=6} 
+		set_variable = { r_rubber=2} 
+		} 
+
+		988= {set_variable = { r_wood=4} 
+		set_variable = { r_coal=1} 
+		} 
+
+		989= {set_variable = { r_wood=4} 
+		set_variable = { r_coal=1} 
+		} 
+
+		99= {set_variable = { r_wood=4} 
+		set_variable = { r_coal=1} 
+		} 
+
+		990= {set_variable = { r_coal=2} 
+		set_variable = { r_wood=10} 
+		} 
+
+		991= {set_variable = { r_coal=2} 
+		set_variable = { r_wood=10} 
+		} 
+
+		992= {set_variable = { r_coal=2} 
+		set_variable = { r_wood=10} 
+		} 
+
+		993= {set_variable = { r_coal=2} 
+		set_variable = { r_wood=10} 
+		} 
+
+		994= {set_variable = { r_coal=2} 
+		set_variable = { r_wood=10} 
+		} 
+
+		995= {set_variable = { r_coal=2} 
+		set_variable = { r_wood=10} 
+		} 
+
+		996= {set_variable = { r_coal=2} 
+		set_variable = { r_wood=10} 
+		} 
+
+		997= {set_variable = { r_coal=2} 
+		set_variable = { r_wood=10} 
+		} 
+
+		998= {set_variable = { r_coal=2} 
+		set_variable = { r_wood=10} 
+		} 
+
+		999= {set_variable = { r_wood=6} 
+		} 
+
+	}
+
+}

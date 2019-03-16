@@ -1,0 +1,11 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			random_country = {
+				news_event = {
+					id = resource_setup.0
+				}
+			}
+		}
+	}
+}
