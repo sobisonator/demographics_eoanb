@@ -15,22 +15,6 @@ news_event = {
 			#Get state and total populations
 			id = population.0
 		}
-		news_event = {
-			#Get the levels of personal freedoms per country
-			id = freedom_handler.0
-			hours = 1
-		}
-
-		news_event = {
-			#Calculate career proportions
-			id = careers.0
-			hours = 2
-		}
-
-		news_event = {
-			id = wealth_handler.0
-			hours = 3
-		}
 
 		news_event = {
 			#Calculate the social class ratios
@@ -47,6 +31,23 @@ news_event = {
 			#Calculate gradual social class changes
 			id = social_classes.2
 			hours = 6
+		}
+
+		news_event = {
+			#Get the levels of personal freedoms per country
+			id = freedom_handler.0
+			hours = 1
+		}
+
+		news_event = {
+			#Calculate career proportions
+			id = careers.0
+			hours = 2
+		}
+
+		news_event = {
+			id = wealth_handler.0
+			hours = 3
 		}
 
 		news_event = {

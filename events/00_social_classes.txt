@@ -730,6 +730,7 @@ news_event = {
 }
 
 #SET BONUSES FOR OVERALL NATIONAL RATIOS OF STRATA
+# THIS NEEDS TO BE REFACTORED TO USE DNYAMIC MODIFIERS
 news_event = {
 	id = social_classes.1
 	picture = GFX_report_event_election_vote
