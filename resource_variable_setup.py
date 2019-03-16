@@ -21,7 +21,7 @@ def add_values(state_id, resources):
         )
     for resource in resources:
         f.write(
-            "set_variable = {" + resource + "} \n"
+            "set_variable = { r_" + resource + "} \n"
         )
     f.write(
         "} \n"
@@ -35,7 +35,7 @@ for state_filepath in all_state_files:
     state_info = open(state_filepath, encoding="utf8")
     for resources in re.findall("resources = {(.*?)}", state_info.read(), re.S):
         # Remove all comments
-        resources = ''.join(resources.split("#")[0])
+        resources = ''.join(resources.split("#")[0].split("\t"))
         # Make lists of the resources in states
         resources_list = resources.strip().splitlines()
     add_values(state_id, resources_list)

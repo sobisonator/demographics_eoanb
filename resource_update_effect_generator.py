@@ -26,14 +26,14 @@ resources = [
 for resource in resources:
     print(
         "update_"+resource+" = {\n"
-        "   add_to_variable = { "+resource+" = amt }\n"
+        "   add_to_variable = { r_"+resource+" = r_amt }\n"
         "   if = {\n"
         "      limit = {\n"
         "            # Check if it exists, and if not then create it\n"
-        "            NOT = {has_variable = "+resource+"}\n"
+        "            NOT = {has_variable = r_"+resource+"}\n"
         "      }\n"
-        "      set_variable = { "+resource+" = amt }\n"
+        "      set_variable = { r_"+resource+" = r_amt }\n"
         "   }\n"
-        "   clear_variable = amt\n"
+        "   clear_variable = r_amt\n"
         "}\n"
     )
