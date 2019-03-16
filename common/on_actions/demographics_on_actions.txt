@@ -1,6 +1,7 @@
 on_actions = {
 	on_startup = {
 		effect = {
+			set_overflow_values = yes
 			random_country = {
 				news_event = {
 					id = demographics_handler.0

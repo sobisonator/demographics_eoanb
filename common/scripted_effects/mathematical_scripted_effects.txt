@@ -1,0 +1,306 @@
+#	In a script file:
+#
+#	effect = {
+#		example_effect = yes
+#	}
+#
+
+# Populate the overflow counter. Called once at game start and never again
+# In order to use this to fix overflows, give a variable 'x' the value of the index, add one to 'x' and multiply by 2. Then use 'x' to fix the overflow as in the fix_overflow scripted effect.
+temps_set_overflow_values = {
+
+	# Create a variable that contains the overflow difference multiplied by 0.01
+	set_variable = {
+		var = global.overflow_difference
+		value = 21474.83
+    }
+
+	# Overflowed once
+	add_to_array = {
+			array = global.overflow_counter
+			value = -0.296
+			index = 0
+	}
+	# Overflowed twice
+	add_to_array = {
+			array = global.overflow_counter
+			value = 0.408
+			index = 1
+	}
+	# Overflowed three times
+	add_to_array = {
+			array = global.overflow_counter
+			value = 0.112
+			index = 2
+	}
+	# Overflowed four times
+	add_to_array = {
+		array = global.overflow_counter
+		value = -0.184
+		index = 3
+	}
+}
+
+temps_repair_overflow = {
+	
+	# INPUT PARAMETERS
+	# Takes the following inputs as temp_variables:
+	# parameter_ORIGINAL_VAR = the overflowed variable which needs to be fixed
+
+	# RETURN VALUES
+	# Outputs the following values as temp_variables:
+	# return_REPAIRED_VAR
+
+	# The returned value is 0.01 times the size of the original value to prevent it from overflowing again
+
+	#Check if the number has overflowed. If it has overflowed, it will have a decimal point value
+   	#So do mod 1 to see if there's a decimal point value
+   	#Easy way of doing this in PDox script is creating a temp variable that is a rounded version of
+   	#the variable you want to do a mod function on, and seeing if it's lower than the unrounded one.
+
+    #You need to also check if it's overflowed twice.
+    #This requires a slightly more sensitive mod 1 function
+    #See what the decimal point value actually _is_, and decide from that how many times it's overflowed
+    #ALTERNATIVELY, if it has a decimal point value AND is positive, it's overflowed twice. That would also be fine
+
+	set_temp_variable = {
+   		var = THIS.mod_one_of_ORIGINAL_VAR
+   		value = parameter_ORIGINAL_VAR
+   	}
+   	round_variable = mod_one_of_ORIGINAL_VAR
+
+    # Only proceed if there has been an overflow
+    if = {
+		limit = {
+	    	check_variable = {
+	        	var = parameter_ORIGINAL_VAR
+	        	value = mod_one_of_ORIGINAL_VAR
+	        	compare = not_equals
+	   		}
+		}
+
+		# Get the floating point value of the integer. This is the key indicator as to how many times the value has
+	    # overflowed
+	    set_temp_variable = {
+	        var = decimal_point_value_of_ORIGINAL_VAR
+	        value = parameter_ORIGINAL_VAR
+	    }
+	    
+	    subtract_from_variable = {
+	        var = decimal_point_value_of_ORIGINAL_VAR
+	        value = mod_one_of_ORIGINAL_VAR
+	    }
+
+	    set_temp_variable = {
+	    	var = return_REPAIRED_VAR
+	    	value = parameter_ORIGINAL_VAR
+	    }
+
+	    multiply_temp_variable = {
+	    	var = return_REPAIRED_VAR
+	    	value = 0.01
+	    }
+
+	    # If the variable has become negative because of overflowing, then make it positive
+	    if = {
+    		limit = {
+    			check_variable = {
+    				var = return_REPAIRED_VAR
+    				value = 0
+    				compare = less_than
+    			}
+    		}
+    		multiply_temp_variable = {
+    			var = return_REPAIRED_VAR
+    			value = -1
+    		}
+    	}
+
+    	# Check how many times the variable has overflowed
+	    for_each_loop = {
+	    	array = global.overflow_counter
+	    	
+	    	if = {
+	    		limit = {
+	    			check_variable = {
+	                	var = decimal_point_value_of_ORIGINAL_VAR
+	                	value = v
+	                	compare = equals
+		            }
+	    		}
+	    		set_temp_variable = {
+	    			var = overflow_counter
+	    			value = i
+	    		}
+	    		add_to_temp_variable = {
+	    			var = overflow_counter
+	    			value = 1
+	    		}
+	    		multiply_temp_variable = {
+	    			var = overflow_counter
+	    			value = 2
+	    		}
+	    		# End the loop
+	    		set_temp_variable = { break = 0 }
+	    	}
+	    }
+	    set_temp_variable = {
+	    	var = overflow_fix_needed
+	    	value = global.overflow_difference
+	    }
+	    multiply_temp_variable = {
+	    	var = overflow_fix_needed
+	    	value = overflow_counter
+	    }
+	    add_to_temp_variable = {
+	    	var = return_REPAIRED_VAR
+	    	value = overflow_fix_needed
+	    }
+
+	    # Might need scripted localisation to prepend the scope of the caller
+
+    	#For some reason, the actual value to variable translation is slightly inaccurate. This helps bring it a bit closer to the real value
+	    multiply_variable = {
+	        var = return_REPAIRED_VAR
+	        value = 0.999
+	    }
+	    # Can I use scripted localisation for this?
+	    set_variable = {
+	    	var = CLEARME_return_REPAIRED_VAR
+	    	value = return_REPAIRED_VAR
+	    }
+
+	}
+}
+
+global_repair_overflow = {
+	
+	# INPUT PARAMETERS
+	# Takes the following inputs as temp_variables:
+	# parameter_ORIGINAL_VAR = the overflowed variable which needs to be fixed
+
+	# RETURN VALUES
+	# Outputs the following values as temp_variables:
+	# return_REPAIRED_VAR
+
+	# The returned value is 0.01 times the size of the original value to prevent it from overflowing again
+
+	#Check if the number has overflowed. If it has overflowed, it will have a decimal point value
+   	#So do mod 1 to see if there's a decimal point value
+   	#Easy way of doing this in PDox script is creating a temp variable that is a rounded version of
+   	#the variable you want to do a mod function on, and seeing if it's lower than the unrounded one.
+
+    #You need to also check if it's overflowed twice.
+    #This requires a slightly more sensitive mod 1 function
+    #See what the decimal point value actually _is_, and decide from that how many times it's overflowed
+    #ALTERNATIVELY, if it has a decimal point value AND is positive, it's overflowed twice. That would also be fine
+
+	set_temp_variable = {
+   		var = global.mod_one_of_ORIGINAL_VAR
+   		value = global.parameter_ORIGINAL_VAR
+   	}
+   	round_variable = global.mod_one_of_ORIGINAL_VAR
+
+    # Only proceed if there has been an overflow
+    if = {
+		limit = {
+	    	check_variable = {
+	        	var = global.parameter_ORIGINAL_VAR
+	        	value = global.mod_one_of_ORIGINAL_VAR
+	        	compare = not_equals
+	   		}
+		}
+
+		# Get the floating point value of the integer. This is the key indicator as to how many times the value has
+	    # overflowed
+	    set_temp_variable = {
+	        var = global.decimal_point_value_of_ORIGINAL_VAR
+	        value = global.parameter_ORIGINAL_VAR
+	    }
+	    
+	    subtract_from_variable = {
+	        var = global.decimal_point_value_of_ORIGINAL_VAR
+	        value = global.mod_one_of_ORIGINAL_VAR
+	    }
+
+	    set_temp_variable = {
+	    	var = global.return_REPAIRED_VAR
+	    	value = global.parameter_ORIGINAL_VAR
+	    }
+
+	    multiply_temp_variable = {
+	    	var = global.return_REPAIRED_VAR
+	    	value = 0.01
+	    }
+
+	    # If the variable has become negative because of overflowing, then make it positive
+	    if = {
+    		limit = {
+    			check_variable = {
+    				var = global.return_REPAIRED_VAR
+    				value = 0
+    				compare = less_than
+    			}
+    		}
+    		multiply_temp_variable = {
+    			var = global.return_REPAIRED_VAR
+    			value = -1
+    		}
+    	}
+
+    	# Check how many times the variable has overflowed
+	    for_each_loop = {
+	    	array = global.overflow_counter
+	    	
+	    	if = {
+	    		limit = {
+	    			check_variable = {
+	                	var = global.decimal_point_value_of_ORIGINAL_VAR
+	                	value = v
+	                	compare = equals
+		            }
+	    		}
+	    		set_temp_variable = {
+	    			var = global.overflow_counter
+	    			value = i
+	    		}
+	    		add_to_temp_variable = {
+	    			var = global.overflow_counter
+	    			value = 1
+	    		}
+	    		multiply_temp_variable = {
+	    			var = global.overflow_counter
+	    			value = 2
+	    		}
+	    		# End the loop
+	    		set_temp_variable = { break = 0 }
+	    	}
+	    }
+	    set_temp_variable = {
+	    	var = global.overflow_fix_needed
+	    	value = global.overflow_difference
+	    }
+	    multiply_temp_variable = {
+	    	var = global.overflow_fix_needed
+	    	value = global.overflow_counter
+	    }
+	    add_to_temp_variable = {
+	    	var = global.return_REPAIRED_VAR
+	    	value = global.overflow_fix_needed
+	    }
+
+	    # Might need scripted localisation to prepend the scope of the caller
+
+    	#For some reason, the actual value to variable translation is slightly inaccurate. This helps bring it a bit closer to the real value
+	    multiply_variable = {
+	        var = global.return_REPAIRED_VAR
+	        value = 0.999
+	    }
+	    # Can I use scripted localisation for this?
+	    set_variable = {
+	    	var = CLEARME_return_REPAIRED_VAR
+	    	value = return_REPAIRED_VAR
+	    }
+
+	}
+}

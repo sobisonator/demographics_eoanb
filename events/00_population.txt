@@ -1,7 +1,7 @@
-﻿add_namespace = population
+﻿add_namespace = population_old
 
 news_event = {
-	id = population.0
+	id = population_old.0
 	picture = GFX_report_event_election_vote
 	
 	is_triggered_only = yes
@@ -28,15 +28,15 @@ news_event = {
         every_country = {
 
         	set_variable = {
-        		var = total_population
+        		var = total_population_old
         		value = 0
         	}
 
             every_owned_state = {
-                #Get the state's population
+                #Get the state's population_old
                 set_variable = {
-                    var = var_state_population
-                    value = state_population
+                    var = var_state_population_old
+                    value = state_population_old
                 }
 
                 #Check if the number has overflowed. If it has overflowed, it will have a decimal point value
@@ -49,21 +49,21 @@ news_event = {
                 #See what the decimal point value actually _is_, and decide from that how many times it's overflowed
                 #ALTERNATIVELY, if it has a decimal point value AND is positive, it's overflowed twice. That would also be fine
                	set_variable = {
-               		var = mod_one_state_population
-               		value = var_state_population
+               		var = mod_one_state_population_old
+               		value = var_state_population_old
                	}
-               	round_variable = mod_one_state_population
+               	round_variable = mod_one_state_population_old
 
                 set_variable = {
                     var = floating_point_value_state_pop
-                    value = var_state_population
+                    value = var_state_population_old
                 }
 
                 #Get the floating point value of the integer. This is the key indicator as to how many times the value has
                 #overflowed
                 subtract_from_variable = {
                     var = floating_point_value_state_pop
-                    value = mod_one_state_population
+                    value = mod_one_state_population_old
                 }        
 
 
@@ -205,8 +205,8 @@ news_event = {
                 if = {
                 	limit = {
 	                	check_variable = {
-		                	var = var_state_population
-		                	value = mod_one_state_population
+		                	var = var_state_population_old
+		                	value = mod_one_state_population_old
 		                	compare = not_equals
 	               		}
                 	}
@@ -217,7 +217,7 @@ news_event = {
                 }
                 #Make the number easier to handle without risk of overflow at 2^31
                 multiply_variable = {
-                	var = var_state_population
+                	var = var_state_population_old
                 	value = 0.01
                	}
 
@@ -243,7 +243,7 @@ news_event = {
 
                 	#Add (((2^31) -1) x 0.01 a sufficient number of times to get back to the real value)
                 	add_to_variable = {
-                		var = var_state_population
+                		var = var_state_population_old
                 		value = var_overflow_difference
                 	}
 
@@ -266,9 +266,9 @@ news_event = {
                         }
                 	}
 
-                	#Add the result to the var_state_population total
+                	#Add the result to the var_state_population_old total
                 	add_to_variable = {
-                		var = var_state_population
+                		var = var_state_population_old
                 		value = temp_var_overflow_difference
                 	}
 
@@ -277,25 +277,25 @@ news_event = {
 
                 #For some reason, the actual value to variable translation is slightly inaccurate. This helps bring it a bit closer to the real value
                 multiply_variable = {
-                    var = var_state_population
+                    var = var_state_population_old
                     value = 0.999
                 }
 
                 #Delete the variables used in calculation
                 clear_variable = var_overflow_warning
-                clear_variable = mod_one_state_population
+                clear_variable = mod_one_state_population_old
 
-                #Add this to the total population of the country
+                #Add this to the total population_old of the country
                 add_to_variable = {
-                	var = PREV.total_population
-                	value = var_state_population
+                	var = PREV.total_population_old
+                	value = var_state_population_old
                 }
             }
 
             #When doing big calculations, country pops need to be downsized to avoid overflows. Taking off 3 digits should do the job.
             set_variable = {
                 var = big_calcs_country_pop
-                value = total_population
+                value = total_population_old
             }
 
             multiply_variable = { big_calcs_country_pop = 0.001 }

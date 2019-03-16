@@ -1,0 +1,114 @@
+add_namespace = resources
+
+country_event = {
+	id = resources.0
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+    hidden = yes
+
+	immediate = {
+
+		every_state = {
+
+			# Scripted localisation here could be used to run through an array of resources
+			# e.g. [resource_index] = resources_array^0
+			# leading to: var_x_[resource_index] = 1
+			# And run this loop through a loop of all the resources stored within an array
+			# Each time adding +1 to x in resources_array^x
+			set_variable = { var_state_wood = 0 }
+
+			# Do not loop if there is no resource
+			if = {
+				limit = {
+					NOT = {
+						has_resources_amount = {
+							resource = wood
+							amount = 0
+						}
+					}
+				}
+				country_event = {
+					id = resources.1
+					hours = 1
+				}
+			}
+
+			
+		}
+	}
+}
+
+country_event = {
+	id = resources.1
+
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+    hidden = yes
+
+    immediate = {
+
+    	add_to_variable = { var_state_wood = 1 }
+    	# If the resources are equal to the value of var_state_wood
+    	if ={
+			limit = {
+				AND = {
+					check_variable = {
+						var = stop_looping
+						value = 0
+						compare = equals
+					}
+					has_resources_amount = {
+						resource = wood
+						amount = var_state_wood
+					}					
+				}
+			}
+			# Stop looping if the resource value is the same as the variable
+			set_temp_variable = {
+				var = stop_looping
+				value = 1
+			}
+		}
+
+		if = {
+			limit = {
+				# If the value was not correct in the previous IF statement, stop_looping will still = 0
+				# So now add one to the var_state_wood variable and loop again
+				AND = {
+					check_variable = {
+						var = stop_looping
+						value = 0
+						compare = equals
+					}					
+				}
+				add_to_variable = { var_state_wood = 1 }
+			}
+			country_event = {
+				# Loop this event
+				id = resources.2
+			}
+		}
+
+    }
+}
+
+country_event = {
+	id = resources.2
+
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+    hidden = yes
+
+    immediate = {
+    	country_event = {
+    		# Run the loop again
+    		id = resources.1
+    	}
+    }
+}

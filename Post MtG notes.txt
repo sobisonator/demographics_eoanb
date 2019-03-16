@@ -1,0 +1,3 @@
+Scripted effects are like functions, can be called.
+
+Temporary variables can be used like parameters for the effect.

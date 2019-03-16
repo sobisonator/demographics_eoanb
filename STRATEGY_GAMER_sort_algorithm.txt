@@ -1,0 +1,44 @@
+# All credit to Strategy Gamer for this example of a sort algorithm
+sort = {
+    358 = {
+        clear_array = buildings
+        add_to_array = { buildings = arms_factory_level }
+        add_to_array = { buildings = industrial_complex_level  }
+        add_to_array = { buildings = building_level@dockyard }
+        add_to_array = { buildings = infrastructure_level  }
+        
+        set_temp_variable = { length_temp = buildings^num }
+        for_loop_effect = {
+            start = 0
+            end = length_temp
+            add = 1
+            value = v
+            break = b
+            find_highest_in_array = {
+                array = buildings
+                value = buildings_highest_value
+                index = buildings_highest_index
+            }
+            remove_from_array = {
+                array = buildings
+                index = buildings_highest_index
+            }
+            add_to_temp_array = { 
+                array = buildings_temp
+                value = buildings_highest_value 
+            }
+        }
+        for_loop_effect = {
+            start = 0
+            end = length_temp
+            add = 1
+            value = v
+            break = b
+            add_to_array = { 
+                array = buildings
+                value = buildings_temp^v 
+            }
+        }
+
+    }
+}
