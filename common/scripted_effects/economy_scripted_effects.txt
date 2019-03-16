@@ -1,0 +1,238 @@
+#	In a script file:
+#
+#	effect = {
+#		example_effect = yes
+#	}
+#
+
+# RESOURCE EFFECTS
+# Whenever modifying the value of a resource in a state, call the appropriate scripted effect
+# You MUST set a variable called 'amt' prior to doing this, with the amount by which you modified the resource value
+
+update_wood = {
+   add_to_variable = { wood = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = wood}
+      }
+      set_variable = { wood = amt }
+   }
+   clear_variable = amt
+}
+
+update_coal = {
+   add_to_variable = { coal = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = coal}
+      }
+      set_variable = { coal = amt }
+   }
+   clear_variable = amt
+}
+
+update_cotton = {
+   add_to_variable = { cotton = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = cotton}
+      }
+      set_variable = { cotton = amt }
+   }
+   clear_variable = amt
+}
+
+update_fabric = {
+   add_to_variable = { fabric = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = fabric}
+      }
+      set_variable = { fabric = amt }
+   }
+   clear_variable = amt
+}
+
+update_iron = {
+   add_to_variable = { iron = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = iron}
+      }
+      set_variable = { iron = amt }
+   }
+   clear_variable = amt
+}
+
+update_steel = {
+   add_to_variable = { steel = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = steel}
+      }
+      set_variable = { steel = amt }
+   }
+   clear_variable = amt
+}
+
+update_rubber = {
+   add_to_variable = { rubber = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = rubber}
+      }
+      set_variable = { rubber = amt }
+   }
+   clear_variable = amt
+}
+
+update_oil = {
+   add_to_variable = { oil = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = oil}
+      }
+      set_variable = { oil = amt }
+   }
+   clear_variable = amt
+}
+
+update_plastics = {
+   add_to_variable = { plastics = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = plastics}
+      }
+      set_variable = { plastics = amt }
+   }
+   clear_variable = amt
+}
+
+update_aluminium = {
+   add_to_variable = { aluminium = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = aluminium}
+      }
+      set_variable = { aluminium = amt }
+   }
+   clear_variable = amt
+}
+
+update_tungsten = {
+   add_to_variable = { tungsten = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = tungsten}
+      }
+      set_variable = { tungsten = amt }
+   }
+   clear_variable = amt
+}
+
+update_chromium = {
+   add_to_variable = { chromium = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = chromium}
+      }
+      set_variable = { chromium = amt }
+   }
+   clear_variable = amt
+}
+
+update_titanium = {
+   add_to_variable = { titanium = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = titanium}
+      }
+      set_variable = { titanium = amt }
+   }
+   clear_variable = amt
+}
+
+update_silicates = {
+   add_to_variable = { silicates = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = silicates}
+      }
+      set_variable = { silicates = amt }
+   }
+   clear_variable = amt
+}
+
+update_ceramics = {
+   add_to_variable = { ceramics = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = ceramics}
+      }
+      set_variable = { ceramics = amt }
+   }
+   clear_variable = amt
+}
+
+update_machine_parts = {
+   add_to_variable = { machine_parts = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = machine_parts}
+      }
+      set_variable = { machine_parts = amt }
+   }
+   clear_variable = amt
+}
+
+update_rare_earth_metals = {
+   add_to_variable = { rare_earth_metals = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = rare_earth_metals}
+      }
+      set_variable = { rare_earth_metals = amt }
+   }
+   clear_variable = amt
+}
+
+update_eletronics = {
+   add_to_variable = { eletronics = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = eletronics}
+      }
+      set_variable = { eletronics = amt }
+   }
+   clear_variable = amt
+}
+
+update_portable_power = {
+   add_to_variable = { portable_power = amt }
+   if = {
+      limit = {
+            # Check if it exists, and if not then create it
+            NOT = {has_variable = portable_power}
+      }
+      set_variable = { portable_power = amt }
+   }
+   clear_variable = amt
+}
