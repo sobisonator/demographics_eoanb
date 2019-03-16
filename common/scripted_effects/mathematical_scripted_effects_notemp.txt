@@ -137,15 +137,15 @@ repair_overflow = {
 		            }
 	    		}
 	    		set_variable = {
-	    			var = global.num_overflows
+	    			var = num_overflows
 	    			value = i
 	    		}
 	    		add_to_variable = {
-	    			var = global.num_overflows
+	    			var = num_overflows
 	    			value = 1
 	    		}
 	    		multiply_variable = {
-	    			var = global.num_overflows
+	    			var = num_overflows
 	    			value = 2
 	    		}
 	    		# End the loop
@@ -154,7 +154,7 @@ repair_overflow = {
 	    }
 	    set_variable = {
 	    	var = private_num_overflows
-	    	value = global.num_overflows
+	    	value = num_overflows
 	    }
 	    set_variable = {
 	    	var = overflow_fix_needed

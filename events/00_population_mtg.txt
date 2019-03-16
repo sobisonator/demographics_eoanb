@@ -33,41 +33,30 @@ news_event = {
         	}
 
             every_owned_state = {
-                #Get the state's population
+                #Get the state's population in thousands THANK YOU PARADOX :)))))))
                 set_variable = {
                     var = var_state_population
-                    value = state_population
+                    value = state_population_k
                 }
 
-            # Fix the often inevitable overflow.
-            # First pass the parameters to the fixer function
-            set_variable ={
-	      		var = parameter_ORIGINAL_VAR
-	   			value = var_state_population
+                add_to_variable = {
+                    var = PREV.total_population
+                    value = state_population_k
+                }
+
             }
-
-            repair_overflow = yes
-
-            # And apply the result to the state population variable
-
-            set_variable = {
-            	var = var_state_population
-            	value = CLEARME_return_REPAIRED_VAR
-            }
-
-            clear_variable = CLEARME_return_REPAIRED_VAR
 
             #When doing big calculations, country pops need to be downsized to avoid overflows. Taking off 3 digits should do the job.
             set_variable = {
-                var = big_calcs_country_pop
+                var = country_pop_in_millions
                 value = total_population
             }
 
-            multiply_variable = { big_calcs_country_pop = 0.001 }
+            multiply_variable = { country_pop_in_millions = 0.001 }
 
             add_to_variable = {
                 var = global.global_pop
-                value = big_calcs_country_pop
+                value = country_pop_in_millions
             }
 
             if = {
@@ -78,7 +67,7 @@ news_event = {
                 }
                 add_to_variable = {
                     var = global.global_industrial_pop
-                    value = big_calcs_country_pop
+                    value = country_pop_in_millions
                 }
             }
 
@@ -88,7 +77,7 @@ news_event = {
                 }
                 add_to_variable = {
                     var = global.global_agrarian_pop
-                    value = big_calcs_country_pop
+                    value = country_pop_in_millions
                 }
             }
         }
