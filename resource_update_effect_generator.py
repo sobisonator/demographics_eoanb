@@ -26,7 +26,7 @@ resources = [
 for resource in resources:
     print(
         "update_"+resource+" = {\n"
-        "   add_to_variable = { r_"+resource+" = r_amt }\n"
+        "   add_to_variable = { r_"+resource+"_available = r_amt }\n"
         "   if = {\n"
         "      limit = {\n"
         "            # Check if it exists, and if not then create it\n"
