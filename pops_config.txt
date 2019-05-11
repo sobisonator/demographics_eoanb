@@ -1,0 +1,22 @@
+[values]
+# Maximum number of people that a single pop can hold
+# Default = 500,000
+MAX_POP_SIZE = 500000
+
+# The minimum number of pops that can be in a state
+# Maximum pop size will scale for states to fit this
+# Maximum pop size per state = state population / MIN_POPS_PER_STATE, capped at MAX_POP_SIZE
+# Default = 5
+MIN_POPS_PER_STATE = 5
+
+# The number of pops to generate on pre-game setup per person in state population
+# This value is likely to be smaller than PDXscript can handle (3 decimal places)
+# The minimum number of pops will still always be generated, at reduced capacity.
+# Default = 0.00001 (10 pops per million people)
+SETUP_POPS_PER_PERSON = 0.00001
+
+# The minimum size of the smallest pop before a new pop can spawn
+# This is to prevent lots of tiny pops appearing in states which don't need them
+# This means that states with 10x this limit or fewer people will not grow new pops.
+# Default = 50,000
+MIN_POP_SPAWN_SIZE = 50000
