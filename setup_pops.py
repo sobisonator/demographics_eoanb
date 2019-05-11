@@ -29,7 +29,7 @@ def count_population(state_info):
     try:
         state_population_count = re.findall("manpower[ =](.*?)\n", state_info.read(), re.S)
         state_population_count = get_num_from_regex(state_population_count)
-        print(state_population_count)
+        print("Population here: " + str(state_population_count))
         return int(state_population_count)
     except Exception as ex:
         print("Could not find population value for state")
@@ -54,19 +54,64 @@ def create_pops(p):
         # Add 1 to the number of starting pops, so they start under maximum size
         num_pops = ceil(clamp(num_pops, MIN_POPS_PER_STATE, 999)) + 1
         print("Number of pops in state: " + str(num_pops))
-        pops_list = [None] * num_pops
+        pops_list = [pop_dictionary] * num_pops
         fill_pops(pops_list, p)
     except Exception as ex:
         print(ex)
         print("Did not create pops for state")
 
+def determine_career():
+    # Determine the career for a pop
+    # Options are: service, labour, trades, intellectual
+    pass
+
+def determine_habitat():
+    # Determine the habitat for a pop
+    # Options are: rural, urban
+    pass
+
+def determine_culture():
+    # Determine the culture for a pop
+    pass
+
+def determine_religion():
+    # Determine the religion for a pop
+    pass
+
+def determine_wealth():
+    # Determine how much wealth a pop owns
+    pass
+
+def get_size_weight():
+    # Get the weight for the share of population to be put in this pop
+    pass
+
+def default_pop_size(p):
+    # Default size is equal to all other pops
+    pop_size = ceil(p / len(pops_list))
+    # Each pop needs a weighting to determine the percentage of population
+    return pop_size
+
+def determine_size(p):
+    actual_pop_size = default_pop_size(p) * pop_percentage
+
+pop_dictionary = {
+    "habitat": determine_habitat(),
+    "culture": determine_culture(),
+    "religion": determine_religion(),
+    "career": determine_career(),
+    "wealth": determine_wealth(),
+    "size": get_size_weight(),
+    # Growth weight is set in-game
+    # as a factor of immigration push/pull & policies
+    "growth_weight": 0
+    }
+
 def fill_pops(pops_list, p):
     if pops_list != None:
+        pops_done = 0
         for pop in pops_list:
-            pop = {
-                "size": ceil(p / len(pops_list))
-            }
-            print("Pop size is: " + str(pop["size"]))
+            print(pop)
     
 
 # Directories and files which the script needs to access
@@ -76,11 +121,11 @@ all_state_files = iglob(states_path)
 # This means old files are not overwritten
 new_history_path = "./new_history"
 
-for state_filepath in all_state_files:
+for state in all_state_files:
     # Get only numbers from the filename, which should then give the state's ID
-    state_id_location = re.findall(r"\d+", state_filepath)
+    state_id_location = re.findall(r"\d+", state)
     state_id = state_id_location[0]
     print("Reading state " + state_id)
-    state_info = open(state_filepath, encoding="utf8")
+    state_info = open(state, encoding="utf8")
     p = count_population(state_info)
     create_pops(p)
