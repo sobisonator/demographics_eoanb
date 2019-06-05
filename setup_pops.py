@@ -1,3 +1,6 @@
+# This script creates POPs for all states
+# for first-time setup of EOANB
+# It must be run AFTER resource_varialbe_setup and wealth_setup scripts
 import re
 from math import *
 from glob import *
@@ -78,6 +81,10 @@ def determine_religion():
     # Determine the religion for a pop
     pass
 
+def get_wealth_weight():
+    # Get the weight for the share of wealth to be given to this pop
+    pass
+
 def determine_wealth():
     # Determine how much wealth a pop owns
     pass
@@ -93,6 +100,7 @@ def default_pop_size(p):
     return pop_size
 
 def determine_size(p):
+    # Based on the number of jobs for this pop type available
     actual_pop_size = default_pop_size(p) * pop_percentage
 
 pop_dictionary = {
@@ -100,11 +108,18 @@ pop_dictionary = {
     "culture": determine_culture(),
     "religion": determine_religion(),
     "career": determine_career(),
+    "wealth_weight": get_wealth_weight(),
     "wealth": determine_wealth(),
     "size": get_size_weight(),
+    "consumer_goods_needs": determine_cg_needs(),
+    # Consumer goods output of a pop is determined by other in-game factors
+    "consumer_goods_output": determine_cg_output(),
     # Growth weight is set in-game
     # as a factor of immigration push/pull & policies
-    "growth_weight": 0
+    "growth_weight": 0,
+    # Militancy is a factor set in-game
+    # as a factor of wealth per capita, policies, liberty and freedom
+    "militancy": 0
     }
 
 def fill_pops(pops_list, p):
