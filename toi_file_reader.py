@@ -9,6 +9,11 @@ import __main__ as main
 
 # BASIC PDOX SCRIPT AND HISTORY FILE READING FUNCTIONS
 
+# Get all files from a folder
+def all_files_from(folder_path):
+    all_files = iglob(folder_path)
+    return all_files
+
 # Remove comments from a pdox file
 def rm_comments(source_text):
     source_text = ''.join(source_text.split("#")[0].split("\t"))
